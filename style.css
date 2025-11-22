@@ -159,6 +159,7 @@ audio { height: 35px; width: 200px; filter: none; margin-top: 5px; outline: none
     margin: 10px 0;
     padding: 15px;
     animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center;
 }
 .admin-badge {
     display: flex; align-items: center; justify-content: center; gap: 5px;
