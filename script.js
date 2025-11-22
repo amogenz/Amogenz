@@ -2,14 +2,13 @@ let client;
 let myName = "";
 let myRoom = "";
 let storageTopic = ""; 
-// TOPIC KHUSUS BROADCAST ADMIN (GLOBAL)
 const broadcastTopic = "aksara-global-v1/announcements";
 
 const notifAudio = document.getElementById('notifSound');
 const sentAudio = document.getElementById('sentSound');
 
-// --- PASSWORD ADMIN (GANTI DISINI) ---
-const ADMIN_PASS = "amogenz123";
+// --- PASSWORD ADMIN (Hash SHA-256 dari 'amogenz123') ---
+const ADMIN_HASH = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
 
 let mediaRecorder, audioChunks = [], isRecording = false, audioBlobData = null;
 let isSoundOn = true;
@@ -18,6 +17,14 @@ let replyingTo = null;
 let onlineUsers = {};
 let typingTimeout;
 let localChatHistory = []; 
+
+// --- KEAMANAN: FUNGSI CEK PASSWORD ---
+async function digestMessage(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 // --- TOAST FUNCTION ---
 function showToast(message, type = 'info') {
@@ -73,7 +80,7 @@ function startChat() {
         document.getElementById('typing-indicator').innerText = "";
         client.subscribe(myRoom); 
         client.subscribe(storageTopic);
-        client.subscribe(broadcastTopic); // Subscribe ke Channel Admin Global
+        client.subscribe(broadcastTopic); 
         
         publishMessage("bergabung.", 'system');
         setInterval(() => { client.publish(myRoom, JSON.stringify({ type: 'ping', user: myName })); cleanOnlineList(); }, 10000);
@@ -82,11 +89,21 @@ function startChat() {
     client.on('message', (topic, message) => {
         const msgString = message.toString();
         
-        // Pesan Broadcast Admin (Global)
+        // --- LOGIKA TERIMA BROADCAST ADMIN ---
         if (topic === broadcastTopic) {
             try {
                 const data = JSON.parse(msgString);
-                displaySingleMessage(data); // Tampilkan langsung
+                
+                // JIKA PERINTAHNYA ADALAH 'CLEAR' (HAPUS)
+                if (data.type === 'admin_clear') {
+                    // Cari elemen pesan admin di layar dan hapus
+                    const existingAdminMsg = document.querySelectorAll('.message.admin');
+                    existingAdminMsg.forEach(el => el.remove());
+                    return;
+                }
+
+                // JIKA PESAN BARU
+                displaySingleMessage(data); 
             } catch(e) {}
             return;
         }
@@ -99,7 +116,7 @@ function startChat() {
 function loadFromLocal() { const saved = localStorage.getItem(getStorageKey()); if (saved) { localChatHistory = JSON.parse(saved); renderChat(); } }
 function saveToLocal() { localStorage.setItem(getStorageKey(), JSON.stringify(localChatHistory)); }
 function handleIncomingMessage(data) {
-    if(data.type !== 'system' && data.type !== 'admin') {
+    if(data.type !== 'system' && data.type !== 'admin' && data.type !== 'admin_clear') {
         if (!localChatHistory.some(msg => msg.id === data.id)) {
             localChatHistory.push(data);
             if (localChatHistory.length > 77) localChatHistory = localChatHistory.slice(-77); 
@@ -141,41 +158,62 @@ function publishMessage(content, type = 'text', caption = '') {
     const msgId = 'msg-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
     const payload = { id: msgId, user: myName, content: content, type: type, caption: caption, time: time, reply: replyingTo, timestamp: Date.now() };
     
-    // LOGIKA KIRIM KE MANA (GLOBAL vs ROOM)
-    const topicTarget = (type === 'admin') ? broadcastTopic : myRoom;
+    const topicTarget = (type === 'admin' || type === 'admin_clear') ? broadcastTopic : myRoom;
+    // Retain hanya untuk admin (agar pesan nempel atau terhapus permanen)
+    const mqttOpts = (type === 'admin' || type === 'admin_clear') ? { retain: true, qos: 1 } : {};
 
     try { 
-        client.publish(topicTarget, JSON.stringify(payload)); 
-        // SOUND
-        if (isSoundOn && type !== 'system' && type !== 'admin') { sentAudio.volume = 0.4; sentAudio.currentTime = 0; sentAudio.play().catch(() => {}); }
+        client.publish(topicTarget, JSON.stringify(payload), mqttOpts); 
+        if (isSoundOn && type !== 'system' && type !== 'admin' && type !== 'admin_clear') { 
+            sentAudio.volume = 0.4; sentAudio.currentTime = 0; sentAudio.play().catch(() => {}); 
+        }
     } catch(e) { showToast("Gagal mengirim!", "error"); }
     
-    if (type !== 'admin') cancelReply();
+    if (type !== 'admin' && type !== 'admin_clear') cancelReply();
 }
 
-function sendMessage() {
+// --- MODIFIKASI SEND MESSAGE (ADMIN COMMANDS) ---
+async function sendMessage() {
     const input = document.getElementById('msg-input');
     const text = input.value.trim();
     
     if (!text) return;
 
-    // --- DETEKSI PESAN ADMIN ---
+    // 1. DETEKSI: KIRIM PESAN ADMIN
     if (text.startsWith('/admin')) {
         const parts = text.split(' ');
         const pass = parts[1];
         const messageContent = parts.slice(2).join(' ');
+        const hashedInput = await digestMessage(pass);
 
-        if (pass === ADMIN_PASS && messageContent) {
-            publishMessage(messageContent, 'admin');
+        if (hashedInput === ADMIN_HASH && messageContent) {
+            publishMessage(messageContent, 'admin'); // Kirim Pesan
             showToast("Broadcast Admin Terkirim!", "success");
         } else {
-            showToast("Password Admin Salah!", "error");
+            showToast("Akses Ditolak: Password Salah!", "error");
         }
         input.value = ''; input.style.height = 'auto'; input.focus();
         return;
     }
-    // ---------------------------
 
+    // 2. DETEKSI: HAPUS PESAN ADMIN (BARU)
+    if (text.startsWith('/hapusadmin')) {
+        const parts = text.split(' ');
+        const pass = parts[1]; // Ambil password
+        const hashedInput = await digestMessage(pass);
+
+        if (hashedInput === ADMIN_HASH) {
+            // Kirim sinyal 'admin_clear' ke server (Retained juga, untuk menimpa pesan lama)
+            publishMessage('clear', 'admin_clear'); 
+            showToast("Pesan Admin Dihapus!", "success");
+        } else {
+            showToast("Gagal: Password Salah!", "error");
+        }
+        input.value = ''; input.style.height = 'auto'; input.focus();
+        return;
+    }
+
+    // 3. KIRIM PESAN BIASA
     publishMessage(text, 'text'); 
     input.value = ''; input.style.height = 'auto'; input.focus();
 }
@@ -210,30 +248,25 @@ function sendImageWithCaption() {
 function handleTyping() { if(client && client.connected) client.publish(myRoom, JSON.stringify({ type: 'typing', user: myName })); const el = document.getElementById('msg-input'); el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
 function showTyping(user) { if (user === myName) return; const ind = document.getElementById('typing-indicator'); ind.innerText = `${user} typing...`; clearTimeout(typingTimeout); typingTimeout = setTimeout(() => { ind.innerText = ""; }, 2000); }
 
-// --- LIGHTBOX FUNCTIONS ---
 function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox-overlay').style.display = 'flex'; }
 function closeLightbox(e) { if (e.target.classList.contains('lightbox-close') || e.target.id === 'lightbox-overlay') { document.getElementById('lightbox-overlay').style.display = 'none'; } }
 
 function displaySingleMessage(data) {
     const chatBox = document.getElementById('messages'); const div = document.createElement('div'); const isMe = data.user === myName;
     if (data.id) div.id = data.id;
-    
-    // Notif Suara untuk pesan baru
-    if ((Date.now() - data.timestamp) < 3000 && !isMe) { 
-        if (isSoundOn) { notifAudio.currentTime=0; notifAudio.play().catch(()=>{}); } 
-    }
+    if ((Date.now() - data.timestamp) < 3000 && !isMe && data.type !== 'system') { if (isSoundOn) { notifAudio.currentTime=0; notifAudio.play().catch(()=>{}); } }
 
     if (data.type === 'system') { 
         div.style.textAlign='center'; div.style.fontSize='11px'; div.style.color='#fff'; div.style.opacity='0.7'; div.style.margin='10px 0'; 
         div.innerText=`${data.user} ${data.content}`; 
     } 
     else if (data.type === 'admin') {
+        // HAPUS pesan admin lama jika ada sebelum menampilkan yang baru (biar tidak numpuk)
+        const existingAdmin = document.querySelectorAll('.message.admin');
+        existingAdmin.forEach(el => el.remove());
+
         div.className = 'message admin';
-        div.innerHTML = `
-            <div class="admin-badge"><i class="material-icons" style="font-size:14px">verified</i> OFFICIAL</div>
-            <div class="admin-content">${data.content.replace(/\n/g,'<br>')}</div>
-            <div class="admin-time">${data.time}</div>
-        `;
+        div.innerHTML = `<div class="admin-badge">AKSARA <i class="material-icons" style="font-size:16px; color:#FFD700; margin-left:4px;">verified</i></div><div class="admin-content">${data.content.replace(/\n/g,'<br>')}</div><div class="admin-time">${data.time}</div>`;
     }
     else {
         div.className = isMe ? 'message right' : 'message left';
@@ -249,8 +282,6 @@ function displaySingleMessage(data) {
     }
     
     chatBox.appendChild(div);
-    
-    // Smart Scroll: Hanya scroll otomatis jika user di bawah atau pesan admin/sendiri
     const isAtBottom = (chatBox.scrollHeight - chatBox.scrollTop - chatBox.clientHeight) < 150;
     if (isAtBottom || isMe || data.type === 'admin') chatBox.scrollTop = chatBox.scrollHeight;
 }
