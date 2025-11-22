@@ -145,6 +145,29 @@ audio { height: 35px; width: 200px; filter: none; margin-top: 5px; outline: none
 .reply-content span { font-size: 11px; opacity: 0.8; }
 .reply-btn { font-size: 12px; margin-left: 5px; cursor: pointer; opacity: 0.7; }
 
+/* --- ADMIN MESSAGE STYLE --- */
+.message.admin {
+    align-self: center;
+    max-width: 85%;
+    background: rgba(255, 215, 0, 0.2); /* Gold Tint */
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    color: #FFD700;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+    backdrop-filter: blur(10px);
+    margin: 10px 0;
+    padding: 15px;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.admin-badge {
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    font-weight: 900; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 8px;
+    text-transform: uppercase; border-bottom: 1px solid rgba(255,215,0,0.3); padding-bottom: 5px;
+}
+.admin-content { font-size: 1rem; font-weight: 500; color: #fff; line-height: 1.5; }
+.admin-time { font-size: 0.7rem; opacity: 0.8; margin-top: 8px; color: #FFD700; }
+
 /* --- 8. INPUT AREA --- */
 .footer-container { position: absolute; bottom: 0; width: 100%; padding: 10px 15px 20px 15px; background: linear-gradient(to top, rgba(255,255,255,0.8) 0%, transparent 100%); z-index: 20; display: flex; flex-direction: column; gap: 8px; }
 .input-area { display: flex; align-items: flex-end; gap: 8px; }
