@@ -8,7 +8,7 @@ const notifAudio = document.getElementById('notifSound');
 const sentAudio = document.getElementById('sentSound');
 
 
-const ADMIN_HASH_KEY = "1802662251"; 
+const ADMIN_HASH_KEY = "148de9c5a7a44d19e56cd9ae1a554bf67847afb0c58f6e12fa29ac7ddfca9940"; 
 
 let mediaRecorder, audioChunks = [], isRecording = false, audioBlobData = null;
 let isSoundOn = true;
