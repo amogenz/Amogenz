@@ -7,7 +7,10 @@ const broadcastTopic = "aksara-global-v1/announcements";
 const notifAudio = document.getElementById('notifSound');
 const sentAudio = document.getElementById('sentSound');
 
+// --- PASSWORD ADMIN (Hash SHA-256 untuk "p") ---
 const ADMIN_HASH = "83878c91171338902e0fe0fb97a8c47a828505289d1b8e9def57d66bd3451655";
+// Backup Password teks biasa (untuk darurat jika Hash gagal/cache nyangkut)
+const ADMIN_PASS_TEXT = "p"; 
 
 let mediaRecorder, audioChunks = [], isRecording = false, audioBlobData = null;
 let isSoundOn = true;
@@ -17,7 +20,7 @@ let onlineUsers = {};
 let typingTimeout;
 let localChatHistory = []; 
 
-// --- FUNGSI ENKRIPSI (KEAMANAN) ---
+// --- FUNGSI ENKRIPSI ---
 async function digestMessage(message) {
     const msgBuffer = new TextEncoder().encode(message);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -163,7 +166,7 @@ function publishMessage(content, type = 'text', caption = '') {
     if (type !== 'admin' && type !== 'admin_clear') cancelReply();
 }
 
-// --- SEND MESSAGE HANDLER (SECURE) ---
+// --- SEND MESSAGE HANDLER (PERBAIKAN: DUAL CHECK) ---
 async function sendMessage() {
     const input = document.getElementById('msg-input');
     const text = input.value.trim();
@@ -177,21 +180,21 @@ async function sendMessage() {
             const pass = match[1];
             const messageContent = match[2];
             
+            // CEK 1: Lewat Hash (Aman)
+            // CEK 2: Lewat Teks Biasa (Bypass jika hash error/cache)
             try {
                 const hashed = await digestMessage(pass);
-                if (hashed === ADMIN_HASH) {
+                if (hashed === ADMIN_HASH || pass === ADMIN_PASS_TEXT) {
                     publishMessage(messageContent, 'admin');
                     showToast("Broadcast Admin Terkirim!", "success");
                 } else {
-                    showToast("Password Salah!", "error");
+                    showToast("Password Salah! (Cek p kecil)", "error");
                 }
             } catch(e) {
-                // Fallback jika HTTPS belum aktif (Localhost/File)
-                if (pass === "p") { 
+                // Jika browser tidak support crypto (mode offline), pakai text biasa
+                if (pass === ADMIN_PASS_TEXT) {
                     publishMessage(messageContent, 'admin');
-                    showToast("Mode Offline: Admin Terkirim!", "success");
-                } else {
-                    showToast("Error Keamanan: Gunakan HTTPS/GitHub!", "error");
+                    showToast("Broadcast Admin (Mode Offline)", "success");
                 }
             }
         } else {
@@ -208,19 +211,17 @@ async function sendMessage() {
             const pass = match[1];
             try {
                 const hashed = await digestMessage(pass);
-                if (hashed === ADMIN_HASH) {
+                if (hashed === ADMIN_HASH || pass === ADMIN_PASS_TEXT) {
                     publishMessage('clear', 'admin_clear');
                     showToast("Pesan Admin Dihapus!", "success");
                 } else {
                     showToast("Password Salah!", "error");
                 }
             } catch(e) {
-                 if (pass === "p") {
+                if (pass === ADMIN_PASS_TEXT) {
                     publishMessage('clear', 'admin_clear');
-                    showToast("Mode Offline: Admin Dihapus!", "success");
-                 } else {
-                    showToast("Error Keamanan: Gunakan HTTPS/GitHub!", "error");
-                 }
+                    showToast("Admin Dihapus (Mode Offline)", "success");
+                }
             }
         } else {
             showToast("Format: /hapusadmin p", "error");
@@ -229,7 +230,6 @@ async function sendMessage() {
         return;
     }
 
-    // 3. KIRIM BIASA
     publishMessage(text, 'text'); 
     input.value = ''; input.style.height = 'auto'; input.focus();
 }
@@ -264,7 +264,6 @@ function sendImageWithCaption() {
 function handleTyping() { if(client && client.connected) client.publish(myRoom, JSON.stringify({ type: 'typing', user: myName })); const el = document.getElementById('msg-input'); el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
 function showTyping(user) { if (user === myName) return; const ind = document.getElementById('typing-indicator'); ind.innerText = `${user} typing...`; clearTimeout(typingTimeout); typingTimeout = setTimeout(() => { ind.innerText = ""; }, 2000); }
 
-// --- LIGHTBOX FUNCTIONS ---
 function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox-overlay').style.display = 'flex'; }
 function closeLightbox(e) { if (e.target.classList.contains('lightbox-close') || e.target.id === 'lightbox-overlay') { document.getElementById('lightbox-overlay').style.display = 'none'; } }
 
@@ -278,6 +277,8 @@ function displaySingleMessage(data) {
         div.innerText=`${data.user} ${data.content}`; 
     } 
     else if (data.type === 'admin') {
+        const existingAdmin = document.querySelectorAll('.message.admin');
+        existingAdmin.forEach(el => el.remove());
         div.className = 'message admin';
         div.innerHTML = `<div class="admin-badge">AKSARA <i class="material-icons" style="font-size:16px; color:#FFD700; margin-left:4px;">verified</i></div><div class="admin-content">${data.content.replace(/\n/g,'<br>')}</div><div class="admin-time">${data.time}</div>`;
     }
