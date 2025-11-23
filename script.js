@@ -7,8 +7,7 @@ const broadcastTopic = "aksara-global-v1/announcements";
 const notifAudio = document.getElementById('notifSound');
 const sentAudio = document.getElementById('sentSound');
 
-
-const ADMIN_HASH_KEY = "148de9c5a7a44d19e56cd9ae1a554bf67847afb0c58f6e12fa29ac7ddfca9940"; 
+const ADMIN_HASH = "83878c91171338902e0fe0fb97a8c47a828505289d1b8e9def57d66bd3451655";
 
 let mediaRecorder, audioChunks = [], isRecording = false, audioBlobData = null;
 let isSoundOn = true;
@@ -18,18 +17,12 @@ let onlineUsers = {};
 let typingTimeout;
 let localChatHistory = []; 
 
-// --- FUNGSI PENGACAK (HASHING) ---
-// Fungsi ini mengubah teks menjadi angka unik.
-function generateHash(str) {
-    let hash = 0;
-    if (str.length === 0) return hash.toString();
-    for (let i = 0; i < str.length; i++) {
-        const char = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash; // Convert to 32bit integer
-    }
-    // Menggunakan Math.abs agar angkanya positif (biar rapi)
-    return Math.abs(hash).toString();
+// --- FUNGSI ENKRIPSI (KEAMANAN) ---
+async function digestMessage(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
 // --- TOAST FUNCTION ---
@@ -40,13 +33,7 @@ function showToast(message, type = 'info') {
     let icon = 'info';
     if (type === 'success') icon = 'check_circle';
     if (type === 'error') icon = 'error';
-    
-    // Style warna icon
-    let color = '#007AFF';
-    if (type === 'error') color = '#ff4444';
-    if (type === 'success') color = '#34C759';
-
-    toast.innerHTML = `<i class="material-icons" style="color:${color}">${icon}</i> <span>${message}</span>`;
+    toast.innerHTML = `<i class="material-icons" style="color:${type==='error'?'#ff4444':(type==='success'?'#34C759':'#007AFF')}">${icon}</i> ${message}`;
     container.appendChild(toast);
     setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 3000);
 }
@@ -92,7 +79,7 @@ function startChat() {
         document.getElementById('typing-indicator').innerText = "";
         client.subscribe(myRoom); 
         client.subscribe(storageTopic);
-        client.subscribe(broadcastTopic); // Dengar jalur admin
+        client.subscribe(broadcastTopic); 
         
         publishMessage("bergabung.", 'system');
         setInterval(() => { client.publish(myRoom, JSON.stringify({ type: 'ping', user: myName })); cleanOnlineList(); }, 10000);
@@ -101,19 +88,13 @@ function startChat() {
     client.on('message', (topic, message) => {
         const msgString = message.toString();
         
-        // --- LOGIKA ADMIN (GLOBAL BROADCAST) ---
         if (topic === broadcastTopic) {
             try {
                 const data = JSON.parse(msgString);
-                
-                // 1. Bersihkan pesan admin lama (supaya tidak numpuk)
                 const existingAdmin = document.querySelectorAll('.message.admin');
                 existingAdmin.forEach(el => el.remove());
 
-                // 2. Jika perintah HAPUS, stop di sini (layar jadi bersih)
                 if (data.type === 'admin_clear') return;
-
-                // 3. Jika pesan baru, tampilkan
                 if (data.type === 'admin') displaySingleMessage(data);
             } catch(e) {}
             return;
@@ -127,7 +108,6 @@ function startChat() {
 function loadFromLocal() { const saved = localStorage.getItem(getStorageKey()); if (saved) { localChatHistory = JSON.parse(saved); renderChat(); } }
 function saveToLocal() { localStorage.setItem(getStorageKey(), JSON.stringify(localChatHistory)); }
 function handleIncomingMessage(data) {
-    // Jangan simpan pesan admin/hapus/system di local storage
     if(data.type !== 'system' && data.type !== 'admin' && data.type !== 'admin_clear') {
         if (!localChatHistory.some(msg => msg.id === data.id)) {
             localChatHistory.push(data);
@@ -183,56 +163,73 @@ function publishMessage(content, type = 'text', caption = '') {
     if (type !== 'admin' && type !== 'admin_clear') cancelReply();
 }
 
-// --- LOGIKA KIRIM PESAN (DENGAN KEAMANAN HASH) ---
-function sendMessage() {
+// --- SEND MESSAGE HANDLER (SECURE) ---
+async function sendMessage() {
     const input = document.getElementById('msg-input');
     const text = input.value.trim();
     
     if (!text) return;
 
-    // 1. JIKA PERINTAH ADMIN: /admin [pass] [pesan]
+    // 1. DETEKSI ADMIN: /admin [pass] [pesan]
     if (text.startsWith('/admin')) {
-        // Regex untuk memisahkan: /admin (spasi) password (spasi) pesan
         const match = text.match(/^\/admin\s+(\S+)\s+(.+)/);
-        
         if (match) {
-            const passInput = match[1];
+            const pass = match[1];
             const messageContent = match[2];
             
-            // Cek Hash
-            if (generateHash(passInput) === ADMIN_HASH_KEY) {
-                publishMessage(messageContent, 'admin');
-                showToast("Pesan Admin Terkirim!", "success");
-            } else {
-                showToast("Akses Ditolak: Password Salah!", "error");
+            try {
+                const hashed = await digestMessage(pass);
+                if (hashed === ADMIN_HASH) {
+                    publishMessage(messageContent, 'admin');
+                    showToast("Broadcast Admin Terkirim!", "success");
+                } else {
+                    showToast("Password Salah!", "error");
+                }
+            } catch(e) {
+                // Fallback jika HTTPS belum aktif (Localhost/File)
+                if (pass === "p") { 
+                    publishMessage(messageContent, 'admin');
+                    showToast("Mode Offline: Admin Terkirim!", "success");
+                } else {
+                    showToast("Error Keamanan: Gunakan HTTPS/GitHub!", "error");
+                }
             }
         } else {
-            showToast("Format Salah! /admin [sandi] [pesan]", "error");
+            showToast("Format: /admin p [pesan]", "error");
         }
         input.value = ''; input.style.height = 'auto'; input.focus();
         return;
     }
 
-    // 2. JIKA PERINTAH HAPUS: /hapusadmin [pass]
+    // 2. DETEKSI HAPUS: /hapusadmin [pass]
     if (text.startsWith('/hapusadmin')) {
         const match = text.match(/^\/hapusadmin\s+(\S+)/);
-        
         if (match) {
-            const passInput = match[1];
-            if (generateHash(passInput) === ADMIN_HASH_KEY) {
-                publishMessage('clear', 'admin_clear');
-                showToast("Pesan Admin Dihapus!", "success");
-            } else {
-                showToast("Akses Ditolak: Password Salah!", "error");
+            const pass = match[1];
+            try {
+                const hashed = await digestMessage(pass);
+                if (hashed === ADMIN_HASH) {
+                    publishMessage('clear', 'admin_clear');
+                    showToast("Pesan Admin Dihapus!", "success");
+                } else {
+                    showToast("Password Salah!", "error");
+                }
+            } catch(e) {
+                 if (pass === "p") {
+                    publishMessage('clear', 'admin_clear');
+                    showToast("Mode Offline: Admin Dihapus!", "success");
+                 } else {
+                    showToast("Error Keamanan: Gunakan HTTPS/GitHub!", "error");
+                 }
             }
         } else {
-            showToast("Format Salah! /hapusadmin [sandi]", "error");
+            showToast("Format: /hapusadmin p", "error");
         }
         input.value = ''; input.style.height = 'auto'; input.focus();
         return;
     }
 
-    // 3. PESAN BIASA
+    // 3. KIRIM BIASA
     publishMessage(text, 'text'); 
     input.value = ''; input.style.height = 'auto'; input.focus();
 }
@@ -267,6 +264,7 @@ function sendImageWithCaption() {
 function handleTyping() { if(client && client.connected) client.publish(myRoom, JSON.stringify({ type: 'typing', user: myName })); const el = document.getElementById('msg-input'); el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
 function showTyping(user) { if (user === myName) return; const ind = document.getElementById('typing-indicator'); ind.innerText = `${user} typing...`; clearTimeout(typingTimeout); typingTimeout = setTimeout(() => { ind.innerText = ""; }, 2000); }
 
+// --- LIGHTBOX FUNCTIONS ---
 function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox-overlay').style.display = 'flex'; }
 function closeLightbox(e) { if (e.target.classList.contains('lightbox-close') || e.target.id === 'lightbox-overlay') { document.getElementById('lightbox-overlay').style.display = 'none'; } }
 
@@ -280,15 +278,8 @@ function displaySingleMessage(data) {
         div.innerText=`${data.user} ${data.content}`; 
     } 
     else if (data.type === 'admin') {
-        // UI ADMIN BARU: NAMA "AKSARA" + BADGE EMAS DI KANAN
         div.className = 'message admin';
-        div.innerHTML = `
-            <div class="admin-badge">
-                AKSARA <i class="material-icons" style="font-size:16px; color:#FFD700; margin-left:4px;">verified</i>
-            </div>
-            <div class="admin-content">${data.content.replace(/\n/g,'<br>')}</div>
-            <div class="admin-time">${data.time}</div>
-        `;
+        div.innerHTML = `<div class="admin-badge">AKSARA <i class="material-icons" style="font-size:16px; color:#FFD700; margin-left:4px;">verified</i></div><div class="admin-content">${data.content.replace(/\n/g,'<br>')}</div><div class="admin-time">${data.time}</div>`;
     }
     else {
         div.className = isMe ? 'message right' : 'message left';
