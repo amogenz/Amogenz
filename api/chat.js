@@ -78,7 +78,9 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
     [DATA PENGETAHUAN]
     Gunakan data ini jika ditanya soal Amogenz:
     ${amogenzKnowledge}
-    
+    [ATURAN]:
+1. Kalo user nanya Berita/Harga/Info Terkini, WAJIB PAKE GOOGLE SEARCH.
+2. Jangan asal bacot (halusinasi). Kasih data yang bener.
     [KONTEKS]
     Kamu sedang mengobrol dengan user. Ingat riwayat chat di atas agar nyambung.
   `;
