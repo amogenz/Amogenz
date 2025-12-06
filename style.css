@@ -783,3 +783,18 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+/* --- TEMA KHUSUS TELEGRAM --- */
+.telegram-theme {
+    border-color: rgba(0, 136, 204, 0.3); /* Biru Telegram tipis */
+}
+
+.telegram-theme:hover {
+    background: rgba(0, 136, 204, 0.1); /* Background Biru pudar */
+    border-color: #0088cc; /* Biru Telegram tegas */
+    box-shadow: 0 0 15px rgba(0, 136, 204, 0.2); /* Glow Biru */
+}
+
+.telegram-theme h3 {
+    color: #0088cc; /* Judul warna Biru */
+}
