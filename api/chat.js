@@ -49,9 +49,9 @@ Warna dan Desain: Warna utama yang digunakan adalah hijau neon untuk burung hant
 Informasi Kontak
 Kenali kami lebih lanjut di sini:
 web amogenz (official) = https://amogenz.my.id/
- web ammo ai (official) = https://ammo-santri.vercel.app/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
+ web ammo ai (official) = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
  Instagram @amooogang = akun media & @amogenz = akun pusat
- web aksara = https://aksara-chat.vercel.app/
+ web aksara = https://aksara.amogenz.my.id/
  ammo ai telegram = http://t.me/iammo_bot 
  logo&design = https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
  
