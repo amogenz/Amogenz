@@ -44,7 +44,7 @@
 /* Style untuk GAMBAR maupun VIDEO (Satu Class buat Semua) */
 .media-content {
     /* Tinggi kita kunci biar header gak meledak ukurannya pas ganti video */
-    height: 70px; /* Bisa dinaikkan ke 40px-45px kalau mau lebih besar */
+    height: 51px; /* Bisa dinaikkan ke 40px-45px kalau mau lebih besar */
     width: auto;  /* Lebar menyesuaikan rasio */
     display: block;
     
