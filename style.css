@@ -1,3 +1,64 @@
+/* =========================================
+   DOODLE HEADER (CENTER + VIDEO SUPPORT)
+   ========================================= */
+
+.doodle-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    
+    /* Background Cyber Dark */
+    background: rgba(5, 5, 10, 0.9); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+    
+    /* Padding diatur biar video nanti punya ruang tapi tetep slim */
+    padding: 8px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.header-wrap {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* FLEXBOX TENGAH (CENTER) */
+    display: flex;
+    justify-content: center; /* KUNCI POSISI TENGAH */
+    align-items: center;
+}
+
+/* Wadah Doodle */
+.doodle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Efek Glow Statis untuk Wadahnya */
+    filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.2));
+    transition: all 0.3s ease;
+}
+
+/* Style untuk GAMBAR maupun VIDEO (Satu Class buat Semua) */
+.media-content {
+    /* Tinggi kita kunci biar header gak meledak ukurannya pas ganti video */
+    height: 70px; /* Bisa dinaikkan ke 40px-45px kalau mau lebih besar */
+    width: auto;  /* Lebar menyesuaikan rasio */
+    display: block;
+    
+    /* Biar video/gambar sudutnya agak smooth (opsional) */
+    border-radius: 4px; 
+}
+
+/* Efek Hover di Doodle */
+.doodle-container:hover {
+    transform: scale(1.05); /* Zoom dikit */
+    filter: drop-shadow(0 0 12px rgba(57, 255, 20, 0.5)); /* Glow makin terang */
+}
+
+
 :root {
     --primary-green: #39FF14;
     --dark-green: #003300;
