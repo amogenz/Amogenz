@@ -1,0 +1,22 @@
+{
+  "name": "amogenz",
+  "version": "1.0.0",
+  "description": "AMOGENZ Community Official Website",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Development mode - serve index.html locally'",
+    "build": "echo 'No build step needed for static HTML'",
+    "lint": "echo 'No linter configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "amogenz",
+    "community",
+    "technology"
+  ],
+  "author": "AMOGENZ Team",
+  "license": "MIT"
+}

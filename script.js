@@ -1,3 +1,11 @@
+// =========================================
+// 0. VERCEL ANALYTICS
+// =========================================
+import { inject } from '@vercel/analytics';
+
+// Inject analytics - must run on client side
+inject();
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================
