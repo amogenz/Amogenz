@@ -44,7 +44,7 @@
 /* Style untuk GAMBAR maupun VIDEO (Satu Class buat Semua) */
 .media-content {
     /* Tinggi kita kunci biar header gak meledak ukurannya pas ganti video */
-    height: 51px; /* Bisa dinaikkan ke 40px-45px kalau mau lebih besar */
+    height: 50px; /* Bisa dinaikkan ke 40px-45px kalau mau lebih besar */
     width: auto;  /* Lebar menyesuaikan rasio */
     display: block;
     
@@ -858,4 +858,40 @@ footer {
 
 .telegram-theme h3 {
     color: #0088cc; /* Judul warna Biru */
+}
+
+/* =========================================
+   NEW THEMES (MQSD & TELEPATI)
+   ========================================= */
+
+/* --- TEMA KHUSUS MQSD (Orange/Hangout) --- */
+.mqsd-theme {
+    border-color: rgba(255, 136, 0, 0.3); /* Garis Orange Tipis */
+}
+
+.mqsd-theme:hover {
+    background: rgba(255, 136, 0, 0.1); /* Background Orange Pudar */
+    border-color: #ff8800; /* Orange Tegas */
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.2); /* Glow Orange */
+    transform: scale(1.02);
+}
+
+.mqsd-theme h3 {
+    color: #ff8800; /* Judul Orange */
+}
+
+/* --- TEMA KHUSUS TELEPATI (Cyan/Spy Tech) --- */
+.telepati-theme {
+    border-color: rgba(0, 243, 255, 0.3); /* Garis Cyan Tipis */
+}
+
+.telepati-theme:hover {
+    background: rgba(0, 243, 255, 0.1); /* Background Cyan Pudar */
+    border-color: #00f3ff; /* Cyan Tegas */
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); /* Glow Cyan */
+    transform: scale(1.02);
+}
+
+.telepati-theme h3 {
+    color: #00f3ff; /* Judul Cyan */
 }
