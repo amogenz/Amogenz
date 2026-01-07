@@ -1,76 +1,134 @@
+// =========================================
+// 0. FIREBASE CONFIGURATION & INIT
+// =========================================
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC9PwXwvAQWSbSGNgmRERXRzkrN-cynUok",
+  authDomain: "mqsd-94d67.firebaseapp.com",
+  databaseURL: "https://mqsd-94d67-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "mqsd-94d67",
+  storageBucket: "mqsd-94d67.firebasestorage.app",
+  messagingSenderId: "381147889010",
+  appId: "1:381147889010:web:90051c25baf22f8dac31eb"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app); // Realtime Database
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================
-    // 1. VISUAL EFFECTS (SCROLL, CURSOR, PARALLAX)
+    // 1. SPA NAVIGATION SYSTEM
     // =========================================
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('.page-section');
     
-    // Scroll Reveal
-    const revealElements = document.querySelectorAll('.reveal-item');
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const revealPoint = 100;
-        revealElements.forEach((reveal) => {
-            if (reveal.getBoundingClientRect().top < windowHeight - revealPoint) {
-                reveal.classList.add('active');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // A. Hapus kelas 'active' dari semua menu & halaman
+            navItems.forEach(nav => nav.classList.remove('active'));
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // B. Tambahkan kelas 'active' ke menu yang diklik
+            item.classList.add('active');
+
+            // C. Tampilkan halaman yang sesuai target ID
+            const targetId = item.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Khusus halaman AI, scroll langsung ke bawah
+                if (targetId === 'page-ai') {
+                    setTimeout(scrollToBottom, 100);
+                }
             }
         });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Custom Cursor
-    const cursorDot = document.querySelector('[data-cursor-dot]');
-    const cursorOutline = document.querySelector('[data-cursor-outline]');
-    if (window.matchMedia("(pointer: fine)").matches) {
-        window.addEventListener("mousemove", (e) => {
-            cursorDot.style.left = `${e.clientX}px`;
-            cursorDot.style.top = `${e.clientY}px`;
-            cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
-        });
-    }
-
-    // Logo Parallax
-    const logo = document.querySelector('.main-logo');
-    document.addEventListener('mousemove', (e) => {
-        if(window.innerWidth > 768 && logo) {
-            const x = (window.innerWidth - e.pageX * 2) / 90;
-            const y = (window.innerHeight - e.pageY * 2) / 90;
-            logo.style.transform = `translate(${x}px, ${y}px)`;
-        }
     });
 
     // =========================================
-    // 2. AMMO AI LOGIC (SERVERLESS + MEMORY)
+    // 2. CUSTOM CURSOR & PARALLAX
+    // =========================================
+    const cursorDot = document.querySelector('[data-cursor-dot]');
+    const cursorOutline = document.querySelector('[data-cursor-outline]');
+    const orbs = document.querySelectorAll('.orb');
+
+    // Cek apakah user pakai mouse (bukan layar sentuh)
+    if (window.matchMedia("(pointer: fine)").matches) {
+        
+        window.addEventListener("mousemove", (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Gerakkan Cursor
+            if(cursorDot) {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            }
+            
+            // Animasi 'lagging' untuk outline biar smooth
+            if(cursorOutline) {
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            }
+
+            // Efek Parallax untuk Orbs (Gerak berlawanan arah mouse)
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 20; // Kecepatan beda-beda
+                const x = (window.innerWidth - posX * speed) / 100;
+                const y = (window.innerHeight - posY * speed) / 100;
+                orb.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    }
+
+    // =========================================
+    // 3. AMMO AI LOGIC (UPDATED AVATAR)
     // =========================================
     const chatHistory = document.getElementById('chat-history');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
+    
+    // URL FOTO AMMO AI
+    const ammoAvatarURL = "https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp";
 
-    // [TAMBAHAN 1] Variabel untuk menyimpan ingatan chat sementara
     let conversationHistory = []; 
 
-    // FUNGSI HELPER 1: Scroll ke bawah otomatis
-    const scrollToBottom = () => {
+    function scrollToBottom() {
         if(chatHistory) chatHistory.scrollTop = chatHistory.scrollHeight;
-    };
+    }
 
-    // FUNGSI HELPER 2: Menampilkan pesan ke layar
-    const appendMessage = (sender, text) => {
+    function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message');
         msgDiv.classList.add(sender === 'user' ? 'user-msg' : 'ai-msg');
         
-        if(sender === 'ai') {
-            msgDiv.innerHTML = `<span class="prefix">AMMO_AI:</span> ${text}`;
+        let avatarHTML;
+
+        // Logika Avatar: Kalau AI pakai Gambar, Kalau User pakai Inisial/Icon
+        if (sender === 'ai') {
+            avatarHTML = `<img src="${ammoAvatarURL}" class="msg-avatar-img" alt="AI">`;
         } else {
-            msgDiv.textContent = text;
+            // Avatar User (Huruf U)
+            avatarHTML = `<div class="msg-avatar" style="background:#fff; color:#000;">U</div>`;
         }
+        
+        msgDiv.innerHTML = `
+            ${sender === 'ai' ? avatarHTML : ''} 
+            <div class="msg-bubble">${text}</div>
+            ${sender === 'user' ? avatarHTML : ''}
+        `;
         
         chatHistory.appendChild(msgDiv);
         scrollToBottom();
-    };
+    }
 
-    // LOGIKA UTAMA: Kirim ke Backend Vercel
     const handleChat = async () => {
         const text = userInput.value.trim();
         if (!text) return;
@@ -80,71 +138,155 @@ document.addEventListener('DOMContentLoaded', () => {
         userInput.value = '';
         userInput.disabled = true;
 
-        // 2. Tampilkan Loading
+        // 2. Tampilkan Loading Indicator (Pakai Foto Ammo juga)
+        const loadingId = 'loading-' + Date.now();
         const loadingDiv = document.createElement('div');
+        loadingDiv.id = loadingId;
         loadingDiv.classList.add('message', 'ai-msg');
-        loadingDiv.innerHTML = `<span class="prefix">SYSTEM:</span> Connecting to Server...`;
+        loadingDiv.innerHTML = `
+            <img src="${ammoAvatarURL}" class="msg-avatar-img" alt="AI">
+            <div class="msg-bubble" style="font-style:italic; opacity:0.7;">Sedang mengetik...</div>
+        `;
         chatHistory.appendChild(loadingDiv);
         scrollToBottom();
 
         try {
-            // 3. Tembak API Serverless Kita (/api/chat)
+            // 3. Kirim ke Backend
             const response = await fetch('/api/chat', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 
                     message: text,
-                    history: conversationHistory // [TAMBAHAN 2] Kirim ingatan ke server
+                    history: conversationHistory 
                 }) 
             });
 
             const data = await response.json();
             
             // Hapus loading
-            if(chatHistory.contains(loadingDiv)) chatHistory.removeChild(loadingDiv);
+            const loadingEl = document.getElementById(loadingId);
+            if(loadingEl) loadingEl.remove();
 
             if (!response.ok) {
                 throw new Error(data.error || "Gagal menghubungi server.");
             }
 
             // 4. Proses Jawaban AI
-            let aiResponseText = "Gue bingung.";
-            let rawTextForHistory = ""; // Variabel buat nyimpen teks asli
+            let aiResponseText = "Maaf, saya tidak mengerti.";
+            let rawTextForHistory = ""; 
 
             if (data.candidates && data.candidates[0].content) {
                 let rawText = data.candidates[0].content.parts[0].text;
-                rawTextForHistory = rawText; // Simpan teks polos buat ingatan
+                rawTextForHistory = rawText; 
 
-                // Format HTML (Bold & Enter) untuk ditampilkan
+                // Format Markdown simpel
                 aiResponseText = rawText
-                    .replace(/\*\*(.*?)\*\*/g, '<b style="color:#fff;">$1</b>') 
+                    .replace(/\*\*(.*?)\*\*/g, '<b style="color:#39FF14;">$1</b>') 
                     .replace(/\n/g, '<br>'); 
                 
-                // Cek apakah dia habis googling
                 if (data.candidates[0].groundingMetadata?.searchEntryPoint) {
-                    aiResponseText += `<br><br><small style="opacity:0.6;">[Sumber: Google Search]</small>`;
+                    aiResponseText += `<br><br><small style="opacity:0.5; font-size:0.7rem;">[🔍 Sumber: Google Search]</small>`;
                 }
             }
             appendMessage('ai', aiResponseText);
 
-            // [TAMBAHAN 3] Simpan percakapan ini ke ingatan browser
             conversationHistory.push({ role: "user", parts: [{ text: text }] });
             conversationHistory.push({ role: "model", parts: [{ text: rawTextForHistory }] });
 
         } catch (error) {
-            if(chatHistory.contains(loadingDiv)) chatHistory.removeChild(loadingDiv);
-            appendMessage('ai', `💀 Error: ${error.message}`);
+            const loadingEl = document.getElementById(loadingId);
+            if(loadingEl) loadingEl.remove();
+            appendMessage('ai', `💀 System Error: ${error.message}`);
         } finally {
             userInput.disabled = false;
             userInput.focus();
         }
     };
 
-    // Event Listeners (Tombol Kirim & Enter)
     if(sendBtn && userInput) {
         sendBtn.addEventListener('click', handleChat);
         userInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleChat();
+        });
+    }
+
+    // =========================================
+    // 4. COMMENT SYSTEM (FIREBASE REALTIME DB)
+    // =========================================
+    const commentForm = document.getElementById('comment-form');
+    const commentsList = document.querySelector('.comments-list');
+    
+    // Referensi ke database 'comments'
+    const commentsRef = ref(db, 'comments');
+
+    // A. Fungsi Render ke Layar
+    const renderComment = (name, msg, dateString) => {
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment-item', 'glass-card');
+        newComment.style.animation = "fadeUp 0.5s ease"; // Animasi masuk halus
+        newComment.innerHTML = `
+            <div class="comment-header">
+                <span class="c-name">${name}</span>
+                <span class="c-date">${dateString}</span>
+            </div>
+            <p class="c-text">${msg}</p>
+        `;
+        // Masukkan ke paling atas (terbaru)
+        commentsList.insertBefore(newComment, commentsList.firstChild);
+    };
+
+    // B. Listener: Dengerin kalau ada data baru masuk di Firebase
+    onChildAdded(commentsRef, (snapshot) => {
+        const data = snapshot.val();
+        renderComment(data.name, data.message, data.date);
+    });
+
+    // C. Handle Kirim Komentar
+    if (commentForm) {
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const inputs = commentForm.querySelectorAll('.input-glass');
+            const nameInput = inputs[0];
+            const msgInput = inputs[1];
+            const name = nameInput.value.trim();
+            const msg = msgInput.value.trim();
+
+            if(!name || !msg) return;
+
+            // 1. Ubah tombol jadi Loading
+            const btn = commentForm.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Mengirim...";
+            btn.disabled = true;
+
+            // 2. Siapkan Tanggal
+            const now = new Date();
+            const dateString = now.toLocaleDateString('id-ID', { 
+                day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' 
+            });
+
+            // 3. KIRIM KE FIREBASE (PUSH)
+            push(commentsRef, {
+                name: name,
+                message: msg,
+                date: dateString,
+                timestamp: Date.now() // Biar bisa diurutkan kalau perlu
+            }).then(() => {
+                // Berhasil
+                nameInput.value = '';
+                msgInput.value = '';
+                btn.innerText = "Terkirim!";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }).catch((error) => {
+                console.error("Gagal kirim: ", error);
+                btn.innerText = "Gagal";
+                btn.disabled = false;
+            });
         });
     }
 });
