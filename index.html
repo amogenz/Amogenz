@@ -30,7 +30,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
    
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#050505">
+
     </head>
 <body>
 
@@ -351,6 +353,21 @@
             </li>
         </ul>
     </nav>
+    <div id="install-modal" class="install-modal hidden">
+    <div class="glass-panel install-content">
+        <div class="install-icon">
+            <img src="https://i.ibb.co.com/Qvwp0rVV/amogenz.webp" alt="Icon">
+        </div>
+        <div class="install-text">
+            <h3>Install App</h3>
+            <p>Pasang AMOGENZ di layar utama agar akses lebih cepat & ringan tanpa browser.</p>
+        </div>
+        <div class="install-actions">
+            <button id="btn-close-install" class="btn-profile secondary">Nanti</button>
+            <button id="btn-install" class="btn-profile primary">Gas Install</button>
+        </div>
+    </div>
+</div>
 
     <script type="module" src="script.js"></script>
 

@@ -290,3 +290,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// =========================================
+// 5. PWA INSTALLATION LOGIC
+// =========================================
+let deferredPrompt;
+const installModal = document.getElementById('install-modal');
+const btnInstall = document.getElementById('btn-install');
+const btnCloseInstall = document.getElementById('btn-close-install');
+
+// 1. Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW Registered!', reg))
+            .catch(err => console.log('SW Gagal', err));
+    });
+}
+
+// 2. Tangkap event 'beforeinstallprompt'
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Cegah browser menampilkan prompt default yang jelek
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    // Tampilkan Modal Custom kita setelah 3 detik biar gak kaget
+    setTimeout(() => {
+        if(installModal) installModal.classList.remove('hidden');
+    }, 3000);
+});
+
+// 3. Logic Tombol Install
+if(btnInstall) {
+    btnInstall.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        
+        // Tampilkan prompt asli browser
+        deferredPrompt.prompt();
+        
+        // Tunggu user klik accept/cancel
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`User response: ${outcome}`);
+        
+        // Reset
+        deferredPrompt = null;
+        installModal.classList.add('hidden');
+    });
+}
+
+// 4. Logic Tombol Tutup (Nanti)
+if(btnCloseInstall) {
+    btnCloseInstall.addEventListener('click', () => {
+        installModal.classList.add('hidden');
+    });
+}
+
+// 5. Cek jika sudah terinstall (Mode Standalone)
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    // Kalau sudah diinstall, pastikan modal gak muncul
+    if(installModal) installModal.classList.add('hidden');
+}
