@@ -4,7 +4,7 @@
 
 // 1. GANTI VERSION INI SETIAP KALI KAMU UPDATE FITUR
 // Contoh: v1 -> v2 -> v3
-const CACHE_NAME = 'amogenz-v1'; 
+const CACHE_NAME = 'AMOGENZ.INC-APP-V1'; 
 
 const ASSETS = [
   '/',
@@ -55,4 +55,29 @@ self.addEventListener('fetch', (e) => {
         return caches.match(e.request);
       })
   );
+});
+// ... kode install/activate/fetch yang lama biarkan saja ...
+
+// D. HANDLE PUSH NOTIFICATION (BACKGROUND)
+self.addEventListener('push', (e) => {
+    const data = e.data.json();
+    
+    const options = {
+        body: data.body,
+        icon: 'https://i.ibb.co.com/Qvwp0rVV/amogenz.webp', // Ganti icon app kamu
+        badge: 'https://i.ibb.co.com/Qvwp0rVV/amogenz.webp',
+        vibrate: [100, 50, 100],
+        data: { url: '/?page=chat' } // Redirect saat diklik
+    };
+
+    e.waitUntil(
+        self.registration.showNotification(data.title, options)
+    );
+});
+
+self.addEventListener('notificationclick', (e) => {
+    e.notification.close();
+    e.waitUntil(
+        clients.openWindow(e.notification.data.url)
+    );
 });
