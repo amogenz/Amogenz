@@ -1,0 +1,17 @@
+{
+  "name": "amogenz-pwa",
+  "version": "2.0.0",
+  "description": "Amogenz Universe App",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "echo 'Build script not required for static + API usage'",
+    "start": "next start"
+  },
+  "dependencies": {
+    "web-push": "^3.6.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
