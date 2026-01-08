@@ -975,3 +975,16 @@ body {
         padding-bottom: 120px;
     }
 }
+/* --- TAMBAHAN UNTUK MAJONG --- */
+
+/* 1. Warna Border Tema Majong (Merah) */
+.theme-majong { 
+    border-color: rgba(231, 76, 60, 0.3); 
+}
+
+/* 2. PERBAIKAN GRID (PENTING) */
+/* Karena sekarang ada 6 item, kita reset item ke-5 agar tidak full-width lagi.
+   Jadi tampilannya akan rapi 2 kotak berjajar ke bawah. */
+.projects-grid .project-card:nth-child(5) {
+    grid-column: auto; /* Kembalikan ke ukuran normal */
+}
