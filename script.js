@@ -1,108 +1,130 @@
+// =========================================
+// 0. FIREBASE CONFIGURATION & INIT
+// =========================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-// KONFIGURASI SERVER BARU (AMOGENZ)
 const firebaseConfig = {
-  apiKey: "AIzaSyBDyEfe83-_CzRchqcO_lLnuO6Rg9_AF_8",
-  authDomain: "amogenz.firebaseapp.com",
-  databaseURL: "https://amogenz-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "amogenz",
-  storageBucket: "amogenz.firebasestorage.app",
-  messagingSenderId: "864003468268",
-  appId: "1:864003468268:web:7c861806529a0dacd66ec9"
+  apiKey: "AIzaSyC9PwXwvAQWSbSGNgmRERXRzkrN-cynUok",
+  authDomain: "mqsd-94d67.firebaseapp.com",
+  databaseURL: "https://mqsd-94d67-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "mqsd-94d67",
+  storageBucket: "mqsd-94d67.firebasestorage.app",
+  messagingSenderId: "381147889010",
+  appId: "1:381147889010:web:90051c25baf22f8dac31eb"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app); 
+const db = getDatabase(app); // Realtime Database
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. SYSTEM NAVIGASI (SPA)
+    // =========================================
+    // 1. SPA NAVIGATION SYSTEM
+    // =========================================
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('.page-section');
     
-    sections.forEach(sec => {
-        if(sec.id === 'page-home') {
-            sec.classList.add('active');
-            sec.classList.remove('hidden');
-        } else {
-            sec.classList.remove('active');
-        }
-    });
-
     navItems.forEach(item => {
         item.addEventListener('click', () => {
+            // A. Hapus kelas 'active' dari semua menu & halaman
             navItems.forEach(nav => nav.classList.remove('active'));
-            sections.forEach(sec => {
-                sec.classList.remove('active');
-                sec.classList.add('hidden');
-            });
+            sections.forEach(sec => sec.classList.remove('active'));
 
+            // B. Tambahkan kelas 'active' ke menu yang diklik
             item.classList.add('active');
+
+            // C. Tampilkan halaman yang sesuai target ID
             const targetId = item.getAttribute('data-target');
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                targetSection.classList.remove('hidden');
                 targetSection.classList.add('active');
                 
-                if (targetId === 'page-ai') setTimeout(scrollToBottom, 100);
-
-                if (targetId === 'page-community') {
-                    const isLoggedIn = localStorage.getItem('amogenz_user'); 
-                    const authModal = document.getElementById('auth-modal');
-                    if (!isLoggedIn && authModal) setTimeout(() => authModal.classList.remove('hidden'), 300);
+                // Khusus halaman AI, scroll langsung ke bawah
+                if (targetId === 'page-ai') {
+                    setTimeout(scrollToBottom, 100);
                 }
             }
         });
     });
 
-    // HANDLER TOMBOL BATAL LOGIN
-    const btnAuthClose = document.getElementById('btn-auth-close');
-    const authModal = document.getElementById('auth-modal');
-    if(btnAuthClose && authModal) {
-        btnAuthClose.addEventListener('click', () => {
-            authModal.classList.add('hidden');
-            const currentActive = document.querySelector('.nav-item.active');
-            if(currentActive && currentActive.getAttribute('data-target') === 'page-community' && !localStorage.getItem('amogenz_user')) {
-                const homeBtn = document.querySelector('[data-target="page-home"]');
-                if(homeBtn) homeBtn.click();
-            }
-        });
-    }
-
-    // 2. EFEK CURSOR & PARALLAX
+    // =========================================
+    // 2. CUSTOM CURSOR & PARALLAX
+    // =========================================
     const cursorDot = document.querySelector('[data-cursor-dot]');
     const cursorOutline = document.querySelector('[data-cursor-outline]');
     const orbs = document.querySelectorAll('.orb');
 
+    // Cek apakah user pakai mouse (bukan layar sentuh)
     if (window.matchMedia("(pointer: fine)").matches) {
+        
         window.addEventListener("mousemove", (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
-            if(cursorDot) { cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`; }
-            if(cursorOutline) { cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" }); }
+
+            // Gerakkan Cursor
+            if(cursorDot) {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+            }
+            
+            // Animasi 'lagging' untuk outline biar smooth
+            if(cursorOutline) {
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            }
+
+            // Efek Parallax untuk Orbs (Gerak berlawanan arah mouse)
             orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 20; 
-                orb.style.transform = `translate(${(window.innerWidth - posX * speed) / 100}px, ${(window.innerHeight - posY * speed) / 100}px)`;
+                const speed = (index + 1) * 20; // Kecepatan beda-beda
+                const x = (window.innerWidth - posX * speed) / 100;
+                const y = (window.innerHeight - posY * speed) / 100;
+                orb.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
     }
 
-    // 3. AI CHAT LOGIC
+    // =========================================
+    // 3. AMMO AI LOGIC (UPDATED AVATAR)
+    // =========================================
     const chatHistory = document.getElementById('chat-history');
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
+    
+    // URL FOTO AMMO AI
     const ammoAvatarURL = "https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp";
+
     let conversationHistory = []; 
 
-    function scrollToBottom() { if(chatHistory) chatHistory.scrollTop = chatHistory.scrollHeight; }
+    function scrollToBottom() {
+        if(chatHistory) chatHistory.scrollTop = chatHistory.scrollHeight;
+    }
 
     function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
-        msgDiv.classList.add('message', sender === 'user' ? 'user-msg' : 'ai-msg');
-        let avatarHTML = sender === 'ai' ? `<img src="${ammoAvatarURL}" class="msg-avatar-img">` : `<div class="msg-avatar">U</div>`;
-        msgDiv.innerHTML = `${sender === 'ai' ? avatarHTML : ''} <div class="msg-bubble">${text}</div>${sender === 'user' ? avatarHTML : ''}`;
+        msgDiv.classList.add('message');
+        msgDiv.classList.add(sender === 'user' ? 'user-msg' : 'ai-msg');
+        
+        let avatarHTML;
+
+        // Logika Avatar: Kalau AI pakai Gambar, Kalau User pakai Inisial/Icon
+        if (sender === 'ai') {
+            avatarHTML = `<img src="${ammoAvatarURL}" class="msg-avatar-img" alt="AI">`;
+        } else {
+            // Avatar User (Huruf U)
+            avatarHTML = `<div class="msg-avatar" style="background:#fff; color:#000;">U</div>`;
+        }
+        
+        msgDiv.innerHTML = `
+            ${sender === 'ai' ? avatarHTML : ''} 
+            <div class="msg-bubble">${text}</div>
+            ${sender === 'user' ? avatarHTML : ''}
+        `;
+        
         chatHistory.appendChild(msgDiv);
         scrollToBottom();
     }
@@ -110,88 +132,160 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleChat = async () => {
         const text = userInput.value.trim();
         if (!text) return;
-        appendMessage('user', text);
-        userInput.value = ''; userInput.disabled = true;
 
+        // 1. Tampilkan Pesan User
+        appendMessage('user', text);
+        userInput.value = '';
+        userInput.disabled = true;
+
+        // 2. Tampilkan Loading Indicator (Pakai Foto Ammo juga)
         const loadingId = 'loading-' + Date.now();
         const loadingDiv = document.createElement('div');
         loadingDiv.id = loadingId;
         loadingDiv.classList.add('message', 'ai-msg');
-        loadingDiv.innerHTML = `<img src="${ammoAvatarURL}" class="msg-avatar-img"><div class="msg-bubble" style="font-style:italic; opacity:0.7;">Sedang mengetik...</div>`;
+        loadingDiv.innerHTML = `
+            <img src="${ammoAvatarURL}" class="msg-avatar-img" alt="AI">
+            <div class="msg-bubble" style="font-style:italic; opacity:0.7;">Sedang mengetik...</div>
+        `;
         chatHistory.appendChild(loadingDiv);
         scrollToBottom();
 
         try {
+            // 3. Kirim ke Backend
             const response = await fetch('/api/chat', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: text, history: conversationHistory }) 
+                body: JSON.stringify({ 
+                    message: text,
+                    history: conversationHistory 
+                }) 
             });
+
             const data = await response.json();
-            document.getElementById(loadingId)?.remove();
+            
+            // Hapus loading
+            const loadingEl = document.getElementById(loadingId);
+            if(loadingEl) loadingEl.remove();
 
-            if (!response.ok) throw new Error(data.error || "Gagal menghubungi server.");
+            if (!response.ok) {
+                throw new Error(data.error || "Gagal menghubungi server.");
+            }
 
+            // 4. Proses Jawaban AI
             let aiResponseText = "Maaf, saya tidak mengerti.";
+            let rawTextForHistory = ""; 
+
             if (data.candidates && data.candidates[0].content) {
                 let rawText = data.candidates[0].content.parts[0].text;
-                aiResponseText = rawText.replace(/\*\*(.*?)\*\*/g, '<b style="color:#39FF14;">$1</b>').replace(/\n/g, '<br>'); 
-                if (data.candidates[0].groundingMetadata?.searchEntryPoint) aiResponseText += `<br><br><small style="opacity:0.5;">[🔍 Sumber: Google]</small>`;
-                conversationHistory.push({ role: "user", parts: [{ text: text }] }, { role: "model", parts: [{ text: rawText }] });
+                rawTextForHistory = rawText; 
+
+                // Format Markdown simpel
+                aiResponseText = rawText
+                    .replace(/\*\*(.*?)\*\*/g, '<b style="color:#39FF14;">$1</b>') 
+                    .replace(/\n/g, '<br>'); 
+                
+                if (data.candidates[0].groundingMetadata?.searchEntryPoint) {
+                    aiResponseText += `<br><br><small style="opacity:0.5; font-size:0.7rem;">[🔍 Sumber: Google Search]</small>`;
+                }
             }
             appendMessage('ai', aiResponseText);
+
+            conversationHistory.push({ role: "user", parts: [{ text: text }] });
+            conversationHistory.push({ role: "model", parts: [{ text: rawTextForHistory }] });
+
         } catch (error) {
-            document.getElementById(loadingId)?.remove();
+            const loadingEl = document.getElementById(loadingId);
+            if(loadingEl) loadingEl.remove();
             appendMessage('ai', `💀 System Error: ${error.message}`);
         } finally {
-            userInput.disabled = false; userInput.focus();
+            userInput.disabled = false;
+            userInput.focus();
         }
     };
 
     if(sendBtn && userInput) {
         sendBtn.addEventListener('click', handleChat);
-        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleChat(); });
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleChat();
+        });
     }
 
-    // 4. SARAN SYSTEM (Database 'comments')
+    // =========================================
+    // 4. COMMENT SYSTEM (FIREBASE REALTIME DB)
+    // =========================================
     const commentForm = document.getElementById('comment-form');
     const commentsList = document.querySelector('.comments-list');
-    const commentsRef = ref(db, 'comments'); 
+    
+    // Referensi ke database 'comments'
+    const commentsRef = ref(db, 'comments');
 
+    // A. Fungsi Render ke Layar
     const renderComment = (name, msg, dateString) => {
         const newComment = document.createElement('div');
         newComment.classList.add('comment-item', 'glass-card');
-        newComment.innerHTML = `<div class="comment-header"><span class="c-name">${name}</span><span class="c-date">${dateString}</span></div><p class="c-text">${msg}</p>`;
-        if(commentsList) commentsList.insertBefore(newComment, commentsList.firstChild);
+        newComment.style.animation = "fadeUp 0.5s ease"; // Animasi masuk halus
+        newComment.innerHTML = `
+            <div class="comment-header">
+                <span class="c-name">${name}</span>
+                <span class="c-date">${dateString}</span>
+            </div>
+            <p class="c-text">${msg}</p>
+        `;
+        // Masukkan ke paling atas (terbaru)
+        commentsList.insertBefore(newComment, commentsList.firstChild);
     };
 
+    // B. Listener: Dengerin kalau ada data baru masuk di Firebase
     onChildAdded(commentsRef, (snapshot) => {
         const data = snapshot.val();
-        if(commentsList) renderComment(data.name, data.message, data.date);
+        renderComment(data.name, data.message, data.date);
     });
 
+    // C. Handle Kirim Komentar
     if (commentForm) {
         commentForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
             const inputs = commentForm.querySelectorAll('.input-glass');
-            const name = inputs[0].value.trim();
-            const msg = inputs[1].value.trim();
+            const nameInput = inputs[0];
+            const msgInput = inputs[1];
+            const name = nameInput.value.trim();
+            const msg = msgInput.value.trim();
+
             if(!name || !msg) return;
 
+            // 1. Ubah tombol jadi Loading
             const btn = commentForm.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Mengirim..."; btn.disabled = true;
+            btn.innerText = "Mengirim...";
+            btn.disabled = true;
 
+            // 2. Siapkan Tanggal
             const now = new Date();
-            const dateString = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+            const dateString = now.toLocaleDateString('id-ID', { 
+                day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' 
+            });
 
-            push(commentsRef, { name: name, message: msg, date: dateString, timestamp: Date.now() })
-            .then(() => {
-                inputs[0].value = ''; inputs[1].value = '';
+            // 3. KIRIM KE FIREBASE (PUSH)
+            push(commentsRef, {
+                name: name,
+                message: msg,
+                date: dateString,
+                timestamp: Date.now() // Biar bisa diurutkan kalau perlu
+            }).then(() => {
+                // Berhasil
+                nameInput.value = '';
+                msgInput.value = '';
                 btn.innerText = "Terkirim!";
-                setTimeout(() => { btn.innerText = originalText; btn.disabled = false; }, 2000);
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }, 2000);
             }).catch((error) => {
-                console.error("Gagal kirim: ", error); btn.innerText = "Gagal"; btn.disabled = false;
+                console.error("Gagal kirim: ", error);
+                btn.innerText = "Gagal";
+                btn.disabled = false;
             });
         });
     }
