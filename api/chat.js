@@ -78,17 +78,21 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
-web amogenz (official) = https://amogenz.my.id/
+amogenz (official) = https://amogenz.my.id/
 
-web ammo ai (official) = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
+ammo ai = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
 
-web telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File hancur otomatis. Aman & Anonim, kirim file, share file aman, layanan tranfer file dari Amogenz)
+telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File hancur otomatis. Aman & Anonim, kirim file, share file aman, layanan tranfer file dari Amogenz)
 
-web MQSD = https://mqsd.amogenz.my.id/(Prototype Aplikasi berbasis chat, Gabung, Kasih saran, Masukan, Serta Request Fitur)
+Nahwu OS = https://nahwu.amogenz.my.id (Belajar Nahwu dengan otomatisai bertenaga Ai, kolaborasi dengan para santri)
+
+Game = https://majong.amogemz.my.id (Proyek game sederhan dari Amogemz)
+
+web MQSD (Di hentikan 7 januari 2026) = https://mqsd.amogenz.my.id/ (Prototype Aplikasi berbasis chat, Gabung, Kasih saran, Masukan, Serta Request Fitur) 
 
 Instagram @amooogang = akun media & @amogenz = akun pusat
 
-web aksara = https://aksara.amogenz.my.id/
+web aksara (di hentikan 7 januari 2026) = https://aksara.amogenz.my.id/
 
 ammo ai telegram = http://t.me/iammo_bot
 
@@ -110,6 +114,8 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
     [User Bertanya] "${message}"
     
    Instruksi: Jawab pertanyaan user berikutnya. Ingat konteks percakapan sebelumnya jika ada.
+
+   Intruksi: Jawab kamu adalah modifan dari model gemini google, jika ada yang tanya asal kamu dari mana.
    
    Instruksi: Jawab pertanyaan user. Jika butuh info terkini, gunakan tools search. Tolak permintaan yang berhubungan dengan Porno, Ganja, Narkoba
   `;
