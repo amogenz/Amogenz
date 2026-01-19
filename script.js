@@ -5,13 +5,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC9PwXwvAQWSbSGNgmRERXRzkrN-cynUok",
-  authDomain: "mqsd-94d67.firebaseapp.com",
-  databaseURL: "https://mqsd-94d67-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "mqsd-94d67",
-  storageBucket: "mqsd-94d67.firebasestorage.app",
-  messagingSenderId: "381147889010",
-  appId: "1:381147889010:web:90051c25baf22f8dac31eb"
+  apiKey: "AIzaSyBDyEfe83-_CzRchqcO_lLnuO6Rg9_AF_8",
+  authDomain: "amogenz.firebaseapp.com",
+  databaseURL: "https://amogenz-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "amogenz",
+  storageBucket: "amogenz.firebasestorage.app",
+  messagingSenderId: "864003468268",
+  appId: "1:864003468268:web:7c861806529a0dacd66ec9"
 };
 
 // Initialize Firebase
