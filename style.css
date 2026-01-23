@@ -975,3 +975,43 @@ body {
         padding-bottom: 120px;
     }
 }
+/* Style Khusus Ikon Tengah (Universe) */
+.nav-external {
+    position: relative;
+    z-index: 10;
+}
+
+.nav-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.nav-logo-center {
+    width: 32px; /* Ukuran sedikit lebih besar dari ikon lain */
+    height: 32px;
+    object-fit: contain;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Biar defaultnya terlihat berwarna tapi agak redup */
+    filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.2));
+    opacity: 0.8;
+}
+
+/* Efek Hover & Animasi */
+.nav-external:hover .nav-logo-center {
+    transform: scale(1.4) translateY(-5px);
+    filter: drop-shadow(0 0 15px var(--primary));
+    opacity: 1;
+}
+
+/* Menyesuaikan jarak navigasi jika terlalu sempit */
+@media (max-width: 480px) {
+    .nav-list {
+        gap: 15px; /* Mengurangi gap agar 5 ikon muat dengan rapi */
+    }
+    .nav-logo-center {
+        width: 30px;
+        height: 30px;
+    }
+}
