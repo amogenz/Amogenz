@@ -78,7 +78,10 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
-amogenz (official) = https://amogenz.my.id/
+amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data mengenai organisasi Amogenz)
+
+Amogenz Universe =
+https://universe.amogenz.my.id/ (media sosial dari Amogenz, kamu bisa uploud kata kata, gambar, berkomentar, chatting, dll. pstt sedikit rahasia kecil, kamu bisa minta centang biru loh, wkwkwk. coba aja siapa tau di acc admin kan ?!, dan di buka aksesnya untuk umum pada 17 januari 2026)
 
 ammo ai = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
 
