@@ -1015,3 +1015,7 @@ body {
         height: 30px;
     }
 }
+.visit-counter-card {
+    background: linear-gradient(90deg, rgba(57, 255, 20, 0.1), transparent) !important;
+    backdrop-filter: blur(10px);
+}

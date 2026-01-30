@@ -2,7 +2,7 @@
 // 0. FIREBASE CONFIGURATION & INIT
 // =========================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, push, onChildAdded, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDyEfe83-_CzRchqcO_lLnuO6Rg9_AF_8",
@@ -289,4 +289,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+     // =========================================
+    // 5. REAL-TIME VISIT COUNTER (ADD THIS)
+    // =========================================
+    const visitCountEl = document.getElementById('visit-count');
+    const visitRef = ref(db, 'stats/totalVisits');
+
+    // Fungsi untuk menambah hitungan setiap kali web dibuka
+    // Menggunakan runTransaction agar hitungan tetap akurat jika banyak orang buka barengan
+    runTransaction(visitRef, (currentValue) => {
+        return (currentValue || 0) + 1;
+    });
+
+    // Mendengarkan perubahan data secara Real-time
+    onValue(visitRef, (snapshot) => {
+        const count = snapshot.val() || 0;
+        if (visitCountEl) {
+            // Menampilkan angka dengan format ribuan (contoh: 1.250)
+            visitCountEl.innerText = count.toLocaleString('id-ID');
+        }
+    });
+
 });
