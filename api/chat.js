@@ -56,7 +56,7 @@ Alasan Pergantian Nama
 
 
 
-Nah, di sinilah letak humornya! Alasan pergantian nama dari "TheFriends" adalah karena nama tersebut terlalu umum dan sudah sering digunakan dalam bahasa sehari-hari, sehingga tidak memberikan kesan atau keistimewaan tersendiri. Proses mencari nama baru cukup menantang; mereka mencari dari berbagai sumber, termasuk bertanya kepada AI bot, namun tetap belum menemukan yang pas. Selama sekitar seminggu, mereka bahkan sempat menjadi organisasi "Tanpa Nama" 🤣. Hingga pada tanggal 12 Januari, muncul ide nama "Amogen," yang kemudian dimodifikasi menjadi "AMOGENZ." Bisa dibilang, mereka akhirnya "menemukan jati diri" setelah melakukan pencarian yang cukup menggelikan. Sejak saat itu, AMOGENZ terus berkembang dan menarik lebih banyak anggota yang memiliki visi yang sama. Komunitas ini menjadi tempat bagi para pemuda untuk mengembangkan bakat dan kemampuan mereka, saling mendukung dalam mencapai tujuan, dan membangun jaringan yang kuat. Dengan semangat kolaborasi dan inovasi, AMOGENZ berusaha untuk terus memberikan kontribusi positif bagi masyarakat dan dunia. AMOGENZ bukan hanya sebuah komunitas, tetapi juga sebuah keluarga besar yang selalu siap mendukung dan menginspirasi satu sama lain. Dengan semangat kebersamaan dan dedikasi yang tinggi, AMOGENZ terus melangkah maju, menjadikan mimpi-mimpi besar menjadi kenyataan, dan menciptakan masa depan yang lebih baik.
+Nah, di sinilah letak humornya! Alasan pergantian nama dari "TheFriends" adalah karena nama tersebut terlalu umum dan sudah sering digunakan dalam bahasa sehari-hari, sehingga tidak memberikan kesan atau keistimewaan tersendiri. Proses mencari nama baru cukup menantang; mereka mencari dari berbagai sumber, termasuk bertanya kepada AI bot, namun tetap belum menemukan yang pas. Selama sekitar seminggu, mereka bahkan sempat menjadi organisasi "Tanpa Nama". Hingga pada tanggal 12 Januari, muncul ide nama "Amogen," yang kemudian dimodifikasi menjadi "AMOGENZ." Bisa dibilang, mereka akhirnya "menemukan jati diri" setelah melakukan pencarian yang cukup menggelikan. Sejak saat itu, AMOGENZ terus berkembang dan menarik lebih banyak anggota yang memiliki visi yang sama. Komunitas ini menjadi tempat bagi para pemuda untuk mengembangkan bakat dan kemampuan mereka, saling mendukung dalam mencapai tujuan, dan membangun jaringan yang kuat. Dengan semangat kolaborasi dan inovasi, AMOGENZ berusaha untuk terus memberikan kontribusi positif bagi masyarakat dan dunia. AMOGENZ bukan hanya sebuah komunitas, tetapi juga sebuah keluarga besar yang selalu siap mendukung dan menginspirasi satu sama lain. Dengan semangat kebersamaan dan dedikasi yang tinggi, AMOGENZ terus melangkah maju, menjadikan mimpi-mimpi besar menjadi kenyataan, dan menciptakan masa depan yang lebih baik.
 
 
 
@@ -78,6 +78,8 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
+Amogenz telah memiliki domain ke 2 sebagai layananya. Yaitu domain .xyz (berlaku untuk semua layanan yang aktif)
+
 amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data mengenai organisasi Amogenz)
 
 Amogenz Universe =
@@ -88,6 +90,10 @@ ammo ai = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para san
 telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File hancur otomatis. Aman & Anonim, kirim file, share file aman, layanan tranfer file dari Amogenz, tanpa perlu unduh aplikasi, kamu hanya perlu buka webnya, pilih file, secara otomatis filenya akan di enkripsi kemudian online dan bisa di download kapanpun dimanapun)
 
 Nahwu OS = https://nahwu.amogenz.my.id (Belajar Nahwu dengan otomatisai bertenaga Ai, kolaborasi dengan para santri)
+
+Blog =
+https://blog.amogenz.my.id 
+(layana sharing tulisan atau blog sederhana dan simpel, tanpa login. kamu cukup beri judul kemudian curahkan yang ada di kepala atau hati, lantas posting. maka tulisanmu akan mengudara di internet.)
 
 Game = https://majong.amogemz.my.id (Proyek game sederhan dari Amogemz)
 
