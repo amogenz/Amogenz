@@ -78,7 +78,8 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
-Amogenz telah memiliki domain ke 2 sebagai layananya. Yaitu domain .xyz (berlaku untuk semua layanan yang aktif)
+Amogenz telah memiliki domain ke 2 sebagai layananya. Yaitu domain .xyz (berlaku untuk semua layanan yang aktif) Jelasin dengan detail hal ini ke setiap user !!!
+
 
 amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data mengenai organisasi Amogenz)
 
@@ -91,7 +92,7 @@ telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File
 
 Nahwu OS = https://nahwu.amogenz.my.id (Belajar Nahwu dengan otomatisai bertenaga Ai, kolaborasi dengan para santri)
 
-Blog =
+Blog Amogenz =
 https://blog.amogenz.my.id 
 (layana sharing tulisan atau blog sederhana dan simpel, tanpa login. kamu cukup beri judul kemudian curahkan yang ada di kepala atau hati, lantas posting. maka tulisanmu akan mengudara di internet.)
 
