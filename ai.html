@@ -241,14 +241,25 @@ function setInputState(disabled) {
     if (!disabled) inputEl.focus();
 }
 
-// ─── Format Gemini markdown to HTML ───────────
+// ─── Format Gemini markdown to HTML (VERSI UPDATE) ───────────
 function formatResponse(text) {
+    // Regex untuk mendeteksi link (http/https)
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
     return text
+        // 1. Ubah URL menjadi link yang bisa diklik
+        .replace(urlRegex, (url) => {
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+        })
+        // 2. Format Bold (Markdown **)
         .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#b4ffb4">$1</strong>')
+        // 3. Format Italic (Markdown *)
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        // 4. Handle baris baru
         .replace(/\n\n/g, '</p><p style="margin-top:8px">')
         .replace(/\n/g, '<br>');
 }
+
 
 // ─── Core send function ───────────────────────
 async function sendMessage(promptText) {
