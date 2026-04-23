@@ -243,26 +243,32 @@ function setInputState(disabled) {
 
 // ─── Format Gemini markdown to HTML (VERSI UPDATE) ───────────
 function formatResponse(text) {
-    // 1. Bersihkan Backticks (`) yang sering digunakan AI untuk membungkus link
-    // Kita hapus dulu backtick-nya agar tidak ikut masuk ke dalam URL
-    let cleanedText = text.replace(/`([^`]+)`/g, '$1');
+    let html = text;
 
-    // 2. Regex URL yang lebih ketat agar tidak mengambil tanda baca di akhir kalimat
-    // Pola ini berhenti sebelum spasi, titik, koma, atau tanda baca penutup lainnya.
-    const urlRegex = /(https?:\/\/[^\s<]+[^.,\s<>{}!\[\]\x22\x27\x60])/g;
+    // 1. Tangani Markdown Link: [Judul](https://url.com)
+    // Ini akan mengubah [Amogenz](https://amogenz.xyz) menjadi link yang bersih
+    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (match, label, url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    });
 
-    return cleanedText
-        // Ubah URL menjadi link yang bisa diklik
-        .replace(urlRegex, (url) => {
-            return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
-        })
-        // Format Bold (**)
-        .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#b4ffb4">$1</strong>')
-        // Format Italic (*)
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        // Format Baris Baru
-        .replace(/\n\n/g, '</p><p style="margin-top:8px">')
-        .replace(/\n/g, '<br>');
+    // 2. Tangani Raw Link: https://url.com (yang tidak terbungkus Markdown)
+    // Gunakan lookbehind agar tidak memproses ulang link yang sudah jadi tag <a> di tahap 1
+    const rawUrlRegex = /(?<!href=")(?<!">)(https?:\/\/[^\s<]+[^.,\s<>{}!\[\]\x22\x27\x60])/g;
+    html = html.replace(rawUrlRegex, (url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    });
+
+    // 3. Tangani Format Bold (**)
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong style="color:#b4ffb4">$1</strong>');
+
+    // 4. Tangani Format Italic (*)
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // 5. Tangani Baris Baru
+    html = html.replace(/\n\n/g, '</p><p style="margin-top:8px">');
+    html = html.replace(/\n/g, '<br>');
+
+    return html;
 }
 
 // ─── Core send function ───────────────────────
