@@ -39,7 +39,7 @@
 <header class="topbar">
     <a href="index.html" class="topbar-brand">
         <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
-        <span class="topbar-name">AMOGENZ</span>
+        <span class="topbar-name"></span>
     </a>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -91,6 +91,11 @@
             Blog
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
+        <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Universe
+          <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
     </nav>
     <div class="sidebar-footer">© 2026 AMOGENZ Inc.</div>
 </aside>
@@ -111,22 +116,65 @@
 
     <div class="home-section">
         <div class="home-tag">Story</div>
-        <h2 class="home-heading">Dari mimpi, menjadi nyata.</h2>
-        <p class="home-text">Berawal dari sebuah grup kecil yang terinspirasi oleh kisah para pendiri raksasa teknologi, AMOGENZ resmi lahir pada <strong>19 Oktober 2021</strong>. Dari nama "TheFriends" hingga AMOGENZ — sebuah perjalanan menemukan jati diri.</p>
+        <h2 class="home-heading">Dari mimpi, menjadi usaha nyata.</h2>
+        <p class="home-text">Berawal dari sebuah grup kecil yang terinspirasi oleh kisah para pendiri raksasa teknologi, AMOGENZ resmi lahir pada <strong>12 Rabi'ul Awwal / 19 Oktober 2021</strong>. Dari nama "TheFriends" hingga AMOGENZ — sebuah perjalanan menemukan jati diri.</p>
         <a href="about.html" class="home-link">Baca selengkapnya →</a>
     </div>
 
     <div class="ai-cta">
-        <div class="ai-cta-top">
+        <div class="ai-cta-top" style="margin-bottom: 12px;">
             <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="Ammo" class="ai-cta-avatar">
             <div>
                 <div class="ai-cta-tag">Ammo AI</div>
-                <div class="ai-cta-title">Ada yang ingin kamu tanyakan?</div>
-                <p class="ai-cta-desc">Ammo sudah dilatih dengan data AMOGENZ dan internet. Tanyakan apa saja.</p>
+                <div class="ai-cta-title">Tanya Ammo sekarang</div>
+                <p class="ai-cta-desc">Ammo sudah dilatih dengan data AMOGENZ dan internet.</p>
             </div>
         </div>
-        <a href="ai.html" class="btn-primary" style="align-self:flex-start;">Mulai Chat →</a>
+
+        <div class="chat-suggestions" style="justify-content: flex-start; margin-bottom: 0;">
+            <button class="suggestion-btn home-sug-btn" data-prompt="Apa itu AMOGENZ?">Apa itu AMOGENZ?</button>
+            <button class="suggestion-btn home-sug-btn" data-prompt="Bagaimana sejarah berdirinya AMOGENZ?">Sejarah AMOGENZ</button>
+            <button class="suggestion-btn home-sug-btn" data-prompt="Produk apa saja yang dimiliki AMOGENZ?">Produk AMOGENZ</button>
+        </div>
+        <div class="chat-input-box" style="margin-bottom: 12px;">
+            <input type="text" id="homeAiInput" placeholder="Ketik pertanyaanmu di sini..." autocomplete="off">
+            <button id="homeAiSend" class="chat-send-btn" aria-label="Kirim">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeInput = document.getElementById('homeAiInput');
+            const homeSendBtn = document.getElementById('homeAiSend');
+            const sugBtns = document.querySelectorAll('.home-sug-btn');
+
+            // Fungsi untuk pindah halaman dengan membawa pesan
+            function triggerAiRedirect(text) {
+                const query = text.trim();
+                if (!query) return;
+                // Encode URL agar karakter spasi dan simbol aman dikirim via URL
+                window.location.href = 'ai.html?q=' + encodeURIComponent(query);
+            }
+
+            // Event listener untuk tombol kirim
+            homeSendBtn.addEventListener('click', () => triggerAiRedirect(homeInput.value));
+            
+            // Event listener untuk enter di keyboard
+            homeInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') triggerAiRedirect(homeInput.value);
+            });
+
+            // Event listener untuk suggestion buttons
+            sugBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const prompt = this.getAttribute('data-prompt');
+                    triggerAiRedirect(prompt);
+                });
+            });
+        });
+    </script>
 
 </div>
 </main>

@@ -28,7 +28,7 @@
 <header class="topbar">
     <a href="index.html" class="topbar-brand">
         <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
-        <span class="topbar-name">AMOGENZ</span>
+        <span class="topbar-name"></span>
     </a>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -80,6 +80,11 @@
             Blog
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
+        <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Universe
+          <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
     </nav>
     <div class="sidebar-footer">© 2026 AMOGENZ Inc.</div>
 </aside>
@@ -95,7 +100,7 @@
                 <div>
                     <div class="ai-hd-name">Ammo Intelligence</div>
                     <div class="ai-hd-status">
-                        <span class="ai-dot"></span> Online · Gemini
+                        <span class="ai-dot"></span> Online · Model Gemini
                     </div>
                 </div>
             </div>
@@ -136,7 +141,6 @@ const SUGGESTIONS = [
     { label: "Apa itu AMOGENZ?",        prompt: "Apa itu AMOGENZ?" },
     { label: "Produk AMOGENZ",          prompt: "Produk apa saja yang dimiliki AMOGENZ?" },
     { label: "Sejarah AMOGENZ",         prompt: "Bagaimana sejarah berdirinya AMOGENZ?" },
-    { label: "Siapa anggotanya?",       prompt: "Siapa saja anggota inti AMOGENZ?" },
 ];
 
 const viewport = document.getElementById('chatViewport');
@@ -307,6 +311,23 @@ clearBtn.addEventListener('click', function () {
     convHistory = [];
     showWelcome();
 });
+
+// ─── Auto-trigger dari Halaman Utama (index.html) ───────────
+window.addEventListener('DOMContentLoaded', () => {
+    // Membaca parameter dari URL (misal: ?q=Halo%20Ammo)
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+
+    if (initialQuery) {
+        // Bersihkan URL agar jika di-refresh, AI tidak membalas ulang pertanyaan yang sama
+        window.history.replaceState({}, document.title, window.location.pathname);
+        
+        // Isi input dan jalankan fungsi kirim
+        inputEl.value = initialQuery;
+        sendMessage();
+    }
+});
+
 </script>
 </body>
 </html>
