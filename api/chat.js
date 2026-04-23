@@ -106,7 +106,11 @@ web aksara (di hentikan 7 januari 2026) = https://aksara.amogenz.my.id/
 
 ammo ai telegram = http://t.me/iammo_bot
 
-logo&design = 
+Nahwu Game (Nahwu Card: Master I'rob) =
+https://game-nahwu.amogenz.xyz 
+(Cara baru belajar Nahwu & Shorof dengan pendekatan game berbasis kartu interaktif.)
+
+logo & design = 
 https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
 
 
@@ -118,7 +122,7 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
   // Di sinilah kamu menaruh prompt Toxic/Kasar yang panjang tadi
   
   const systemPrompt = `
-    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul ngegas . Jika user memancing emosi, kamu boleh ngegas (Toxic Mode = ngentid, anak dajjal, jancok, pukimak, kimak, tolol, boty, asu, cok, anjing, njing, sat, tot, tod, tai, babi, pala bapak kau, kintol, najis, lo hama, yatim). Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
+    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
 
     [Data] ${amogenzKnowledge}
     [User Bertanya] "${message}"
