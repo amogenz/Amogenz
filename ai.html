@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammo AI — AMOGENZ</title>
+    <meta name="description" content="Ammo AI — Asisten cerdas dari AMOGENZ.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* ai.html specific: body fills viewport, no scroll */
+        html, body { height: 100%; overflow: hidden; }
+        .main-content { height: calc(100% - var(--topbar-h)); display: flex; flex-direction: column; }
+    </style>
+</head>
+<body>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="noise-overlay"></div>
+
+<!-- Topbar -->
+<header class="topbar">
+    <a href="index.html" class="topbar-brand">
+        <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
+        <span class="topbar-name"></span>
+    </a>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="https://i.ibb.co.com/Qvwp0rVV/amogenz.webp" alt="AMOGENZ" class="sidebar-avatar">
+        <div>
+            <div class="sidebar-title">AMOGENZ</div>
+            <div class="sidebar-sub">Spirit of Youth & Technology</div>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Jelajahi</div>
+        <a class="sidebar-link" href="index.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            Beranda
+        </a>
+        <a class="sidebar-link" href="produk.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            Produk
+        </a>
+        <a class="sidebar-link" href="about.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+            Tentang Kami
+        </a>
+        <a class="sidebar-link active" href="ai.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            Ammo AI
+        </a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section-label">Ikuti Kami</div>
+        <a class="sidebar-link" href="https://instagram.com/amogenz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Pusat
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://instagram.com/amooogang" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Media
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://blog.amogenz.xyz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Blog
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
+        <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Universe
+          <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+    </nav>
+    <div class="sidebar-footer">© 2026 AMOGENZ Inc.</div>
+</aside>
+
+<!-- AI Chat -->
+<main class="main-content">
+    <div class="ai-page">
+
+        <!-- Header -->
+        <div class="ai-header">
+            <div class="ai-hd-left">
+                <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="Ammo" class="ai-hd-avatar">
+                <div>
+                    <div class="ai-hd-name">Ammo Intelligence</div>
+                    <div class="ai-hd-status">
+                        <span class="ai-dot"></span> Online · Model Gemini
+                    </div>
+                </div>
+            </div>
+            <button class="ai-clear-btn" id="clearChatBtn" title="Bersihkan percakapan">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+            </button>
+        </div>
+
+        <!-- Chat viewport -->
+        <div id="chatViewport" class="chat-viewport">
+            <!-- Welcome screen injected by JS -->
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input-area">
+            <div class="chat-input-box">
+                <input type="text" id="userInput" placeholder="Tanya Ammo sesuatu..." autocomplete="off">
+                <button id="sendBtn" class="chat-send-btn" aria-label="Kirim">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+            <p class="chat-input-note">Ammo Intelligence · Powered by AMOGENZ · AI dapat membuat kesalahan</p>
+        </div>
+
+    </div>
+</main>
+
+<script src="sidebar.js"></script>
+<script>
+// ─────────────────────────────────────────────
+// AMMO AI CHAT — ai.html
+// Backend: /api/chat (Gemini via Vercel serverless)
+// ─────────────────────────────────────────────
+
+const AMMO_AVATAR = "https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp";
+
+const SUGGESTIONS = [
+    { label: "Apa itu AMOGENZ?",        prompt: "Apa itu AMOGENZ?" },
+    { label: "Produk AMOGENZ",          prompt: "Produk apa saja yang dimiliki AMOGENZ?" },
+    { label: "Sejarah AMOGENZ",         prompt: "Bagaimana sejarah berdirinya AMOGENZ?" },
+    { label: "aset logo AMOGENZ",         prompt: "Apa saja desain dan aset yang ada di AMOGENZ?" },
+];
+
+const viewport = document.getElementById('chatViewport');
+const inputEl  = document.getElementById('userInput');
+const sendBtn  = document.getElementById('sendBtn');
+const clearBtn = document.getElementById('clearChatBtn');
+
+// Conversation memory — keeps multi-turn context
+let convHistory = [];
+let chatStarted = false;
+
+// ─── Welcome screen ───────────────────────────
+function buildWelcome() {
+    const div = document.createElement('div');
+    div.id = 'chatWelcome';
+    div.className = 'chat-welcome';
+    div.innerHTML = `
+        <img src="${AMMO_AVATAR}" alt="Ammo" class="chat-welcome-avatar">
+        <h3 class="chat-welcome-title">Hai, saya Ammo!</h3>
+        <p class="chat-welcome-desc">AI dari AMOGENZ yang sudah dilatih dengan database internal dan data internet. Tanyakan apa saja tentang AMOGENZ, atau hal lainnya.</p>
+        <div class="chat-suggestions" id="chipContainer"></div>
+        <p class="chat-disclaimer">⚠ AI dapat membuat kesalahan. Selalu verifikasi informasi penting.</p>
+    `;
+    // Bind each chip inside the closure so prompt is captured correctly
+    const chipContainer = div.querySelector('#chipContainer');
+    SUGGESTIONS.forEach(({ label, prompt }) => {
+        const btn = document.createElement('button');
+        btn.className = 'suggestion-btn';
+        btn.textContent = label;
+        btn.addEventListener('click', function () { sendMessage(prompt); });
+        chipContainer.appendChild(btn);
+    });
+    return div;
+}
+
+function showWelcome() {
+    viewport.innerHTML = '';
+    chatStarted = false;
+    viewport.appendChild(buildWelcome());
+}
+
+showWelcome(); // Initial state
+
+// ─── Utilities ────────────────────────────────
+function scrollBottom() {
+    viewport.scrollTop = viewport.scrollHeight;
+}
+
+function dismissWelcome() {
+    if (!chatStarted) {
+        const w = document.getElementById('chatWelcome');
+        if (w) { w.style.opacity = '0'; w.style.transition = 'opacity 0.2s'; setTimeout(() => w.remove(), 200); }
+        chatStarted = true;
+    }
+}
+
+function appendMsg(role, html) {
+    dismissWelcome();
+    const wrap = document.createElement('div');
+    wrap.className = `message ${role === 'user' ? 'user-msg' : 'ai-msg'}`;
+    if (role === 'ai') {
+        wrap.innerHTML = `<img src="${AMMO_AVATAR}" class="msg-avatar-img" alt="Ammo"><div class="msg-bubble">${html}</div>`;
+    } else {
+        wrap.innerHTML = `<div class="msg-bubble">${html}</div><div class="msg-avatar-u">U</div>`;
+    }
+    viewport.appendChild(wrap);
+    scrollBottom();
+}
+
+function appendLoading() {
+    dismissWelcome();
+    const wrap = document.createElement('div');
+    wrap.className = 'message ai-msg';
+    wrap.id = 'loadingMsg';
+    wrap.innerHTML = `
+        <img src="${AMMO_AVATAR}" class="msg-avatar-img" alt="Ammo">
+        <div class="msg-bubble" style="opacity:0.5;font-style:italic;display:flex;align-items:center;gap:8px;">
+            Mengetik
+            <span style="display:inline-flex;gap:3px;align-items:center;">
+                <span style="animation:blink .9s infinite 0s;display:inline-block;width:4px;height:4px;border-radius:50%;background:#888;"></span>
+                <span style="animation:blink .9s infinite .22s;display:inline-block;width:4px;height:4px;border-radius:50%;background:#888;"></span>
+                <span style="animation:blink .9s infinite .44s;display:inline-block;width:4px;height:4px;border-radius:50%;background:#888;"></span>
+            </span>
+        </div>`;
+    viewport.appendChild(wrap);
+    scrollBottom();
+}
+
+function removeLoading() {
+    const el = document.getElementById('loadingMsg');
+    if (el) el.remove();
+}
+
+function setInputState(disabled) {
+    inputEl.disabled = disabled;
+    sendBtn.disabled = disabled;
+    if (!disabled) inputEl.focus();
+}
+
+// ─── Format Gemini markdown to HTML ───────────
+function formatResponse(text) {
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#b4ffb4">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\n\n/g, '</p><p style="margin-top:8px">')
+        .replace(/\n/g, '<br>');
+}
+
+// ─── Core send function ───────────────────────
+async function sendMessage(promptText) {
+    const text = (promptText !== undefined ? promptText : inputEl.value).trim();
+    if (!text) return;
+
+    inputEl.value = '';
+    appendMsg('user', text);
+    setInputState(true);
+    appendLoading();
+
+    try {
+        const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, history: convHistory })
+        });
+
+        const data = await res.json();
+        removeLoading();
+
+        if (!res.ok) throw new Error(data.error || `Server error ${res.status}`);
+
+        // Parse Gemini response
+        let displayHTML  = "Maaf, saya tidak bisa menjawab itu.";
+        let rawForMemory = "";
+
+        const candidate = data.candidates?.[0];
+        if (candidate?.content?.parts?.[0]?.text) {
+            rawForMemory = candidate.content.parts[0].text;
+            displayHTML  = formatResponse(rawForMemory);
+
+            // Show grounding badge if web search was used
+            if (candidate.groundingMetadata?.searchEntryPoint) {
+                displayHTML += `<span style="display:block;margin-top:8px;font-size:0.68rem;opacity:0.4;">🔍 Dari Google Search</span>`;
+            }
+        }
+
+        appendMsg('ai', displayHTML);
+
+        // Save turn to conversation memory
+        convHistory.push({ role: "user",  parts: [{ text }] });
+        convHistory.push({ role: "model", parts: [{ text: rawForMemory }] });
+
+        // Keep history bounded (last 20 turns = 10 exchanges)
+        if (convHistory.length > 20) convHistory = convHistory.slice(-20);
+
+    } catch (err) {
+        removeLoading();
+        appendMsg('ai', `⚠️ <em>${err.message}</em>`);
+    } finally {
+        setInputState(false);
+    }
+}
+
+// ─── Event listeners ──────────────────────────
+sendBtn.addEventListener('click', function () { sendMessage(); });
+inputEl.addEventListener('keypress', function (e) { if (e.key === 'Enter' && !e.shiftKey) sendMessage(); });
+
+clearBtn.addEventListener('click', function () {
+    convHistory = [];
+    showWelcome();
+});
+
+// ─── Auto-trigger dari Halaman Utama (index.html) ───────────
+window.addEventListener('DOMContentLoaded', () => {
+    // Membaca parameter dari URL (misal: ?q=Halo%20Ammo)
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+
+    if (initialQuery) {
+        // Bersihkan URL agar jika di-refresh, AI tidak membalas ulang pertanyaan yang sama
+        window.history.replaceState({}, document.title, window.location.pathname);
+        
+        // Isi input dan jalankan fungsi kirim
+        inputEl.value = initialQuery;
+        sendMessage();
+    }
+});
+
+</script>
+</body>
+</html>

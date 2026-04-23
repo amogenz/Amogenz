@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk — AMOGENZ</title>
+    <meta name="description" content="Produk dan platform yang dikembangkan oleh AMOGENZ.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="noise-overlay"></div>
+
+<!-- Topbar -->
+<header class="topbar">
+    <a href="index.html" class="topbar-brand">
+        <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
+        <span class="topbar-name"></span>
+    </a>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="https://i.ibb.co.com/Qvwp0rVV/amogenz.webp" alt="AMOGENZ" class="sidebar-avatar">
+        <div>
+            <div class="sidebar-title">AMOGENZ</div>
+            <div class="sidebar-sub">Spirit of Youth & Technology</div>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Jelajahi</div>
+        <a class="sidebar-link" href="index.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            Beranda
+        </a>
+        <a class="sidebar-link active" href="produk.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            Produk
+        </a>
+        <a class="sidebar-link" href="about.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+            Tentang Kami
+        </a>
+        <a class="sidebar-link" href="ai.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            Ammo AI
+        </a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section-label">Ikuti Kami</div>
+        <a class="sidebar-link" href="https://instagram.com/amogenz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Pusat
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://instagram.com/amooogang" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Media
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://blog.amogenz.xyz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Blog
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
+        <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Universe
+          <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+    </nav>
+    <div class="sidebar-footer">© 2026 AMOGENZ Inc.</div>
+</aside>
+
+<!-- Main -->
+<main class="main-content">
+<div class="page-wrap">
+
+    <div class="page-header">
+        <div class="page-eyebrow">Karya Kami</div>
+        <h1 class="page-title">Produk & Platform</h1>
+        <p class="page-subtitle">Platform yang lahir dari kebutuhan nyata dan semangat inovasi AMOGENZ.</p>
+    </div>
+
+    <div class="product-list">
+
+        <!-- Featured -->
+        <a href="https://Nahwu.amogenz.xyz/" target="_blank" class="product-card featured">
+            <div class="prod-icon">
+                <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="NahwuOS">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Edukasi Bahasa Arab</div>
+                <div class="prod-name">Nahwu OS</div>
+                <p class="prod-desc">platform berbasis web yang dirancang khusus untuk memfasilitasi pembelajaran dan praktik Ilmu Nahwu (tata bahasa Arab) secara interaktif.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://game-nahwu.amogenz.xyz/" target="_blank" class="product-card">
+            <div class="prod-icon">
+                <img src="https://img.icons8.com/fluency/48/controller.png" alt="Nahwu Game">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Game · Edukasi</div>
+                <div class="prod-name">Nahwu Game</div>
+                <p class="prod-desc">Cara Baru Belajar Nahwu & Shorof dengan mekanisme berbasis game  kartu interaktif.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" class="product-card">
+            <div class="prod-icon">
+                <img src="https://img.icons8.com/fluency/48/water.png" alt="KesanAMDK">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Web · Air Mineral</div>
+                <div class="prod-name">Air Kesan Langitan</div>
+                <p class="prod-desc">Produk air mineral berkualitas untuk kesehatan & keberkahan.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://telepati.amogenz.my.id/" target="_blank" class="product-card">
+            <div class="prod-icon">
+                <img src="https://i.ibb.co.com/5h4B8Bhq/Icon-web.jpg" alt="Telepati">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Privasi · Tools</div>
+                <div class="prod-name">Telepati</div>
+                <p class="prod-desc">Kirim file aman & anonim. Hancur otomatis dalam 7 menit.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://ammo.amogenz.my.id/" target="_blank" class="product-card">
+            <div class="prod-icon">
+                <img src="https://img.icons8.com/fluency/48/shield.png" alt="Ammo AI">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">AI · Fiqih</div>
+                <div class="prod-name">Ammo AI</div>
+                <p class="prod-desc">Database Kitab & Fiqih. Kolaborasi Santri & AI.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="http://t.me/iammo_bot" target="_blank" class="product-card">
+            <div class="prod-icon">
+                <img src="https://img.icons8.com/color/48/telegram-app.png" alt="Ammo Tele">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Chatbot</div>
+                <div class="prod-name">Ammo Tele</div>
+                <p class="prod-desc">Chatbot Telegram 24 jam. Cepat & hemat kuota.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+</main>
+
+<script src="sidebar.js"></script>
+</body>
+</html>

@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>AMOGENZ</title>
+ <title>AMOGENZ</title>
 
     <meta name="description" content="Official Website AMOGENZ. Komunitas anak muda yang berfokus pada pengembangan diri, belajar coding, dan karya kreatif. Rumah bagi proyek inovasi.">
      <meta name="keywords" content="Amogenz, Amogenz Inc, Organisasi Amogenz, Komunitas IT Indonesia, Belajar Web Development, Aksara Chat System, Ammo AI, Assistant AI, Pengembangan Diri, Komunitas Anak Muda, Web Design Portfolio, Teknologi Masa Depan, Organisasi, Pemuda, Komunitas Santri, Santri Indonesia, Pondok Pesantren, Anak Muda, Ai, Mojokerto, Teman, Komunitas, Dhemit ora nduulit, Setan ora doyan, Pemuda Bangsa, Kreatif, Qonaah">
     <meta name="author" content="Tim AMOGENZ">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.amogenz.my.id/">
+    <meta property="og:url" content="https://www.amogenz.xyz/">
     <meta property="og:title" content="AMOGENZ - Spirit of Youth & Technology">
     <meta property="og:description" content="Dhemit ora ndulit Setan ora doyan, Bergabunglah bersama kami di AMOGENZ. Wadah kreasi, teknologi, dan pengembangan diri.">
     <meta property="og:image" content="favicon.png">
@@ -24,388 +22,163 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-   
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Vercel Web Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
     <script defer src="/_vercel/insights/script.js"></script>
-    
-    </head>
+</head>
 <body>
 
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="noise-overlay"></div>
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="noise-overlay"></div>
 
-    <main class="app-container">
+<!-- Topbar -->
+<header class="topbar">
+    <a href="index.html" class="topbar-brand">
+        <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
+        <span class="topbar-name"></span>
+    </a>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
 
-        <section id="page-home" class="page-section active">
-    
-    <div class="profile-header glass-panel">
-    
-    <div class="header-banner">
-        <video class="banner-video" autoplay loop muted playsinline>
-            <source src="banner.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="profile-meta-row">
-        
-        <div class="avatar-container-sm">
-            <img src="https://i.ibb.co.com/Qvwp0rVV/amogenz.webp" alt="PP" class="avatar-img-sm">
-            <div class="status-indicator-sm"></div>
-        </div>
-
-        <div class="user-identity">
-            <div class="name-badge-row">
-                <h1 class="username-sm">AMOGENZ</h1>
-                <svg class="verified-badge-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.5213 2.62368C11.3147 1.75255 12.6853 1.75255 13.4787 2.62368L14.6565 3.9168C15.0116 4.30666 15.5222 4.51806 16.05 4.49313L17.8013 4.41041C18.9809 4.3547 19.9577 5.33149 19.902 6.51108L19.8193 8.26233C19.7943 8.79017 20.0057 9.3008 20.3956 9.65588L21.6887 10.8337C22.5598 11.6271 22.5598 12.9977 21.6887 13.7911L20.3956 14.969C20.0057 15.324 19.7943 15.8347 19.8193 16.3625L19.902 18.1138C19.9577 19.2933 18.9809 20.2701 17.8013 20.2144L16.05 20.1317C15.5222 20.1068 15.0116 20.3182 14.6565 20.708L13.4787 22.0012C12.6853 22.8723 11.3147 22.8723 10.5213 22.0012L9.3435 20.708C8.98843 20.3182 8.47779 20.1068 7.95001 20.1317L6.19875 20.2144C5.01916 20.2701 4.04236 19.2933 4.09807 18.1138L4.18079 16.3625C4.20572 15.8347 3.99432 15.324 3.60446 14.969L2.31133 13.7911C1.4402 12.9977 1.4402 11.6271 2.31133 10.8337L3.60446 9.65588C3.99432 9.3008 4.20572 8.79017 4.18079 8.26233L4.09807 6.51108C4.04236 5.33149 5.01916 4.3547 6.19875 4.41041L7.95001 4.49313C8.47779 4.51806 8.98843 4.30666 9.3435 3.9168L10.5213 2.62368Z" fill="#39FF14"/>
-                    <path d="M9 12L11 14L15 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-
-            <div class="stats-row-sm">
-                <span class="stat-pill">Est. 2021</span>
-                <span class="dot-separator">•</span>
-                <span class="stat-pill">5+ Projects</span>
-                <span class="dot-separator">•</span>
-                <span class="stat-pill">Mojokerto</span>
-            </div>
+<!-- Sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="https://i.ibb.co.com/Qvwp0rVV/amogenz.webp" alt="AMOGENZ" class="sidebar-avatar">
+        <div>
+            <div class="sidebar-title">AMOGENZ</div>
+            <div class="sidebar-sub">Spirit of Youth & Technology</div>
         </div>
     </div>
-
-    <div class="bio-container">
-        <div class="bio-quote">"Dhemit ora Ndulit Setan ora Doyan"</div>
-        
-                <div class="social-simple-row">
-            <a href="https://instagram.com/amooogang" target="_blank" class="btn-pill">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                Media
-            </a>
-         <a href="https://blog.amogenz.xyz" target="_blank" class="btn-pill">Blog</a>
-            <a href="https://instagram.com/amogenz" target="_blank" class="btn-pill outline">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                Pusat
-            </a>
-        </div>
-    </div>
-</div>
-
-  <div class="content-feed">
-    
-    <div class="glass-card quote-card">
-        <div class="card-label">MOTTO</div>
-        
-        <div class="arabic-box">
-            <p class="arabic-text">لن تركع امة قائدها سيدنا محمد</p>
-            <p class="translation">"Bangsa yang dipimpin oleh Nabi Muhammad Saw tidak akan pernah menyerah."</p>
-        </div>
-        
-        <hr class="divider-glass">
-        
-        <p class="javanese-quote">"Dhemit ora Ndulit, Setan ora Doyan"</p>
-        <p class="intro-desc">
-            Slogan dan jampi-jampi kebanggaan kami. Kami adalah komunitas anak muda yang berfokus pada pengembangan diri melalui belajar dan berkarya.
-        </p>
-    </div>
-    
-    <div class="visit-counter-card glass-card" style="margin-bottom: 20px; padding: 15px; border-left: 4px solid #39FF14; display: flex; align-items: center; gap: 15px;">
-    <div class="v-icon-container">
-        <img src="ammo.webp" alt="Ammo Icon" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.5));">
-    </div>
-    <div>
-        <div id="visit-count" style="font-size: 1.5rem; font-weight: bold; color: #39FF14; line-height: 1;">0</div>
-        <div style="font-size: 0.7rem; text-transform: uppercase; opacity: 0.6; letter-spacing: 1px;">Total Kunjungan</div>
-    </div>
-</div>
-
-    <div class="glass-card history-card">
-        <div class="card-label">STORY</div>
-        <h3>Biografi AMOGENZ</h3>
-        
-        <div class="text-content">
-            <p>
-                <strong>Visi Awal:</strong> Berawal dari mimpi seorang pemuda yang terinspirasi oleh kisah pendiri raksasa teknologi (Google, Facebook, Apple). Ia memiliki keinginan kuat membangun wadah bagi mereka yang punya visi sama.
-            </p>
-            <p>
-                <strong>Era "TheFriends":</strong> Awalnya, komunitas ini bernama <em>TheFriends</em>. Tempat berkumpul, berbagi cerita, dan bertukar ide. Melalui diskusi semangat, mereka sadar punya potensi besar.
-            </p>
-            
-            <div class="fun-fact-box">
-                <strong>🤣 Alasan Ganti Nama:</strong> 
-                Nama "TheFriends" dirasa terlalu pasaran. Mencari nama baru itu sulit! Sempat tanya AI tapi buntu. Kami bahkan sempat jadi organisasi <em>"Tanpa Nama"</em> selama seminggu. 
-                <br><br>
-                Akhirnya pada 12 Januari muncul ide "Amogen" yang dimodifikasi menjadi <strong>AMOGENZ</strong>. Akhirnya kami menemukan jati diri!
-            </div>
-
-            <p>
-                <strong>Kelahiran Resmi:</strong><br>
-                AMOGENZ resmi berdiri pada <strong>12 Rabiul Awal 1443 H (19 Oktober 2021)</strong>. Tanggal ini dipilih sebagai simbol doa dan harapan.
-            </p>
-            <p>
-                Kini, AMOGENZ bukan sekadar komunitas, tapi keluarga besar yang siap mendukung, berinovasi, dan melangkah maju bersama.
-            </p>
-        </div>
-    </div>
-
-    <div class="glass-card logo-card">
-        <div class="card-label">IDENTITY</div>
-        <h3>Filosofi Logo</h3>
-        <p class="logo-intro">Logo terdiri dari dua elemen utama: Burung Hantu Hijau & Teks.</p>
-        
-        <ul class="logo-details-list">
-            <li>
-                <div class="icon-bullet">🦉</div>
-                <div>
-                    <strong>Burung Hantu Hijau</strong>
-                    <p>Maskot utama. Melambangkan kebijaksanaan, misteri, dan pengetahuan.</p>
-                </div>
-            </li>
-            <li>
-                <div class="icon-bullet">🔠</div>
-                <div>
-                    <strong>Teks Kapital Tebal</strong>
-                    <p>Memberikan kesan modern, kuat, menonjol, dan penuh kepercayaan diri.</p>
-                </div>
-            </li>
-            <li>
-                <div class="icon-bullet">📅</div>
-                <div>
-                    <strong>12 Rabiul Awal 1443 H</strong>
-                    <p>Koneksi dan penghormatan terhadap budaya serta tradisi Islam.</p>
-                </div>
-            </li>
-            <li>
-                <div class="icon-bullet">🎨</div>
-                <div>
-                    <strong>Hijau Neon & Hitam</strong>
-                    <p>Kontras tinggi. Melambangkan cahaya visi di tengah kegelapan.</p>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="brand-assets-section">
-        <div class="asset-card-wrapper">
-            <div class="asset-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            </div>
-            <div class="asset-info">
-                <h4>Brand Assets</h4>
-                <p>Download Logo High-Res</p>
-            </div>
-            <a href="https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1" target="_blank" class="btn-download">UNDUH</a>
-        </div>
-    </div>
-
-    <div style="height: 120px;"></div>
-</div>
-
-    
-</section>
-
-<section id="page-projects" class="page-section hidden">
-    <div class="meta-style-container">
-        <div class="meta-header">
-            <span class="meta-label">ALSO FROM OUR ECOSYSTEM</span>
-            <h2 class="meta-title">The Digital Universe</h2>
-        </div>
-
-        <div class="meta-grid">
-            <a href="https://universe.amogenz.xyz" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-aksara">
-                    <img src="https://img.icons8.com/fluency/48/hub.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Amogenz Universe</h4>
-                    <p>rumah bagi kata dan ide kalian semua(berbasis medsos).</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://blog.amogenz.xyz" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-telepati">
-                    <img src="https://img.icons8.com/fluency/48/news.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Amogenz Blog</h4>
-                    <p>Wadah literasi, berita terbaru, dan insight teknologi.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-telepati">
-                    <img src="https://img.icons8.com/fluency/48/water.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Air Kesan Langitan</h4>
-                    <p>Produk air mineral berkualitas untuk kesehatan & keberkahan.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://game-nahwu.amogenz.xyz/" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-mqsd">
-                    <img src="https://img.icons8.com/fluency/48/controller.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Nahwu Game</h4>
-                    <p>Game  Nahwu & Shorof ala Santri dengan tema kartu.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://nahwu.amogenz.my.id/" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-mqsd">
-                    <img src="https://img.icons8.com/fluency/48/internet.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Nahwu OS</h4>
-                    <p>Sistem edukasi Nahwu & syarah lafadz bertenaga AI.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://telepati.amogenz.my.id/" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-telepati">
-                    <img src="https://img.icons8.com/fluency/48/artificial-intelligence.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Telepati</h4>
-                    <p>Kirim file aman & anonim. Hancur otomatis dalam 7 menit.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="https://ammo.amogenz.my.id/" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-ammo">
-                    <img src="https://img.icons8.com/fluency/48/shield.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Ammo AI</h4>
-                    <p>Database Kitab & Fiqih. Kolaborasi Santri & AI.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-
-            <a href="http://t.me/iammo_bot" target="_blank" class="meta-item">
-                <div class="meta-icon-wrapper theme-telegram">
-                    <img src="https://img.icons8.com/color/48/telegram-app.png" alt="icon">
-                </div>
-                <div class="meta-text">
-                    <h4>Ammo Tele</h4>
-                    <p>Chatbot Telegram 24 Jam. Cepat & Hemat.</p>
-                </div>
-                <div class="meta-arrow">→</div>
-            </a>
-        </div>
-
-        <div class="meta-footer">
-            <p>© 2026 AMOGENZ Inc. </p>
-        </div>
-    </div>
-</section>
-
-        <section id="page-ai" class="page-section hidden">
-            <div class="ai-container-full">
-                
-                <div class="ai-top-bar">
-                    <div class="ai-status">
-                        <span class="dot-online"></span>
-                        <span>AMMO INTELLIGENCE</span>
-                    </div>
-                    <div class="ai-model-badge">Model Gemini</div>
-                </div>
-
-                <div id="chat-history" class="chat-viewport">
-                    <div class="message ai-msg">
-    <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" class="msg-avatar-img" alt="Ammo AI">
-    
-    <div class="msg-bubble">
-        Halo! Gue Ammo, Ai dari Amogenz yang sudah di latih dengan database internal dan juga data internet. Anda bisa bertanya soal Amogenz secara detail, atau apa saja ? <strong>Ai bisa membuat kesalahan, Cek ulang jawabannya !</strong>
-    </div>
-</div>
-
-                </div>
-
-                <div class="chat-input-wrapper">
-                    <input type="text" id="user-input" placeholder="Tanya sesuatu..." autocomplete="off">
-                    <button id="send-btn" class="send-btn-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-
-<section id="page-comments" class="page-section hidden">
-    <h2 class="section-title">FEEDBACK <span class="highlight">ZONE</span></h2>
-    
-    <div class="glass-panel comment-form-box">
-        <h3>Kirim Masukan</h3>
-        <p class="comment-desc">Bantu kami mengembangkan Amogenz lebih jauh.</p>
-        
-        <form id="comment-form">
-            <input type="text" class="input-glass" placeholder="Nama / Samaran" required>
-            <textarea class="input-glass area" placeholder="Tulis pesan atau saran..." required></textarea>
-            <button type="submit" class="btn-profile primary full-width">Kirim Komentar</button>
-        </form>
-    </div>
-
-    <div class="comments-list">
-        </div>
-</section>
-
-
-    </main>
-
-    <nav class="glass-nav">
-        <ul class="nav-list">
-            <li class="nav-item active" data-target="page-home">
-    <div class="nav-icon">
-        <img src="logo.svg" alt="Home" class="nav-logo-original">
-    </div>
-    <span class="nav-label">Home</span>
-</li>
-
-            <li class="nav-item" data-target="page-projects">
-                <div class="nav-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                </div>
-                <span class="nav-label">Projects</span>
-            </li>
-          <li class="nav-item nav-external">
-            <a href="https://universe.amogenz.my.id" target="_blank" class="nav-icon-link">
-                <img src="amogenz.svg" alt="Universe" class="nav-logo-center">
-            </a>
-        </li>
-            <li class="nav-item" data-target="page-ai">
-                <div class="nav-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                </div>
-                <span class="nav-label">AI Chat</span>
-            </li>
-            <li class="nav-item" data-target="page-comments">
-                <div class="nav-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                </div>
-                <span class="nav-label">Saran</span>
-            </li>
-        </ul>
+    <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Jelajahi</div>
+        <a class="sidebar-link active" href="index.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            Beranda
+        </a>
+        <a class="sidebar-link" href="produk.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            Produk
+        </a>
+        <a class="sidebar-link" href="about.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+            Tentang Kami
+        </a>
+        <a class="sidebar-link" href="ai.html">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            Ammo AI
+        </a>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section-label">Ikuti Kami</div>
+        <a class="sidebar-link" href="https://instagram.com/amogenz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Pusat
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://instagram.com/amooogang" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            Instagram Media
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://blog.amogenz.xyz" target="_blank">
+            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Blog
+            <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
+        <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+            Universe
+          <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
     </nav>
+    <div class="sidebar-footer">© 2026 AMOGENZ Inc.</div>
+</aside>
 
-    <script type="module" src="script.js"></script>
+<!-- Main -->
+<main class="main-content">
+<div class="page-wrap">
 
+    <div class="hero">
+        <div class="hero-badge">Est. 2021 · Mojokerto</div>
+        <h1 class="hero-title">Komunitas <span class="hero-accent">Anak Muda</span><br>yang Berkarya</h1>
+        <p class="hero-desc">AMOGENZ adalah wadah bagi mereka yang percaya bahwa ilmu, kreativitas, dan teknologi bisa berjalan beriringan.</p>
+        <div class="hero-cta">
+            <a href="about.html" class="btn-primary">Tentang Kami</a>
+            <a href="ai.html" class="btn-ghost">Tanya Ammo AI →</a>
+        </div>
+    </div>
+
+    <div class="home-section">
+        <div class="home-tag">Story</div>
+        <h2 class="home-heading">Dari mimpi, menjadi usaha nyata.</h2>
+        <p class="home-text">Berawal dari sebuah grup kecil yang terinspirasi oleh kisah para pendiri raksasa teknologi, AMOGENZ resmi lahir pada <strong>12 Rabi'ul Awwal / 19 Oktober 2021</strong>. Dari nama "TheFriends" hingga AMOGENZ — sebuah perjalanan menemukan jati diri.</p>
+        <a href="about.html" class="home-link">Baca selengkapnya →</a>
+    </div>
+
+    <div class="ai-cta">
+        <div class="ai-cta-top" style="margin-bottom: 12px;">
+            <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="Ammo" class="ai-cta-avatar">
+            <div>
+                <div class="ai-cta-tag">Ammo AI</div>
+                <div class="ai-cta-title">Tanya Ammo sekarang</div>
+                <p class="ai-cta-desc">Ammo sudah dilatih dengan data AMOGENZ dan internet.</p>
+            </div>
+        </div>
+
+        <div class="chat-suggestions" style="justify-content: flex-start; margin-bottom: 0;">
+            <button class="suggestion-btn home-sug-btn" data-prompt="Apa itu AMOGENZ?">Apa itu AMOGENZ?</button>
+            <button class="suggestion-btn home-sug-btn" data-prompt="Bagaimana sejarah berdirinya AMOGENZ?">Sejarah AMOGENZ</button>
+            <button class="suggestion-btn home-sug-btn" data-prompt="Produk apa saja yang dimiliki AMOGENZ?">Produk AMOGENZ</button><button class="suggestion-btn home-sug-btn" data-prompt="Apa saja desain dan aset yang ada di AMOGENZ?">aset logo AMOGENZ"</button>
+        </div>
+        <div class="chat-input-box" style="margin-bottom: 12px;">
+            <input type="text" id="homeAiInput" placeholder="Ketik pertanyaanmu di sini..." autocomplete="off">
+            <button id="homeAiSend" class="chat-send-btn" aria-label="Kirim">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeInput = document.getElementById('homeAiInput');
+            const homeSendBtn = document.getElementById('homeAiSend');
+            const sugBtns = document.querySelectorAll('.home-sug-btn');
+
+            // Fungsi untuk pindah halaman dengan membawa pesan
+            function triggerAiRedirect(text) {
+                const query = text.trim();
+                if (!query) return;
+                // Encode URL agar karakter spasi dan simbol aman dikirim via URL
+                window.location.href = 'ai.html?q=' + encodeURIComponent(query);
+            }
+
+            // Event listener untuk tombol kirim
+            homeSendBtn.addEventListener('click', () => triggerAiRedirect(homeInput.value));
+            
+            // Event listener untuk enter di keyboard
+            homeInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') triggerAiRedirect(homeInput.value);
+            });
+
+            // Event listener untuk suggestion buttons
+            sugBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const prompt = this.getAttribute('data-prompt');
+                    triggerAiRedirect(prompt);
+                });
+            });
+        });
+    </script>
+
+</div>
+</main>
+
+<script src="sidebar.js"></script>
 </body>
 </html>
