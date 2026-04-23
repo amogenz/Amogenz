@@ -243,23 +243,27 @@ function setInputState(disabled) {
 
 // ─── Format Gemini markdown to HTML (VERSI UPDATE) ───────────
 function formatResponse(text) {
-    // Regex untuk mendeteksi link (http/https)
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    // 1. Bersihkan Backticks (`) yang sering digunakan AI untuk membungkus link
+    // Kita hapus dulu backtick-nya agar tidak ikut masuk ke dalam URL
+    let cleanedText = text.replace(/`([^`]+)`/g, '$1');
 
-    return text
-        // 1. Ubah URL menjadi link yang bisa diklik
+    // 2. Regex URL yang lebih ketat agar tidak mengambil tanda baca di akhir kalimat
+    // Pola ini berhenti sebelum spasi, titik, koma, atau tanda baca penutup lainnya.
+    const urlRegex = /(https?:\/\/[^\s<]+[^.,\s<>{}!\[\]\x22\x27\x60])/g;
+
+    return cleanedText
+        // Ubah URL menjadi link yang bisa diklik
         .replace(urlRegex, (url) => {
             return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
         })
-        // 2. Format Bold (Markdown **)
+        // Format Bold (**)
         .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#b4ffb4">$1</strong>')
-        // 3. Format Italic (Markdown *)
+        // Format Italic (*)
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        // 4. Handle baris baru
+        // Format Baris Baru
         .replace(/\n\n/g, '</p><p style="margin-top:8px">')
         .replace(/\n/g, '<br>');
 }
-
 
 // ─── Core send function ───────────────────────
 async function sendMessage(promptText) {
