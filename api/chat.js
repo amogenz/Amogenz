@@ -110,6 +110,9 @@ Nahwu Game (Nahwu Card: Master I'rob) =
 https://game-nahwu.amogenz.xyz 
 (Cara baru belajar Nahwu & Shorof dengan pendekatan game berbasis kartu interaktif.)
 
+Game Tajwid = https://tajwid.amogenz.xyz/
+(Game kuis tajwid berbasis AI untuk belajar ilmu tajwid Al-Qur'an secara interaktif. Latihan hukum bacaan, makhraj huruf, dan analisis lafadz dengan sistem skor & level. Gratis, tanpa login!)
+
 logo & design = 
 https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
 
