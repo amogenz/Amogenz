@@ -250,7 +250,18 @@ img { display:block; max-width:100%; }
 .ai-cta-tag { font-size:0.65rem; font-weight:700; letter-spacing:1.5px; color:var(--primary); text-transform:uppercase; margin-bottom:3px; }
 .ai-cta-title { font-family:var(--font-ui); font-size:0.95rem; font-weight:700; color:#e0e0e0; margin-bottom:5px; }
 .ai-cta-desc { font-size:0.83rem; color:var(--text-muted); line-height:1.55; }
-
+/* ── App Store Cards ── */
+.app-list { display:flex; flex-direction:column; gap:8px; }
+.app-card { display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:10px; background:var(--bg-card); border:1px solid var(--border); }
+.app-icon { width:52px; height:52px; border-radius:12px; object-fit:cover; flex-shrink:0; border:1px solid var(--border); }
+.app-info { flex:1; min-width:0; }
+.app-name { font-family:var(--font-ui); font-size:0.9rem; font-weight:700; color:#e8e8e8; }
+.app-dev { font-size:0.75rem; color:var(--text-muted); margin-top:1px; }
+.app-rating { display:flex; align-items:center; gap:5px; margin-top:4px; }
+.app-stars { font-size:0.7rem; color:#f5a623; letter-spacing:1px; }
+.app-rating-val { font-size:0.72rem; color:var(--text-muted); }
+.app-install-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:8px; background:var(--primary); color:#000; font-family:var(--font-ui); font-size:0.78rem; font-weight:700; white-space:nowrap; transition:all 0.18s; flex-shrink:0; }
+.app-install-btn:hover { transform:translateY(-1px); box-shadow:0 4px 16px var(--primary-glow); }
 /* Responsive */
 @media (max-width:600px) {
     html { font-size:15px; }
