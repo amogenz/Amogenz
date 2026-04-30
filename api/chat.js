@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
 
   // ─── CORS Headers — wajib agar bisa diakses dari localhost & WebView ───
   res.setHeader('Access-Control-Allow-Origin', '*');
