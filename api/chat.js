@@ -1,16 +1,27 @@
 export default async function handler(req, res) {
-  // Cek metode request
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // 1. TERIMA DATA DARI FRONTEND
-  // Di sini kita ambil 'message' (pesan baru) DAN 'history' (ingatan lama)
-  
+  // ─── CORS Headers — wajib agar bisa diakses dari localhost & WebView ───
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Accept');
+
+  // Preflight request (browser kirim OPTIONS duluan sebelum POST)
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
+  // Hanya terima POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // ─── Terima data dari frontend ───
   const { message, history = [] } = req.body;
-
   if (!message) return res.status(400).json({ error: 'Pesan kosong' });
 
   const apiKey = process.env.GOOGLE_API_KEY;
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
 
   // 2. DATABASE & PERSONA (Rahasia di Server)
   const amogenzKnowledge = `
@@ -56,7 +67,7 @@ Alasan Pergantian Nama
 
 
 
-Nah, di sinilah letak humornya! Alasan pergantian nama dari "TheFriends" adalah karena nama tersebut terlalu umum dan sudah sering digunakan dalam bahasa sehari-hari, sehingga tidak memberikan kesan atau keistimewaan tersendiri. Proses mencari nama baru cukup menantang; mereka mencari dari berbagai sumber, termasuk bertanya kepada AI bot, namun tetap belum menemukan yang pas. Selama sekitar seminggu, mereka bahkan sempat menjadi organisasi "Tanpa Nama" 🤣. Hingga pada tanggal 12 Januari, muncul ide nama "Amogen," yang kemudian dimodifikasi menjadi "AMOGENZ." Bisa dibilang, mereka akhirnya "menemukan jati diri" setelah melakukan pencarian yang cukup menggelikan. Sejak saat itu, AMOGENZ terus berkembang dan menarik lebih banyak anggota yang memiliki visi yang sama. Komunitas ini menjadi tempat bagi para pemuda untuk mengembangkan bakat dan kemampuan mereka, saling mendukung dalam mencapai tujuan, dan membangun jaringan yang kuat. Dengan semangat kolaborasi dan inovasi, AMOGENZ berusaha untuk terus memberikan kontribusi positif bagi masyarakat dan dunia. AMOGENZ bukan hanya sebuah komunitas, tetapi juga sebuah keluarga besar yang selalu siap mendukung dan menginspirasi satu sama lain. Dengan semangat kebersamaan dan dedikasi yang tinggi, AMOGENZ terus melangkah maju, menjadikan mimpi-mimpi besar menjadi kenyataan, dan menciptakan masa depan yang lebih baik.
+Nah, di sinilah letak humornya! Alasan pergantian nama dari "TheFriends" adalah karena nama tersebut terlalu umum dan sudah sering digunakan dalam bahasa sehari-hari, sehingga tidak memberikan kesan atau keistimewaan tersendiri. Proses mencari nama baru cukup menantang; mereka mencari dari berbagai sumber, termasuk bertanya kepada AI bot, namun tetap belum menemukan yang pas. Selama sekitar seminggu, mereka bahkan sempat menjadi organisasi "Tanpa Nama". Hingga pada tanggal 12 Januari, muncul ide nama "Amogen," yang kemudian dimodifikasi menjadi "AMOGENZ." Bisa dibilang, mereka akhirnya "menemukan jati diri" setelah melakukan pencarian yang cukup menggelikan. Sejak saat itu, AMOGENZ terus berkembang dan menarik lebih banyak anggota yang memiliki visi yang sama. Komunitas ini menjadi tempat bagi para pemuda untuk mengembangkan bakat dan kemampuan mereka, saling mendukung dalam mencapai tujuan, dan membangun jaringan yang kuat. Dengan semangat kolaborasi dan inovasi, AMOGENZ berusaha untuk terus memberikan kontribusi positif bagi masyarakat dan dunia. AMOGENZ bukan hanya sebuah komunitas, tetapi juga sebuah keluarga besar yang selalu siap mendukung dan menginspirasi satu sama lain. Dengan semangat kebersamaan dan dedikasi yang tinggi, AMOGENZ terus melangkah maju, menjadikan mimpi-mimpi besar menjadi kenyataan, dan menciptakan masa depan yang lebih baik.
 
 
 
@@ -78,6 +89,9 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
+Amogenz telah memiliki domain ke 2 sebagai layananya. Yaitu domain .xyz (berlaku untuk semua layanan yang aktif) Jelasin dengan detail hal ini ke setiap user !!!
+
+
 amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data mengenai organisasi Amogenz)
 
 Amogenz Universe =
@@ -89,6 +103,10 @@ telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File
 
 Nahwu OS = https://nahwu.amogenz.my.id (Belajar Nahwu dengan otomatisai bertenaga Ai, kolaborasi dengan para santri)
 
+Blog Amogenz =
+https://blog.amogenz.my.id 
+(layana sharing tulisan atau blog sederhana dan simpel, tanpa login. kamu cukup beri judul kemudian curahkan yang ada di kepala atau hati, lantas posting. maka tulisanmu akan mengudara di internet.)
+
 Game = https://majong.amogemz.my.id (Proyek game sederhan dari Amogemz)
 
 web MQSD (Di hentikan 7 januari 2026) = https://mqsd.amogenz.my.id/ (Prototype Aplikasi berbasis chat, Gabung, Kasih saran, Masukan, Serta Request Fitur) 
@@ -99,7 +117,16 @@ web aksara (di hentikan 7 januari 2026) = https://aksara.amogenz.my.id/
 
 ammo ai telegram = http://t.me/iammo_bot
 
-logo&design = 
+Nahwu Game (Nahwu Card: Master I'rob) =
+https://game-nahwu.amogenz.xyz 
+(Cara baru belajar Nahwu & Shorof dengan pendekatan game berbasis kartu interaktif.)
+
+Game Tajwid = https://tajwid.amogenz.xyz/
+(Game kuis tajwid berbasis AI untuk belajar ilmu tajwid Al-Qur'an secara interaktif. Latihan hukum bacaan, makhraj huruf, dan analisis lafadz dengan sistem skor & level. Gratis, tanpa login!)
+
+info lebih lanjut soal produk Amogenz bisa di cek di https://amogenz.xyz/produk.html
+
+logo & design = 
 https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
 
 
@@ -111,7 +138,7 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
   // Di sinilah kamu menaruh prompt Toxic/Kasar yang panjang tadi
   
   const systemPrompt = `
-    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul ngegas . Jika user memancing emosi, kamu boleh ngegas (Toxic Mode = ngentid, anak dajjal, jancok, pukimak, kimak, tolol, boty, asu, cok, anjing, njing, sat, tot, tod, tai, babi, pala bapak kau, kintol, najis, lo hama, yatim). Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
+    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
 
     [Data] ${amogenzKnowledge}
     [User Bertanya] "${message}"
