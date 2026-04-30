@@ -1,18 +1,34 @@
+// ─────────────────────────────────────────────
+// AMMO AI — api/chat.js
+// Vercel Serverless Function (Node.js runtime)
+// Support: Web, Localhost, WebView/APK via CORS
+// ─────────────────────────────────────────────
+
 export default async function handler(req, res) {
-  // Cek metode request
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // 1. TERIMA DATA DARI FRONTEND
-  // Di sini kita ambil 'message' (pesan baru) DAN 'history' (ingatan lama)
-  
+  // ─── CORS Headers — wajib agar bisa diakses dari localhost & WebView ───
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Accept');
+
+  // Preflight request (browser kirim OPTIONS duluan sebelum POST)
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
+  // Hanya terima POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // ─── Terima data dari frontend ───
   const { message, history = [] } = req.body;
-
   if (!message) return res.status(400).json({ error: 'Pesan kosong' });
 
   const apiKey = process.env.GOOGLE_API_KEY;
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
-  // 2. DATABASE & PERSONA (Rahasia di Server)
+  // ─── Database & Persona (aman di server, tidak kelihatan user) ───
   const amogenzKnowledge = `
  [DATABASE AMOGENZ]
     Nama: AMOGENZ (Amogens).
@@ -20,141 +36,81 @@ export default async function handler(req, res) {
     Tanggal berdirinya Organisasi: 19 oktober 2021 (12 Rabiul Awal 1443 H).
     Slogan: "Dhemit ora Ndulit Setan ora Doyan".
     Maskot: Burung Hantu Hijau bernama ammo.
-    Proyek: Aksara Chat, Ammo AI, Telepati, MQSD (Prototype Aplikasi Chat),  dan banyak lagi insyaallah
-    
+    Proyek: Aksara Chat, Ammo AI, Telepati, MQSD (Prototype Aplikasi Chat), dan banyak lagi insyaallah
+
 لن تركع امة قائدها سيدنا محمد 
-
 "Bangsa yang dipimpin oleh Nabi Muhammad Saw tidak akan pernah menyerah."
-
-
 
 "Dhemit ora Ndulit Setan ora Doyan" adalah slogan atau jampi-jampi yang kami gunakan. Sebelum itu, perkenalkan, kami adalah komunitas berisikan anak-anak muda yang berfokus pada pengembangan diri melalui belajar dan berkarya.
 
-
-
 Biografi AMOGENZ 
-
-
 
 AMOGENZ adalah sebuah komunitas inspiratif yang berawal dari mimpi seorang pemuda dengan semangat dan visi besar. Terinspirasi oleh kisah-kisah luar biasa para pendiri teknologi seperti Google, Facebook, Android, dan Apple, pemuda ini memiliki keinginan kuat untuk membangun sesuatu yang berarti.
 
-
-
 Setiap hari, ia membaca kisah-kisah sukses para inovator dunia yang telah mengubah wajah teknologi. Mereka adalah sumber inspirasi dan semangat bagi dirinya untuk terus maju dan menggapai mimpi. Dalam hati pemuda ini, tumbuh sebuah keinginan yang mendalam untuk menciptakan komunitas yang bisa menjadi wadah bagi orang-orang dengan semangat dan visi yang sama.
-
-
 
 Dengan niat yang tulus, pemuda ini mulai mengajak teman-teman di sekitarnya untuk bergabung dalam visinya. Mereka berkumpul, berbagi cerita, dan bertukar ide. Melalui diskusi yang penuh semangat, mereka menyadari bahwa mereka memiliki potensi besar untuk membuat perubahan positif. Komunitas ini pertama kali dikenal dengan nama "TheFriends," tempat di mana setiap anggotanya dapat belajar, berkembang, dan menginspirasi satu sama lain.
 
-
-
-Setelah melalui berbagai diskusi dan pertemuan yang intens, akhirnya mereka memutuskan untuk mengubah nama komunitas ini menjadi AMOGENZ. Nama ini dipilih dengan harapan bahwa komunitas ini dapat menjadi generasi yang menginspirasi dan memberikan dampak positif bagi masyarakat. Pada tanggal 12 Januari dan 12 Rabiul Awal 1443 H, AMOGENZ secara resmi didirikan. Tanggal ini dipilih bukan hanya sebagai penanda sejarah, tetapi juga sebagai simbol harapan dan doa bagi kemajuan komunitas ini di masa depan.
-
-
-
-Alasan Pergantian Nama 
-
-
-
-Nah, di sinilah letak humornya! Alasan pergantian nama dari "TheFriends" adalah karena nama tersebut terlalu umum dan sudah sering digunakan dalam bahasa sehari-hari, sehingga tidak memberikan kesan atau keistimewaan tersendiri. Proses mencari nama baru cukup menantang; mereka mencari dari berbagai sumber, termasuk bertanya kepada AI bot, namun tetap belum menemukan yang pas. Selama sekitar seminggu, mereka bahkan sempat menjadi organisasi "Tanpa Nama". Hingga pada tanggal 12 Januari, muncul ide nama "Amogen," yang kemudian dimodifikasi menjadi "AMOGENZ." Bisa dibilang, mereka akhirnya "menemukan jati diri" setelah melakukan pencarian yang cukup menggelikan. Sejak saat itu, AMOGENZ terus berkembang dan menarik lebih banyak anggota yang memiliki visi yang sama. Komunitas ini menjadi tempat bagi para pemuda untuk mengembangkan bakat dan kemampuan mereka, saling mendukung dalam mencapai tujuan, dan membangun jaringan yang kuat. Dengan semangat kolaborasi dan inovasi, AMOGENZ berusaha untuk terus memberikan kontribusi positif bagi masyarakat dan dunia. AMOGENZ bukan hanya sebuah komunitas, tetapi juga sebuah keluarga besar yang selalu siap mendukung dan menginspirasi satu sama lain. Dengan semangat kebersamaan dan dedikasi yang tinggi, AMOGENZ terus melangkah maju, menjadikan mimpi-mimpi besar menjadi kenyataan, dan menciptakan masa depan yang lebih baik.
-
-
+Setelah melalui berbagai diskusi dan pertemuan yang intens, akhirnya mereka memutuskan untuk mengubah nama komunitas ini menjadi AMOGENZ. Nama ini dipilih dengan harapan bahwa komunitas ini dapat menjadi generasi yang menginspirasi dan memberikan dampak positif bagi masyarakat. Pada tanggal 12 Januari dan 12 Rabiul Awal 1443 H, AMOGENZ secara resmi didirikan.
 
 Logo AMOGENZ
-
-
-
-1. Logo: Logo ini terdiri dari dua elemen utama: sebuah ilustrasi burung hantu hijau dan teks.
-
-2. Burung hantu hijau: Maskot atau simbol untuk AMOGENZ. Burung hantu sering kali dikaitkan dengan kebijaksanaan, misteri, atau pengetahuan, yang mencerminkan nilai atau tema yang diinginkan oleh organisasi ini.
-
-3. Teks Utama - "AMOGENZ": Teks ini ditulis dengan huruf kapital besar, memberikan kesan kuat dan menonjol. Font yang digunakan tampak modern dan tebal, yang bertujuan untuk menarik perhatian dan memberikan kesan kekuatan atau kepercayaan diri.
-
-4. Teks Tambahan - "12.Rbal.1443.H / 19 Oktober 2021 M": Ini adalah tanggal berdirinya AMOGENZ. "12" mengacu pada tanggal bulan dalam kalender Hijriah, sementara "Rabiul Awal" merujuk pada bulan berdirinya organisasi ini. "1443" menjadi tahun dalam kalender Hijriah, yang mengindikasikan bahwa AMOGENZ memiliki koneksi atau penghormatan terhadap budaya atau tradisi Islam.
-
-5. Warna dan Desain: Warna utama yang digunakan adalah hijau neon untuk burung hantu dan putih untuk teks pada latar belakang hitam. Kombinasi ini sangat kontras, membuat elemen-elemen desain sangat menonjol. Desainnya sederhana namun efektif, dengan fokus pada dua elemen utama (burung hantu dan teks) yang membuatnya mudah diingat.
-
-6. Makna atau Tujuan: Berdasarkan elemen-elemen yang ada, AMOGENZ merupakan organisasi, perusahaan, atau komunitas yang memiliki fokus pada pengetahuan, teknologi, atau budaya dengan sentuhan modern dan internasional. Penggunaan kalender Hijriah menunjukkan bahwa mereka mungkin ingin menghormati atau mengintegrasikan aspek-aspek dari budaya Islam ke dalam identitas mereka.
+1. Logo terdiri dari dua elemen utama: ilustrasi burung hantu hijau dan teks.
+2. Burung hantu hijau: Maskot AMOGENZ, melambangkan kebijaksanaan dan pengetahuan.
+3. Teks "AMOGENZ": huruf kapital besar, font modern dan tebal.
+4. Teks tanggal: "12.Rbal.1443.H / 19 Oktober 2021 M" — tanggal berdiri.
+5. Warna: hijau neon untuk burung hantu, putih untuk teks di latar hitam.
 
 Kenali kami lebih lanjut di sini:
 
-Amogenz telah memiliki domain ke 2 sebagai layananya. Yaitu domain .xyz (berlaku untuk semua layanan yang aktif) Jelasin dengan detail hal ini ke setiap user !!!
-
-
-amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data mengenai organisasi Amogenz)
-
-Amogenz Universe =
-https://universe.amogenz.my.id/ (media sosial dari Amogenz, kamu bisa uploud kata kata, gambar, berkomentar, chatting, dll. pstt sedikit rahasia kecil, kamu bisa minta centang biru loh, wkwkwk. coba aja siapa tau di acc admin kan ?!,dan kamu juga bisa akses Amogenz Universe melalui tombol navigasi di web web official Amogenz (https://amogenz.my.id), di buka untuk umum pada 17 januari 2026)
-
-ammo ai = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
-
-telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File hancur otomatis. Aman & Anonim, kirim file, share file aman, layanan tranfer file dari Amogenz, tanpa perlu unduh aplikasi, kamu hanya perlu buka webnya, pilih file, secara otomatis filenya akan di enkripsi kemudian online dan bisa di download kapanpun dimanapun)
-
-Nahwu OS = https://nahwu.amogenz.my.id (Belajar Nahwu dengan otomatisai bertenaga Ai, kolaborasi dengan para santri)
-
-Blog Amogenz =
-https://blog.amogenz.my.id 
-(layana sharing tulisan atau blog sederhana dan simpel, tanpa login. kamu cukup beri judul kemudian curahkan yang ada di kepala atau hati, lantas posting. maka tulisanmu akan mengudara di internet.)
-
-Game = https://majong.amogemz.my.id (Proyek game sederhan dari Amogemz)
-
-web MQSD (Di hentikan 7 januari 2026) = https://mqsd.amogenz.my.id/ (Prototype Aplikasi berbasis chat, Gabung, Kasih saran, Masukan, Serta Request Fitur) 
-
+amogenz (official) = https://amogenz.my.id/ (informasi dan data organisasi Amogenz)
+Amogenz Universe = https://universe.amogenz.my.id/ (media sosial Amogenz: upload, komentar, chat, dll. Dibuka 17 Januari 2026)
+ammo ai = https://ammo.amogenz.my.id/ (AI kolaborasi dengan para santri, berisi database kitab fiqih)
+telepati = https://telepati.amogenz.my.id/ (kirim file rahasia hingga 50MB, hancur otomatis, aman & anonim)
+Nahwu OS = https://nahwu.amogenz.my.id (belajar Nahwu dengan AI)
+Blog Amogenz = https://blog.amogenz.my.id (platform blog tanpa login)
+Game Nahwu = https://game-nahwu.amogenz.xyz (belajar Nahwu & Shorof via game kartu interaktif)
+Game Tajwid = https://tajwid.amogenz.xyz/ (game kuis tajwid berbasis AI)
+info produk = https://amogenz.xyz/produk.html
+logo & design = https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4
 Instagram @amooogang = akun media & @amogenz = akun pusat
-
-web aksara (di hentikan 7 januari 2026) = https://aksara.amogenz.my.id/
-
 ammo ai telegram = http://t.me/iammo_bot
-
-Nahwu Game (Nahwu Card: Master I'rob) =
-https://game-nahwu.amogenz.xyz 
-(Cara baru belajar Nahwu & Shorof dengan pendekatan game berbasis kartu interaktif.)
-
-logo & design = 
-https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
-
+web MQSD (dihentikan 7 Jan 2026) = https://mqsd.amogenz.my.id/
+web aksara (dihentikan 7 Jan 2026) = https://aksara.amogenz.my.id/
 
 Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
-    
-    .
-    `;
+  `;
 
-  // Di sinilah kamu menaruh prompt Toxic/Kasar yang panjang tadi
-  
   const systemPrompt = `
-    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
+[Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
 
-    [Data] ${amogenzKnowledge}
-    [User Bertanya] "${message}"
-    
-   Instruksi: Jawab pertanyaan user berikutnya. Ingat konteks percakapan sebelumnya jika ada.
+[Data] ${amogenzKnowledge}
+[User Bertanya] "${message}"
 
-   Intruksi: Jawab kamu adalah modifan dari model gemini google, jika ada yang tanya asal kamu dari mana.
-   
-   Instruksi: Jawab pertanyaan user. Jika butuh info terkini, gunakan tools search. Tolak permintaan yang berhubungan dengan Porno, Ganja, Narkoba
+Instruksi: Jawab pertanyaan user berikutnya. Ingat konteks percakapan sebelumnya jika ada.
+Instruksi: Jawab kamu adalah modifan dari model gemini google, jika ada yang tanya asal kamu dari mana.
+Instruksi: Tolak permintaan yang berhubungan dengan Porno, Ganja, Narkoba.
   `;
 
   try {
-    // 3. RAKIT STRUKTUR CHAT 
+    // Rakit struktur chat multi-turn
     const finalContents = [
-      { role: "user", parts: [{ text: systemPrompt }] }, // A. Masukkan Persona
-      ...history,                                        // B. Masukkan Ingatan Lama
-      { role: "user", parts: [{ text: message }] }       // C. Masukkan Pesan Baru
+      { role: "user",  parts: [{ text: systemPrompt }] }, // A. Persona
+      ...history,                                          // B. Ingatan lama
+      { role: "user",  parts: [{ text: message }] }        // C. Pesan baru
     ];
 
-    // 4. KIRIM KE GEMINI
+    // Kirim ke Gemini
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: finalContents,
-        tools: [{ google_search: {} }] // Fitur Browsing
+        tools: [{ google_search: {} }] // Fitur browsing real-time
       }),
     });
 
     const data = await response.json();
-
-    if (!response.ok) throw new Error(data.error?.message || 'Gagal server');
+    if (!response.ok) throw new Error(data.error?.message || 'Gagal koneksi ke Gemini');
 
     return res.status(200).json(data);
 
