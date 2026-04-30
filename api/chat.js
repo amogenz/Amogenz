@@ -2,21 +2,21 @@
 // AMMO AI — api/chat.js
 // Vercel Serverless Function (Node.js runtime)
 // Support: Web, Localhost, WebView/APK via CORS
+// PENTING: pakai module.exports bukan export default
 // ─────────────────────────────────────────────
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
 
-  // ─── CORS Headers — wajib agar bisa diakses dari localhost & WebView ───
+  // ─── CORS Headers ─────────────────────────
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST,PUT,PATCH,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Accept');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Preflight request (browser kirim OPTIONS duluan sebelum POST)
+  // Preflight
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
   }
 
-  // Hanya terima POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -26,9 +26,11 @@ export default async function handler(req, res) {
   if (!message) return res.status(400).json({ error: 'Pesan kosong' });
 
   const apiKey = process.env.GOOGLE_API_KEY;
+  if (!apiKey) return res.status(500).json({ error: 'GOOGLE_API_KEY belum di-set di Vercel Environment Variables' });
+
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
-  // ─── Database & Persona (aman di server, tidak kelihatan user) ───
+  // ─── Database & Persona ───────────────────
   const amogenzKnowledge = `
  [DATABASE AMOGENZ]
     Nama: AMOGENZ (Amogens).
@@ -62,14 +64,14 @@ Logo AMOGENZ
 
 Kenali kami lebih lanjut di sini:
 
-amogenz (official) = https://amogenz.my.id/ (informasi dan data organisasi Amogenz)
-Amogenz Universe = https://universe.amogenz.my.id/ (media sosial Amogenz: upload, komentar, chat, dll. Dibuka 17 Januari 2026)
-ammo ai = https://ammo.amogenz.my.id/ (AI kolaborasi dengan para santri, berisi database kitab fiqih)
-telepati = https://telepati.amogenz.my.id/ (kirim file rahasia hingga 50MB, hancur otomatis, aman & anonim)
-Nahwu OS = https://nahwu.amogenz.my.id (belajar Nahwu dengan AI)
-Blog Amogenz = https://blog.amogenz.my.id (platform blog tanpa login)
-Game Nahwu = https://game-nahwu.amogenz.xyz (belajar Nahwu & Shorof via game kartu interaktif)
-Game Tajwid = https://tajwid.amogenz.xyz/ (game kuis tajwid berbasis AI)
+amogenz (official) = https://amogenz.my.id/
+Amogenz Universe = https://universe.amogenz.my.id/
+ammo ai = https://ammo.amogenz.my.id/
+telepati = https://telepati.amogenz.my.id/
+Nahwu OS = https://nahwu.amogenz.my.id
+Blog Amogenz = https://blog.amogenz.my.id
+Game Nahwu = https://game-nahwu.amogenz.xyz
+Game Tajwid = https://tajwid.amogenz.xyz/
 info produk = https://amogenz.xyz/produk.html
 logo & design = https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4
 Instagram @amooogang = akun media & @amogenz = akun pusat
@@ -81,31 +83,29 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
   `;
 
   const systemPrompt = `
-[Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
+[Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Jawab pertanyaan user berdasarkan konteks riwayat percakapan agar nyambung.
 
 [Data] ${amogenzKnowledge}
 [User Bertanya] "${message}"
 
 Instruksi: Jawab pertanyaan user berikutnya. Ingat konteks percakapan sebelumnya jika ada.
-Instruksi: Jawab kamu adalah modifan dari model gemini google, jika ada yang tanya asal kamu dari mana.
+Instruksi: Kamu adalah modifan dari model gemini google, jika ada yang tanya asal kamu dari mana.
 Instruksi: Tolak permintaan yang berhubungan dengan Porno, Ganja, Narkoba.
   `;
 
   try {
-    // Rakit struktur chat multi-turn
     const finalContents = [
-      { role: "user",  parts: [{ text: systemPrompt }] }, // A. Persona
-      ...history,                                          // B. Ingatan lama
-      { role: "user",  parts: [{ text: message }] }        // C. Pesan baru
+      { role: "user",  parts: [{ text: systemPrompt }] },
+      ...history,
+      { role: "user",  parts: [{ text: message }] }
     ];
 
-    // Kirim ke Gemini
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: finalContents,
-        tools: [{ google_search: {} }] // Fitur browsing real-time
+        tools: [{ google_search: {} }]
       }),
     });
 
