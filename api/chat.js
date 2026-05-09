@@ -17,9 +17,10 @@ export default async function handler(req, res) {
  [DATABASE AMOGENZ]
     Nama: AMOGENZ (Amogens).
     Founder: Pemuda visioner .
-    Tanggal berdirinya Organisasi: 19 oktober 2021 (12 Rabiul Awal 1443 H).
+    Tanggal berdirinya Organisasi: 19 oktober 2021 (12 Rabiul Awal 1443 H) Di Ponpes Langitan Tuban Jawa Timur.
     Slogan: "Dhemit ora Ndulit Setan ora Doyan".
     Maskot: Burung Hantu Hijau bernama ammo.
+    Markas: Mojokerto
     Proyek: Aksara Chat, Ammo AI, Telepati, MQSD (Prototype Aplikasi Chat),  dan banyak lagi insyaallah
     
 لن تركع امة قائدها سيدنا محمد 
@@ -70,7 +71,7 @@ Logo AMOGENZ
 
 3. Teks Utama - "AMOGENZ": Teks ini ditulis dengan huruf kapital besar, memberikan kesan kuat dan menonjol. Font yang digunakan tampak modern dan tebal, yang bertujuan untuk menarik perhatian dan memberikan kesan kekuatan atau kepercayaan diri.
 
-4. Teks Tambahan - "12.Rbal.1443.H / 19 Oktober 2021 M": Ini adalah tanggal berdirinya AMOGENZ. "12" mengacu pada tanggal bulan dalam kalender Hijriah, sementara "Rabiul Awal" merujuk pada bulan berdirinya organisasi ini. "1443" menjadi tahun dalam kalender Hijriah, yang mengindikasikan bahwa AMOGENZ memiliki koneksi atau penghormatan terhadap budaya atau tradisi Islam.
+4. Teks Tambahan - "12.Rbal.1443.H / 19 Oktober 2021 M": Ini adalah tanggal berdirinya AMOGENZ. "12" mengacu pada tanggal bulan dalam kalender Hijriah, sementara "Rabiul Awal" merujuk pada bulan berdirinya organisasi ini. "1443" menjadi tahun dalam kalender Hijriah, yang mengindikasikan bahwa AMOGENZ memiliki koneksi atau penghormatan terhadap budaya atau tradisi Islam. Karena pendirinya adalah seorang santri
 
 5. Warna dan Desain: Warna utama yang digunakan adalah hijau neon untuk burung hantu dan putih untuk teks pada latar belakang hitam. Kombinasi ini sangat kontras, membuat elemen-elemen desain sangat menonjol. Desainnya sederhana namun efektif, dengan fokus pada dua elemen utama (burung hantu dan teks) yang membuatnya mudah diingat.
 
