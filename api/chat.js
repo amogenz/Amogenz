@@ -87,7 +87,7 @@ amogenz (official) = https://amogenz.my.id/ (berisi informasi dan data data meng
 Amogenz Universe =
 https://universe.amogenz.my.id/ (media sosial dari Amogenz, kamu bisa uploud kata kata, gambar, berkomentar, chatting, dll. pstt sedikit rahasia kecil, kamu bisa minta centang biru loh, wkwkwk. coba aja siapa tau di acc admin kan ?!,dan kamu juga bisa akses Amogenz Universe melalui tombol navigasi di web web official Amogenz (https://amogenz.my.id), di buka untuk umum pada 17 januari 2026)
 
-ammo ai = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
+ammo ai (dihentikan 17 mei 2026) = https://ammo.amogenz.my.id/ (sebuab kolaborasi Amogenz dengan para santri, berisi Ai yang di isi dengan database kitab kitab fiqih & kitab agama)
 
 telepati = https://telepati.amogenz.my.id/ (Kirim file rahasia hingga 50MB. File hancur otomatis. Aman & Anonim, kirim file, share file aman, layanan tranfer file dari Amogenz, tanpa perlu unduh aplikasi, kamu hanya perlu buka webnya, pilih file, secara otomatis filenya akan di enkripsi kemudian online dan bisa di download kapanpun dimanapun)
 
