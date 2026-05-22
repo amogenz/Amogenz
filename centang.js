@@ -1,17 +1,34 @@
 class Centang extends HTMLElement {
+  constructor() {
+    super();
+    // Mengaktifkan Shadow DOM agar style di dalam komponen tidak bocor keluar
+    // dan bisa menghitung alignment font bawaan browser dengan sempurna
+    this.attachShadow({ mode: 'open' });
+  }
+
   connectedCallback() {
-    this.innerHTML = `
+    this.shadowRoot.innerHTML = `
       <style>
         :host {
+          /* KUNCI PINTAR 1: Menggunakan inline-flex + vertical-align baseline */
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          vertical-align: middle;
-          /* Ukuran default kalau kamu lupa nulis style di HTML */
-          width: 17px; 
-          height: 17px; 
-          line-height: 1;
+          vertical-align: baseline;
+          
+          /* KUNCI PINTAR 2: Menggunakan satuan 'em' bukan 'px' */
+          /* 1em artinya ukurannya akan OTOMATIS sama persis dengan ukuran font teks di sebelahnya! */
+          width: 0.9em; 
+          height: 0.9em;
+          
+          /* KUNCI PINTAR 3: Menjaga posisi relatif terhadap garis bawah huruf */
+          position: relative;
+          top: 0.08em; 
+          
+          line-height: 0;
+          flex-shrink: 0;
         }
+
         .centang-sm { 
           width: 100%; 
           height: 100%; 
