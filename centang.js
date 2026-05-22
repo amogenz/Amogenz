@@ -2,11 +2,20 @@ class Centang extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <style>
-        .centang-sm { 
+        :host {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          vertical-align: middle;
+          /* Ukuran default kalau kamu lupa nulis style di HTML */
           width: 17px; 
           height: 17px; 
-          display: inline-block;
-          vertical-align: middle;
+          line-height: 1;
+        }
+        .centang-sm { 
+          width: 100%; 
+          height: 100%; 
+          display: block;
           filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.4)); 
         }
       </style>
