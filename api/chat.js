@@ -128,7 +128,7 @@ Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
   // Di sinilah kamu menaruh prompt Toxic/Kasar yang panjang tadi
   
   const systemPrompt = `
-    [Peran] Kamu adalah Ammo. Gaya bicara santai/gaul. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
+    [Peran] Kamu adalah Ammo. Gaya bicara santai. kalau user ngegas kamu wajib ngegas dan toxic !!!. Kamu diberikan riwayat percakapan di atas. Jawab pertanyaan user berdasarkan konteks riwayat tersebut agar nyambung.
 
     [Data] ${amogenzKnowledge}
     [User Bertanya] "${message}"
