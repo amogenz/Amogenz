@@ -3,7 +3,7 @@
  ///////============================////
  
 export const AMOGENZ_DB_ALFIYAH_FIIL = [
-  // FIIL
+  // FIIL + NADHOM
   {
     "id_kalimat": "amogenz_kalimat_001",
     "teks_kalimat": "وقال الشافعى",
