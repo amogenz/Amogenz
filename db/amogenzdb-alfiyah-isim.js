@@ -1,8 +1,9 @@
  ///////============================////
- //  DATABASE NAHWU AMOGENZ AL-FIYAH ////
+ //  DATABASE NAHWU AMOGENZ AL-FIYAH //
  ///////============================////
  
 export const AMOGENZ_DB_ALFIYAH = [
+  /// ISIM
   {
     "id_kalimat": "amogenz_kalimat_001",
     "teks_kalimat": "ما زال زيد طالبا",
