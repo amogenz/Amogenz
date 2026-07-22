@@ -3,7 +3,7 @@
  ///////============================////
  
 export const AMOGENZ_DB_ALFIYAH = [
-  /// ISIM
+  /// ISIM 0.0.1
   {
     "id_kalimat": "amogenz_kalimat_001",
     "teks_kalimat": "ما زال زيد طالبا",
@@ -1481,11 +1481,11 @@ export const AMOGENZ_DB_ALFIYAH = [
           "9": {
             "question": "Apa nadhom/syahidnya lafadz المتعالي dihukumi Jarr?",
             "options": [
-              "يتبع في الإعراب الأسماء الأول نعت",
+              "فَالنَّعْتُ تَابِعٌ مُتِمٌّ مَا سَبَقْ",
               "والاسم قد خصص بالجر",
               "فارفع بضم"
             ],
-            "correct": "يتبع في الإعراب الأسماء الأول نعت",
+            "correct": "فَالنَّعْتُ تَابِعٌ مُتِمٌّ مَا سَبَقْ",
             "explanation": "Bait tentang tawabi' (pengikut i'rob) termasuk Na'at."
           },
           "10": {
