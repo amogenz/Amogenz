@@ -12,8 +12,6 @@
     font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Archivo+Black&display=swap');
-
 :root {
     --primary: #39FF14;
     --primary-dim: rgba(57,255,20,0.08);

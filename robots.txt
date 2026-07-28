@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.amogenz.xyz/sitemap.xml
+
+from amogenz instagram @amogenz
