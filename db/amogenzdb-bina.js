@@ -4,7 +4,7 @@
 export const AMOGENZ_DB_BINA = [
   /// 000
   {
-    "id_kalimat": "amogenz_shorof_001",
+    "id_kalimat": "amogenz_bina_001",
     "teks_kalimat": "دَعَا",
     "analysis": [
       {
@@ -104,7 +104,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_002",
+    "id_kalimat": "amogenz_bina_002",
     "teks_kalimat": "قَالَ",
     "analysis": [
       {
@@ -204,7 +204,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_003",
+    "id_kalimat": "amogenz_bina_003",
     "teks_kalimat": "رَمَى",
     "analysis": [
       {
@@ -304,7 +304,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_004",
+    "id_kalimat": "amogenz_bina_004",
     "teks_kalimat": "يَقِي",
     "analysis": [
       {
@@ -415,7 +415,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_005",
+    "id_kalimat": "amogenz_bina_005",
     "teks_kalimat": "بَاعَ",
     "analysis": [
       {
@@ -515,7 +515,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_006",
+    "id_kalimat": "amogenz_bina_006",
     "teks_kalimat": "مَدَّ",
     "analysis": [
       {
@@ -615,7 +615,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_007",
+    "id_kalimat": "amogenz_bina_007",
     "teks_kalimat": "يَقُولُ",
     "analysis": [
       {
@@ -716,7 +716,7 @@ export const AMOGENZ_DB_BINA = [
   },
   /// 007
   {
-    "id_kalimat": "amogenz_shorof_008",
+    "id_kalimat": "amogenz_bina_008",
     "teks_kalimat": "وَقَى",
     "analysis": [
       {
@@ -816,7 +816,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_009",
+    "id_kalimat": "amogenz_bina_009",
     "teks_kalimat": "صَامَ",
     "analysis": [
       {
@@ -916,7 +916,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_010",
+    "id_kalimat": "amogenz_bina_010",
     "teks_kalimat": "يَدْعُو",
     "analysis": [
       {
@@ -1016,7 +1016,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_011",
+    "id_kalimat": "amogenz_bina_011",
     "teks_kalimat": "خَافَ",
     "analysis": [
       {
@@ -1116,7 +1116,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_012",
+    "id_kalimat": "amogenz_bina_012",
     "teks_kalimat": "وََعَدَ",
     "analysis": [
       {
@@ -1216,7 +1216,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_013",
+    "id_kalimat": "amogenz_bina_013",
     "teks_kalimat": "يَبِيعُ",
     "analysis": [
       {
@@ -1316,7 +1316,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_014",
+    "id_kalimat": "amogenz_bina_014",
     "teks_kalimat": "يَخَافُ",
     "analysis": [
       {
@@ -1428,7 +1428,7 @@ export const AMOGENZ_DB_BINA = [
   },
   /// 014
   {
-    "id_kalimat": "amogenz_shorof_015",
+    "id_kalimat": "amogenz_bina_015",
     "teks_kalimat": "يَعِدُ",
     "analysis": [
       {
@@ -1528,7 +1528,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_016",
+    "id_kalimat": "amogenz_bina_016",
     "teks_kalimat": "يَرْمِي",
     "analysis": [
       {
@@ -1628,7 +1628,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_017",
+    "id_kalimat": "amogenz_bina_017",
     "teks_kalimat": "قَامَ",
     "analysis": [
       {
@@ -1728,7 +1728,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_018",
+    "id_kalimat": "amogenz_bina_018",
     "teks_kalimat": "قُلْ",
     "analysis": [
       {
@@ -1839,7 +1839,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_019",
+    "id_kalimat": "amogenz_bina_019",
     "teks_kalimat": "غَزَا",
     "analysis": [
       {
@@ -1939,7 +1939,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_020",
+    "id_kalimat": "amogenz_bina_020",
     "teks_kalimat": "خِفْ",
     "analysis": [
       {
@@ -2050,7 +2050,7 @@ export const AMOGENZ_DB_BINA = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_021",
+    "id_kalimat": "amogenz_bina_021",
     "teks_kalimat": "عَفَا",
     "analysis": [
       {

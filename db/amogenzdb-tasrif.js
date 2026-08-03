@@ -4,7 +4,7 @@
 export const AMOGENZ_DB_TASRIF = [
   /// 000
   {
-"id_kalimat": "amogenz_shorof_001",
+"id_kalimat": "amogenz_tasrif_001",
 "teks_kalimat": "نَصَرَ",
 "analysis": [
 {
@@ -104,7 +104,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_002",
+"id_kalimat": "amogenz_tasrif_002",
 "teks_kalimat": "قَالَ",
 "analysis": [
 {
@@ -215,7 +215,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_003",
+"id_kalimat": "amogenz_tasrif_003",
 "teks_kalimat": "دَعَا",
 "analysis": [
 {
@@ -326,7 +326,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_004",
+"id_kalimat": "amogenz_tasrif_004",
 "teks_kalimat": "ضَرَبَ",
 "analysis": [
 {
@@ -426,7 +426,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_005",
+"id_kalimat": "amogenz_tasrif_005",
 "teks_kalimat": "مَدَّ",
 "analysis": [
 {
@@ -537,7 +537,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_006",
+"id_kalimat": "amogenz_tasrif_006",
 "teks_kalimat": "بَاعَ",
 "analysis": [
 {
@@ -648,7 +648,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_007",
+"id_kalimat": "amogenz_tasrif_007",
 "teks_kalimat": "وَعَدَ",
 "analysis": [
 {
@@ -760,7 +760,7 @@ export const AMOGENZ_DB_TASRIF = [
 },
   /// 007
   {
-"id_kalimat": "amogenz_shorof_008",
+"id_kalimat": "amogenz_tasrif_008",
 "teks_kalimat": "رَمَى",
 "analysis": [
 {
@@ -871,7 +871,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_009",
+"id_kalimat": "amogenz_tasrif_009",
 "teks_kalimat": "أَكَلَ",
 "analysis": [
 {
@@ -982,7 +982,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_010",
+"id_kalimat": "amogenz_tasrif_010",
 "teks_kalimat": "عَلِمَ",
 "analysis": [
 {
@@ -1082,7 +1082,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_011",
+"id_kalimat": "amogenz_tasrif_011",
 "teks_kalimat": "وَقَى",
 "analysis": [
 {
@@ -1193,7 +1193,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_012",
+"id_kalimat": "amogenz_tasrif_012",
 "teks_kalimat": "خَافَ",
 "analysis": [
 {
@@ -1304,7 +1304,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_013",
+"id_kalimat": "amogenz_tasrif_013",
 "teks_kalimat": "طَوَى",
 "analysis": [
 {
@@ -1415,7 +1415,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_014",
+"id_kalimat": "amogenz_tasrif_014",
 "teks_kalimat": "وَضَعَ",
 "analysis": [
 {
@@ -1527,7 +1527,7 @@ export const AMOGENZ_DB_TASRIF = [
 },
   /// 014
   {
-"id_kalimat": "amogenz_shorof_015",
+"id_kalimat": "amogenz_tasrif_015",
 "teks_kalimat": "سَأَلَ",
 "analysis": [
 {
@@ -1638,7 +1638,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_016",
+"id_kalimat": "amogenz_tasrif_016",
 "teks_kalimat": "فَتَحَ",
 "analysis": [
 {
@@ -1738,7 +1738,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_017",
+"id_kalimat": "amogenz_tasrif_017",
 "teks_kalimat": "فَرَّ",
 "analysis": [
 {
@@ -1849,7 +1849,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-"id_kalimat": "amogenz_shorof_018",
+"id_kalimat": "amogenz_tasrif_018",
 "teks_kalimat": "قَضَى",
 "analysis": [
 {
@@ -1960,7 +1960,7 @@ export const AMOGENZ_DB_TASRIF = [
 ]
 },
   {
-    "id_kalimat": "amogenz_shorof_019",
+    "id_kalimat": "amogenz_tasrif_019",
     "teks_kalimat": "قَرَأَ",
     "analysis": [
       {
@@ -2060,7 +2060,7 @@ export const AMOGENZ_DB_TASRIF = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_020",
+    "id_kalimat": "amogenz_tasrif_020",
     "teks_kalimat": "رَضِيَ",
     "analysis": [
       {
@@ -2171,7 +2171,7 @@ export const AMOGENZ_DB_TASRIF = [
     ]
   },
   {
-    "id_kalimat": "amogenz_shorof_021",
+    "id_kalimat": "amogenz_tasrif_021",
     "teks_kalimat": "أَخَذَ",
     "analysis": [
       {
