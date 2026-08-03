@@ -1498,7 +1498,7 @@ export const AMOGENZ_DB_BINA = [
               "Karena lafadz يَعِدُ berisi tuntutan perintah untuk berjanji",
               "Karena lafadz يَعِدُ menunjukkan tempat janji"
             ],
-            "correct": "Karena lafadz يَعِدُ diawali huruf mudhoro'ah Ya' meunjukkan janji yang sedang/akan datang",
+            "correct": "Karena lafadz يَعِدُ diawali huruf mudhoro'ah Ya' dan menunjukkan janji yang sedang/akan datang",
             "explanation": "Shighah Fi'il Mudhori' diawali oleh huruf mudhoro'ah (dalam hal ini Ya') dan berfungsi menunjukkan waktu hal/istaqbal."
           },
           "7": {
