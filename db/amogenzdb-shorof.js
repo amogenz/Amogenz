@@ -397,7 +397,7 @@ export const AMOGENZ_DB_SHOROF = [
           "4": { "question": "Apa Dhomir-nya?", "options": ["Huwa", "Anta", "Ana"], "correct": "Huwa", "explanation": "Merujuk pada orang ketiga laki-laki tunggal." },
           "5": { "question": "Apa jenis Bina'-nya?", "options": ["Shahih", "Mudho'af", "Ajwaf"], "correct": "Shahih", "explanation": "Huruf aslinya 'Ain-Lam-Mim adalah huruf shahih." },
           "6": { "question": "Apa Wazan Mazid-nya?", "options": ["Fa''ala", "Af'ala", "Tafa''ala"], "correct": "Fa''ala", "explanation": "Masuk ke Bab 2 Tsulathi Mazid dengan ciri Tadhyif (tasydid)." },
-          "7": { "question": "Apa Akar Kata-nya?", "options": ["'A-li-ma", "'A-la-ma", "'A-lu-ma"], "correct": ["'A-li-ma"], "explanation": "Berasal dari Mujarrad 'Alima (Tahu)." },
+          "7": { "question": "Apa Akar Kata-nya?", "options": ["A-li-ma", "A-la-ma", "A-lu-ma"], "correct": ["A-li-ma"], "explanation": "Berasal dari Mujarrad 'Alima (Tahu)." },
           "8": { "question": "Apa fungsi makna tambahan tasydid di sini?", "options": ["Litta'diyyah (Menjadikan)", "Lil Musyarakah", "Litholabi"], "correct": "Litta'diyyah (Menjadikan)", "explanation": "Dari 'Alima (Tahu) menjadi 'Allama (Memberi tahu/Mengajar), mengubah fi'il lazim menjadi muta'addi." }
         }
       }
