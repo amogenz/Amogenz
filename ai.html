@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="shared.css?v=2">
     <style>
         /* ai.html specific: body fills viewport, no scroll */
         html, body { height: 100%; overflow: hidden; }
@@ -30,6 +30,13 @@
         <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
         <span class="topbar-name"></span>
     </a>
+    <nav class="topbar-nav">
+        <a href="index.html" class="topnav-link">Beranda</a>
+        <a href="produk.html" class="topnav-link">Produk</a>
+        <a href="about.html" class="topnav-link">Tentang Kami</a>
+        <a href="ai.html" class="topnav-link active">Ammo AI</a>
+        <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="topnav-cta"><img src="https://3d.amogenz.xyz/assets/icon-lab-v2.jpg?v=1" alt="LAB">AMOGENZ LAB</a>
+    </nav>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
