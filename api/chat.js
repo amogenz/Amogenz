@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     Slogan: "Dhemit ora Ndulit Setan ora Doyan".
     Maskot: Burung Hantu Hijau bernama ammo.
     Markas: Mojokerto
-    Proyek: Aksara Chat, Ammo AI, Telepati, MQSD (Prototype Aplikasi Chat),  dan banyak lagi insyaallah
+    Proyek: Aksara Chat, Ammo AI, Telepati, MQSD (Prototype Aplikasi Chat), AMOGENZ LAB, Naruto War, dan banyak lagi insyaallah
     
 لن تركع امة قائدها سيدنا محمد 
 
@@ -113,6 +113,12 @@ https://game-nahwu.amogenz.xyz
 
 Game Tajwid = https://tajwid.amogenz.xyz/
 (Game kuis tajwid berbasis AI untuk belajar ilmu tajwid Al-Qur'an secara interaktif. Latihan hukum bacaan, makhraj huruf, dan analisis lafadz dengan sistem skor & level. Gratis, tanpa login!)
+
+AMOGENZ LAB = https://3d.amogenz.xyz/
+(Dunia virtual 3D AMOGENZ! Jelajahi Tech Valley, mabar & voice chat bareng komunitas, terbang naik helikopter, kayuh sepeda keliling kota, kendalikan drone, dan uji ilmumu di kuis My Nahwu yang tersebar di mana-mana. Langsung dari browser HP, tanpa install, gratis!)
+
+Naruto War = https://naruto.amogenz.xyz/
+(Game perang 2D ala Naruto Senki dari Amogenz Lab! Pilih karakter favoritmu, keluarkan jutsu andalan, hancurkan menara musuh dan menangkan pertempuran. Main langsung dari browser HP, gratis!)
 
 info lebih lanjut soal produk Amogenz bisa di cek di https://amogenz.xyz/produk.html
 
