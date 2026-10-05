@@ -148,7 +148,7 @@ img { display:block; max-width:100%; }
 .arabic-trans { font-size:0.82rem; color:var(--text-muted); font-style:italic; }
 
 /* Members */
-.member-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.member-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
 .member-card { display:flex; align-items:center; gap:10px; padding:13px 15px; border-radius:8px; background:var(--bg-card); border:1px solid var(--border); }
 .member-init { width:36px; height:36px; border-radius:8px; background:var(--primary-dim); border:1px solid rgba(57,255,20,0.15); display:flex; align-items:center; justify-content:center; font-family:var(--font-ui); font-size:0.75rem; font-weight:700; color:var(--primary); flex-shrink:0; }
 .member-name { font-size:0.875rem; font-weight:600; color:#e0e0e0; }
@@ -280,4 +280,93 @@ img { display:block; max-width:100%; }
     .chat-viewport { padding:14px 14px; }
     .chat-input-area { padding:11px 14px 18px; }
     .msg-bubble { max-width:84%; }
+}
+
+/* ═════════════════════════════════════════════
+   RESPONSIVE — Tablet & Desktop
+   Mobile (<768px): UI HP seperti semula.
+   Tablet (768–1023px): adaptasi lega.
+   Desktop (≥1024px): UI profesional ala tech company.
+   ═════════════════════════════════════════════ */
+
+/* ── Navigasi desktop (disembunyikan di HP/tablet) ── */
+.topbar-nav { display:none; align-items:center; gap:2px; }
+.topnav-link { padding:9px 15px; border-radius:8px; font-size:0.875rem; font-weight:500; color:var(--text-muted); transition:all 0.18s; white-space:nowrap; }
+.topnav-link:hover { color:#fff; background:var(--bg-card); }
+.topnav-link.active { color:var(--primary); background:var(--primary-dim); }
+.topnav-cta { display:inline-flex; align-items:center; gap:8px; margin-left:10px; padding:9px 16px 9px 9px; background:var(--primary); color:#000 !important; font-family:var(--font-ui); font-weight:700; font-size:0.82rem; border-radius:9px; letter-spacing:0.2px; transition:all 0.18s; }
+.topnav-cta img { width:22px; height:22px; border-radius:6px; object-fit:cover; }
+.topnav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 20px var(--primary-glow); }
+
+/* ── Footer situs ── */
+.site-footer { border-top:1px solid var(--border); background:rgba(255,255,255,0.015); margin-top:32px; }
+.footer-inner { max-width:1120px; margin:0 auto; padding:40px 22px 28px; display:grid; gap:28px; }
+.footer-logo { width:120px; margin-bottom:12px; }
+.footer-tag { font-size:0.82rem; color:var(--text-muted); line-height:1.65; max-width:320px; }
+.footer-nav { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; }
+.footer-head { font-size:0.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:12px; }
+.footer-col a { display:block; font-size:0.85rem; color:var(--text-muted); padding:5px 0; transition:color 0.18s; }
+.footer-col a:hover { color:var(--primary); }
+.footer-bottom { border-top:1px solid var(--border); text-align:center; padding:18px 16px; font-size:0.74rem; color:var(--text-faint); }
+
+/* ── Tablet (≥768px) ── */
+@media (min-width:768px) {
+    .page-wrap { max-width:780px; padding:44px 32px 80px; }
+    .footer-inner { grid-template-columns:1.1fr 1.4fr; padding:44px 32px 30px; }
+    .product-list { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
+    .product-card.featured { grid-column:1 / -1; }
+    .product-card:hover { transform:translateY(-2px); }
+    .app-list { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
+    .hero-title { font-size:2.4rem; }
+    .page-title { font-size:2.1rem; }
+    .home-heading { font-size:1.2rem; }
+}
+
+/* ── Desktop (≥1024px) ── */
+@media (min-width:1024px) {
+    :root { --topbar-h:64px; }
+    .topbar { padding:0 32px; }
+    .topbar-logo { width:112px; }
+    .topbar-nav { display:flex; }
+    .hamburger-btn { display:none; }
+
+    .page-wrap { max-width:1120px; padding:60px 40px 100px; }
+    .footer-inner { padding:52px 40px 34px; }
+
+    /* Hero ala tech company */
+    .hero { padding:80px 0 60px; max-width:860px; }
+    .hero-title { font-size:3.4rem; letter-spacing:-1.5px; line-height:1.08; margin-bottom:20px; }
+    .hero-desc { font-size:1.02rem; max-width:600px; margin-bottom:32px; }
+    .hero-cta .btn-primary, .hero-cta .btn-ghost { padding:13px 26px; font-size:0.95rem; }
+
+    /* Grid produk 3 kolom */
+    .product-list { grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; }
+    .app-list { grid-template-columns:repeat(2, 1fr); gap:12px; }
+
+    /* Judul lebih besar */
+    .page-header { padding-bottom:34px; margin-bottom:40px; }
+    .page-title { font-size:2.6rem; }
+    .page-subtitle { font-size:1rem; max-width:640px; }
+    .home-section { padding:44px 0; }
+    .home-heading { font-size:1.4rem; margin-bottom:14px; }
+    .home-text { font-size:0.95rem; max-width:800px; }
+    .motto-box { padding:36px 40px; margin-bottom:40px; }
+
+    /* Tentang: grid anggota 4 kolom */
+    .member-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
+    .about-section { padding-bottom:36px; margin-bottom:36px; }
+    .section-heading { font-size:1.25rem; }
+
+    /* AI chat: kolom tengah ala aplikasi chat desktop */
+    .chat-viewport { padding:28px 32px; }
+    .chat-viewport > * { width:100%; max-width:860px; margin-left:auto; margin-right:auto; }
+    .chat-welcome { margin:auto; }
+    .chat-input-area { padding:16px 32px 24px; }
+    .chat-input-box { max-width:860px; margin-left:auto; margin-right:auto; }
+    .chat-input-note { max-width:860px; margin-left:auto; margin-right:auto; }
+    .msg-bubble { max-width:70%; }
+
+    /* Banner LAB: lebih lega di desktop */
+    .lab-banner { padding:28px 32px; gap:24px; margin:36px 0 8px; }
+    .lab-banner-logo { width:84px; height:84px; }
 }
