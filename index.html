@@ -29,6 +29,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="shared.css">
+    <style>
+    /* Banner AMOGENZ LAB — halaman utama */
+    .lab-banner { display:flex; align-items:center; gap:16px; padding:20px; margin:26px 0 4px; border-radius:14px;
+        background:linear-gradient(135deg, rgba(57,255,20,0.09), rgba(57,255,20,0.02));
+        border:1px solid rgba(57,255,20,0.28); position:relative; overflow:hidden; }
+    .lab-banner::after { content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px;
+        border-radius:50%; background:radial-gradient(circle, rgba(57,255,20,0.22), transparent 70%); pointer-events:none; }
+    .lab-banner-logo { width:66px; height:66px; border-radius:15px; object-fit:cover; flex-shrink:0;
+        border:1px solid rgba(57,255,20,0.4); box-shadow:0 0 26px rgba(57,255,20,0.28); }
+    .lab-banner-body { flex:1; min-width:0; position:relative; z-index:1; }
+    .lab-banner-desc { font-size:0.83rem; color:var(--text-muted); line-height:1.6; margin-top:6px; }
+    .lab-cta-btn { display:inline-flex; align-items:center; gap:10px; margin-top:13px; padding:9px 18px 9px 9px;
+        background:var(--primary); color:#000; font-family:var(--font-ui); font-weight:700; font-size:0.9rem;
+        border-radius:11px; letter-spacing:0.2px; transition:all 0.18s; }
+    .lab-cta-btn img { width:30px; height:30px; border-radius:8px; object-fit:cover; }
+    .lab-cta-btn:hover { transform:translateY(-1px); box-shadow:0 6px 26px var(--primary-glow); }
+    .lab-cta-btn svg { flex-shrink:0; }
+    @media (max-width:520px) {
+        .lab-banner { flex-direction:column; text-align:center; }
+        .lab-banner-logo { width:76px; height:76px; }
+    }
+    </style>
     
     <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
     <script defer src="/_vercel/insights/script.js"></script>
@@ -149,6 +171,22 @@
         <div class="hero-cta">
             <a href="about.html" class="btn-primary">Tentang Kami</a>
             <a href="ai.html" class="btn-ghost">Tanya Ammo AI →</a>
+        </div>
+    </div>
+
+
+    <!-- Banner AMOGENZ LAB -->
+    <div class="lab-banner">
+        <img src="https://3d.amogenz.xyz/assets/icon-lab-v2.jpg?v=1" alt="AMOGENZ LAB" class="lab-banner-logo">
+        <div class="lab-banner-body">
+            <div class="home-tag">Baru &bull; Dunia Virtual 3D</div>
+            <h2 class="home-heading" style="font-size:1.2rem; margin-bottom:4px;">AMOGENZ kini bisa dijelajahi dalam 3D!</h2>
+            <p class="lab-banner-desc">Masuk ke <strong>AMOGENZ LAB</strong> &mdash; keliling Tech Valley, mabar &amp; voice chat bareng komunitas, terbang naik helikopter, kayuh sepeda, kendalikan drone, dan uji ilmumu di kuis My Nahwu yang tersebar di mana-mana. Langsung dari browser HP, tanpa install, gratis!</p>
+            <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="lab-cta-btn">
+                <img src="https://3d.amogenz.xyz/assets/icon-lab-v2.jpg?v=1" alt="Logo AMOGENZ LAB">
+                <span>Jelajahi AMOGENZ LAB</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
         </div>
     </div>
 
