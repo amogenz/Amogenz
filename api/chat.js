@@ -114,7 +114,10 @@ https://game-nahwu.amogenz.xyz
 Game Tajwid = https://tajwid.amogenz.xyz/
 (Game kuis tajwid berbasis AI untuk belajar ilmu tajwid Al-Qur'an secara interaktif. Latihan hukum bacaan, makhraj huruf, dan analisis lafadz dengan sistem skor & level. Gratis, tanpa login!)
 
-AMOGENZ LAB = https://3d.amogenz.xyz/
+AMOGENZ LAB = https://lab.amogenz.xyz/
+(Web resmi divisi riset & pengembangan AMOGENZ — laboratorium eksperimen: proyek riset, Zero AI, generator usulan eksperimen, log riset, dan arsip lab.)
+
+AMOGENZ 3D VERSE = https://3d.amogenz.xyz/
 (Dunia virtual 3D AMOGENZ! Jelajahi Tech Valley, mabar & voice chat bareng komunitas, terbang naik helikopter, kayuh sepeda keliling kota, kendalikan drone, dan uji ilmumu di kuis My Nahwu yang tersebar di mana-mana. Langsung dari browser HP, tanpa install, gratis!)
 
 Naruto War = https://naruto.amogenz.xyz/
