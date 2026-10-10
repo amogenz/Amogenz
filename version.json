@@ -1,5 +1,5 @@
 {
-  "version": 3,
-  "build": "2026-10-10T13:19:44+07:00",
-  "note": "Tombol Download APK Aksara otomatis terbaru + kartu Web AMOGENZ LAB + fix struktur Aplikasi"
+  "version": 4,
+  "build": "2026-10-10T13:50:26+07:00",
+  "note": "Tombol APK selalu fresh (bypass cache) + fallback 1.3.71"
 }
