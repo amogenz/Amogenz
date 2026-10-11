@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi Proyek — AMOGENZ</title>
+    <meta name="description" content="Akses dokumentasi seluruh proyek AMOGENZ — menunaikan titah prasasti Founder.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css?v=2">
+    <style>
+        .prasasti-arab { font-size: 2rem; line-height: 2.2; color: #fff; margin: 18px 0 8px; }
+        .prasasti-terjemah { font-size: 1.05rem; color: var(--text-muted); font-style: italic; }
+        .doc-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 18px; }
+        @media (min-width: 720px) { .doc-grid { grid-template-columns: 1fr 1fr; } }
+        .doc-note { font-size: 0.85rem; opacity: 0.65; margin-top: 18px; }
+    </style>
+</head>
+<body>
+
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="noise-overlay"></div>
+
+<!-- Topbar -->
+<header class="topbar">
+    <a href="index.html" class="topbar-brand">
+        <img src="logo.svg" alt="AMOGENZ" class="topbar-logo">
+        <span class="topbar-name"></span>
+    </a>
+    <nav class="topbar-nav">
+        <a href="index.html" class="topnav-link">Beranda</a>
+        <a href="produk.html" class="topnav-link">Produk</a>
+        <a href="about.html" class="topnav-link">Tentang Kami</a>
+        <a href="ai.html" class="topnav-link">Ammo AI</a>
+        <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="topnav-cta"><img src="https://3d.amogenz.xyz/assets/icon-lab-v2.jpg?v=1" alt="AMOGENZ 3D VERSE">AMOGENZ 3D VERSE</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<main class="main-content">
+<div class="page-wrap">
+
+    <div class="page-header">
+        <div class="page-eyebrow">Prasasti Founder</div>
+        <h1 class="page-title">Dokumentasi Proyek</h1>
+        <div class="prasasti-arab" dir="rtl" lang="ar">ما حفظ فر ، ما كتب قر</div>
+        <p class="prasasti-terjemah">"Yang dihafal akan pergi. Yang ditulis lestari."</p>
+        <p class="page-subtitle">Setiap proyek AMOGENZ didokumentasikan secara profesional — README, Arsitektur, dan Changelog. Berikut aksesnya.</p>
+    </div>
+
+    <div class="doc-grid">
+        <a href="https://github.com/amogenz/Aksara" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-info">
+                <p class="prod-desc"><strong>Aksara Web</strong></p>
+                <p class="prod-desc" style="font-size:0.8rem;opacity:0.7;">Media sosial &amp; chat komunitas</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+        <a href="https://github.com/amogenz/amogenzlab" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-info">
+                <p class="prod-desc"><strong>AMOGENZ LAB Web</strong></p>
+                <p class="prod-desc" style="font-size:0.8rem;opacity:0.7;">Situs divisi riset &amp; eksperimen</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+        <div class="product-card">
+            <div class="prod-info">
+                <p class="prod-desc"><strong>Aksara APK</strong></p>
+                <p class="prod-desc" style="font-size:0.8rem;opacity:0.7;">Aplikasi Android native</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="prod-info">
+                <p class="prod-desc"><strong>Naruto War</strong></p>
+                <p class="prod-desc" style="font-size:0.8rem;opacity:0.7;">Game fighting 2D</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="prod-info">
+                <p class="prod-desc"><strong>AMOGENZ 3D World</strong></p>
+                <p class="prod-desc" style="font-size:0.8rem;opacity:0.7;">Dunia 3D open-world multiplayer</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="doc-note">Repositori bersifat privat — akses dokumentasi untuk tim. Untuk kerja sama, hubungi kami melalui Instagram.</p>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <img src="logo.svg" alt="AMOGENZ" class="footer-logo">
+            <p class="footer-tag">Spirit of Youth &amp; Technology &mdash; komunitas anak muda yang berkarya lewat ilmu, kreativitas, dan teknologi.</p>
+        </div>
+        <nav class="footer-nav">
+            <div class="footer-col">
+                <div class="footer-head">Jelajahi</div>
+                <a href="index.html">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="about.html">Tentang Kami</a>
+                <a href="ai.html">Ammo AI</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-head">Ikuti Kami</div>
+                <a href="https://github.com/amogenz?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://instagram.com/amogenz" target="_blank" rel="noopener noreferrer">Instagram Pusat</a>
+                <a href="https://instagram.com/ammogenz" target="_blank" rel="noopener noreferrer">Instagram Media</a>
+                <a href="https://blog.amogenz.xyz" target="_blank" rel="noopener noreferrer">Blog</a>
+            </div>
+        </nav>
+    </div>
+    <div class="footer-bottom">&copy; 2026 AMOGENZ Inc. &middot; Spirit of Youth &amp; Technology</div>
+</footer>
+
+</main>
+
+<script src="sidebar.js"></script>
+</body>
+</html>
