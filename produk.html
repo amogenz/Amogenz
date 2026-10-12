@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#191C19">
     <title>Produk — AMOGENZ</title>
     <meta name="description" content="Produk dan platform yang dikembangkan oleh AMOGENZ.">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared.css?v=2">
-    <style>
-        /* Tombol Download APK Aksara — UI disamakan dengan web Aksara */
-        .app-dl-btn { display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:8px;
-            background:#4CAF50; color:#fff; font-family:var(--font-ui); font-size:0.78rem; font-weight:700;
-            white-space:nowrap; text-decoration:none; flex-shrink:0;
-            transition:background .15s ease, transform .18s ease; }
-        .app-dl-btn:hover { background:#43a047; transform:translateY(-1px); }
-        .app-dl-btn svg { flex-shrink:0; }
-        .app-ver { font-size:0.7rem; color:var(--text-muted); margin-top:2px; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css?v=3">
 </head>
 <body>
 
-<div class="cursor-dot" data-cursor-dot></div>
-<div class="cursor-outline" data-cursor-outline></div>
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 <div class="noise-overlay"></div>
@@ -60,45 +49,50 @@
     <nav class="sidebar-nav">
         <div class="sidebar-section-label">Jelajahi</div>
         <a class="sidebar-link" href="index.html">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span> 
             Beranda
         </a>
         <a class="sidebar-link active" href="produk.html">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span> 
             Produk
         </a>
         <a class="sidebar-link" href="about.html">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span> 
             Tentang Kami
         </a>
         <a class="sidebar-link" href="ai.html">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> 
             Ammo AI
         </a>
         <a class="sidebar-link" href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
             AMOGENZ 3D VERSE
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-section-label">Ikuti Kami</div>
-        <a class="sidebar-link" href="https://instagram.com/amogenz" target="_blank">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <a class="sidebar-link" href="https://github.com/amogenz?tab=repositories" target="_blank" rel="noopener noreferrer">
+    <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span> 
+    GitHub
+    <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+</a>
+        <a class="sidebar-link" href="https://instagram.com/amogenz" target="_blank" rel="noopener noreferrer">
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span> 
             Instagram Pusat
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-        <a class="sidebar-link" href="https://instagram.com/amooogang" target="_blank">
-            <span class="sidebar-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <a class="sidebar-link" href="https://instagram.com/ammogenz" target="_blank" rel="noopener noreferrer">
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>  
             Instagram Media
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-        <a class="sidebar-link" href="https://blog.amogenz.xyz" target="_blank">
-            <span class="sidebar-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <a class="sidebar-link" href="https://blog.amogenz.xyz" target="_blank" rel="noopener noreferrer">
+            <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> 
             Blog
             <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank">
-        <span class="sidebar-link-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <a class="sidebar-link" href="https://universe.amogenz.xyz" target="_blank" rel="noopener noreferrer">
+        <span class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> 
             Universe
           <svg class="ext-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
@@ -120,7 +114,7 @@
         <div class="page-eyebrow" style="margin-bottom: 8px;">Jasa Kami</div>
         <h2 class="page-title" style="font-size: 1.5rem; margin-bottom: 12px;">Buat Website Impianmu</h2>
         <p class="page-subtitle" style="margin-bottom: 20px; font-size: 0.85rem;">Wujudkan website profesional untuk bisnis, portofolio, atau proyekmu dengan teknologi terbaik dari AMOGENZ.</p>
-        <a href="https://buatwebsite.amogenz.xyz" target="_blank" class="btn-primary">
+        <a href="https://buatwebsite.amogenz.xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">
             Pesan Sekarang
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -159,7 +153,7 @@
         </a>
 
         <!-- Featured -->
-        <a href="https://Nahwu.amogenz.xyz/" target="_blank" class="product-card featured">
+        <a href="https://Nahwu.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="NahwuOS">
             </div>
@@ -187,7 +181,7 @@
             </div>
         </a>
 
-        <a href="https://nahwu.amogenz.my.id/" target="_blank" class="product-card">
+        <a href="https://nahwu.amogenz.my.id/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/G4JH6kXK/My-Nahwu.webp" alt="My Nahwu">
             </div>
@@ -201,7 +195,7 @@
             </div>
         </a>
 
-        <a href="https://game-nahwu.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://game-nahwu.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/ns5Zd3gp/20260428-140912.png" alt="Nahwu Game">
             </div>
@@ -215,7 +209,7 @@
             </div>
         </a>
         
-        <a href="https://tajwid.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://tajwid.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/Lh2Y6SdB/20260428-141457.png" alt="Tajwid Game">
             </div>
@@ -229,7 +223,7 @@
             </div>
         </a>
 
-        <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/s9pk0Rym/Nadim-Media-1775839444903.jpg" alt="KesanAMDK">
             </div>
@@ -243,7 +237,7 @@
             </div>
         </a>
         
-        <a href="https://blog.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://blog.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/9m2C0Bsy/Logo-aksara.png" alt="Blog Amogenz">
             </div>
@@ -257,7 +251,7 @@
             </div>
         </a>
         
-        <a href="https://universe.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://universe.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/VpWvWk95/Logo-aksara.webp" alt="Aksara">
             </div>
@@ -271,7 +265,7 @@
             </div>
         </a>
 
-        <a href="https://telepati.amogenz.my.id/" target="_blank" class="product-card">
+        <a href="https://telepati.amogenz.my.id/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/5h4B8Bhq/Icon-web.jpg" alt="Telepati">
             </div>
@@ -285,7 +279,7 @@
             </div>
         </a>
         
-        <a href="https://editno.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://editno.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/VWJQfJjL/IMG-20260506-133731.png" alt="Editno">
             </div>
@@ -299,7 +293,7 @@
             </div>
         </a>
         
-        <a href="https://spec.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://spec.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/tPwTvJF2/Spec.webp" alt="Spec">
             </div>
@@ -313,7 +307,7 @@
             </div>
         </a>
         
-        <a href="https://nahwuai.amogenz.xyz/" target="_blank" class="product-card">
+        <a href="https://nahwuai.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/DDkjDMQC/20260502-070855.png" alt="Nahwu AI">
             </div>
@@ -327,7 +321,7 @@
             </div>
         </a>
 
-        <a href="http://t.me/iammo_bot" target="_blank" class="product-card">
+        <a href="http://t.me/iammo_bot" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://img.icons8.com/color/48/telegram-app.png" alt="Ammo Tele">
             </div>
@@ -347,7 +341,7 @@
         <!-- Aplikasi -->
         <div class="page-header" style="margin-top:40px;">
     <div class="page-eyebrow">Mobile</div>
-    <h2 class="page-title" style="font-size:1.4rem;">Aplikasi</h2>
+    <h2 class="page-title" style="font-size:1.5rem;">Aplikasi</h2>
     <p class="page-subtitle">Tersedia untuk perangkat Android.</p>
 </div>
 
@@ -360,9 +354,9 @@
             <div class="app-dev">AMOGENZ</div>
             <div class="app-ver" id="aksara-ver">Memeriksa versi terbaru…</div>
         </div>
-        <a href="https://przhtugnbheqyprlwbdr.supabase.co/storage/v1/object/public/apk/Aksara-1.3.71.apk" target="_blank" rel="noopener" class="app-dl-btn" id="btn-dl-aksara">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            <span>Download</span>
+        <a href="https://przhtugnbheqyprlwbdr.supabase.co/storage/v1/object/public/apk/Aksara-1.3.71.apk" target="_blank" rel="noopener" class="app-install-btn" id="btn-dl-aksara">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Install
         </a>
     </div>
           
@@ -462,7 +456,7 @@
 
 </main>
 
-<script src="sidebar.js"></script>
+<script src="sidebar.js?v=1"></script>
 <script>
 // Tombol Download APK Aksara — selalu menunjuk ke versi terbaru.
 // Pola sama seperti web Aksara: ambil URL terbaru dari API,
