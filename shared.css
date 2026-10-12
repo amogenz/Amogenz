@@ -1,7 +1,7 @@
 /* =============================================
    AMOGENZ — shared.css
    Sistem seragam (redesain 13 Okt 2026):
-   • Palet trio soft — hijau #7CC47F, putih #F2F3F0, gelap #191C19
+   • Palet — hijau primer #4CAF50, teks hijau #7CC47F, putih #F2F3F0, gelap #101210
    • Skala radius: kecil 8, tombol 10, kartu 12, besar 16, pil 999
    • Semua warna komponen membaca token :root — jangan hardcode
    ============================================= */
@@ -17,10 +17,11 @@
 }
 
 :root {
-    --primary: #7CC47F; /* hijau default web (koreksi #4CAF50) */
-    --primary-dim: rgba(124,196,127,0.08);
-    --primary-glow: rgba(124,196,127,0.2);
-    --bg: #191C19;
+    --primary: #4CAF50; /* hijau primer/aksen (sesuai prototipe) */
+    --primary-text: #7CC47F; /* teks hijau lembut di atas latar gelap */
+    --primary-dim: rgba(76,175,80,0.08);
+    --primary-glow: rgba(76,175,80,0.2);
+    --bg: #101210; /* default (revisi: warna di belakang judul prototipe) */
     --bg-card: #212421;
     --bg-card-hover: #262826;
     --border: rgba(255,255,255,0.08);
@@ -90,7 +91,7 @@ img { display:block; max-width:100%; }
 
 .sidebar-link { display:flex; align-items:center; gap:10px; min-height:44px; padding:10px 12px; border-radius:var(--r-kecil); font-size:0.875rem; font-weight:500; color:var(--text-muted); transition:all 0.18s; }
 .sidebar-link:hover { background:var(--bg-card); color:var(--text); }
-.sidebar-link.active { background:var(--primary-dim); color:var(--primary); }
+.sidebar-link.active { background:var(--primary-dim); color:var(--primary-text); }
 .sidebar-link-icon { width:20px; height:20px; display:flex; align-items:center; justify-content:center; flex-shrink:0; opacity:0.7; }
 .sidebar-link.active .sidebar-link-icon { opacity:1; }
 .ext-icon { margin-left:auto; opacity:0.25; flex-shrink:0; }
@@ -109,7 +110,7 @@ img { display:block; max-width:100%; }
 .btn-ghost:hover { color:var(--text); border-color:var(--border-hover); }
 
 /* ── Page header ── */
-.page-eyebrow { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary); margin-bottom:8px; }
+.page-eyebrow { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary-text); margin-bottom:8px; }
 .page-title { font-family:var(--font-ui); font-size:1.75rem; font-weight:800; color:var(--text); letter-spacing:-0.5px; line-height:1.2; margin-bottom:8px; }
 .page-subtitle { font-size:0.875rem; color:var(--text-muted); line-height:1.65; }
 .page-header { padding-bottom:26px; border-bottom:1px solid var(--border); margin-bottom:30px; }
@@ -127,7 +128,7 @@ img { display:block; max-width:100%; }
 .product-card.featured .prod-icon img { width:32px; height:32px; }
 
 .prod-info { flex:1; min-width:0; }
-.prod-tag { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--primary); margin-bottom:3px; }
+.prod-tag { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--primary-text); margin-bottom:3px; }
 .prod-name { font-family:var(--font-ui); font-size:1rem; font-weight:700; color:var(--text); margin-bottom:3px; }
 .product-card.featured .prod-name { font-size:1.125rem; }
 .prod-desc { font-size:0.8125rem; color:var(--text-muted); line-height:1.5; }
@@ -138,13 +139,13 @@ img { display:block; max-width:100%; }
 /* ── About blocks ── */
 .about-section { padding-bottom:28px; border-bottom:1px solid var(--border); margin-bottom:28px; }
 .about-section:last-child { border-bottom:none; margin-bottom:0; }
-.section-label { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary); margin-bottom:10px; }
+.section-label { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary-text); margin-bottom:10px; }
 .section-heading { font-family:var(--font-ui); font-size:1.125rem; font-weight:700; color:var(--text); margin-bottom:14px; }
 .body-text { font-size:0.875rem; color:var(--text-muted); line-height:1.75; margin-bottom:12px; }
 .body-text strong { color:var(--text); }
 .body-text em { color:var(--text); }
 
-.highlight-box { display:flex; gap:12px; background:rgba(124,196,127,0.04); border-left:2px solid var(--primary); border-radius:0 var(--r-kecil) var(--r-kecil) 0; padding:14px 16px; margin:14px 0; }
+.highlight-box { display:flex; gap:12px; background:rgba(76,175,80,0.04); border-left:2px solid var(--primary); border-radius:0 var(--r-kecil) var(--r-kecil) 0; padding:14px 16px; margin:14px 0; }
 .highlight-box strong { display:block; font-size:0.875rem; color:var(--text); margin-bottom:5px; }
 .highlight-box p { font-size:0.8125rem; color:var(--text-muted); line-height:1.65; margin:0; }
 
@@ -155,7 +156,7 @@ img { display:block; max-width:100%; }
 /* Members */
 .member-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
 .member-card { display:flex; align-items:center; gap:10px; padding:13px 15px; border-radius:var(--r-kartu); background:var(--bg-card); border:1px solid var(--border); }
-.member-init { width:36px; height:36px; border-radius:var(--r-tombol); background:var(--primary-dim); border:1px solid rgba(124,196,127,0.15); display:flex; align-items:center; justify-content:center; font-family:var(--font-ui); font-size:0.75rem; font-weight:700; color:var(--primary); flex-shrink:0; }
+.member-init { width:36px; height:36px; border-radius:var(--r-tombol); background:var(--primary-dim); border:1px solid rgba(76,175,80,0.15); display:flex; align-items:center; justify-content:center; font-family:var(--font-ui); font-size:0.75rem; font-weight:700; color:var(--primary-text); flex-shrink:0; }
 .member-name { font-size:0.875rem; font-weight:600; color:var(--text); }
 .member-role { font-size:0.75rem; color:var(--text-muted); }
 
@@ -188,7 +189,7 @@ img { display:block; max-width:100%; }
 .chat-welcome-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.65; margin-bottom:20px; }
 .chat-suggestions { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-bottom:18px; }
 .suggestion-btn { padding:7px 15px; border-radius:var(--r-tombol); min-height:44px; font-size:0.8125rem; font-weight:500; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border); cursor:pointer; transition:all 0.18s; }
-.suggestion-btn:hover { background:var(--primary-dim); border-color:rgba(124,196,127,0.25); color:var(--primary); }
+.suggestion-btn:hover { background:var(--primary-dim); border-color:rgba(76,175,80,0.25); color:var(--primary); }
 .chat-disclaimer { font-size:0.75rem; color:var(--text-faint); }
 
 /* Messages */
@@ -213,7 +214,7 @@ img { display:block; max-width:100%; }
 }
 /* GAYA UNTUK LINK DI DALAM BUBBLE AI */
 .ai-msg .msg-bubble a {
-    color: var(--primary); /* Hijau soft AMOGENZ */
+    color: var(--primary-text); /* Hijau soft AMOGENZ */
     text-decoration: underline;
     text-underline-offset: 3px;
     font-weight: 600;
@@ -228,7 +229,7 @@ img { display:block; max-width:100%; }
 /* Input area */
 .chat-input-area { padding:13px 20px 20px; border-top:1px solid var(--border); background:rgba(25,28,25,0.85); backdrop-filter:blur(16px); flex-shrink:0; }
 .chat-input-box { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-kartu); padding:4px 4px 4px 14px; transition:border-color 0.18s; }
-.chat-input-box:focus-within { border-color:rgba(124,196,127,0.35); }
+.chat-input-box:focus-within { border-color:rgba(76,175,80,0.35); }
 .chat-input-box input { flex:1; background:none; border:none; outline:none; color:var(--text); font-family:var(--font-body); font-size:0.875rem; padding:9px 0; }
 .chat-input-box input::placeholder { color:var(--text-faint); }
 .chat-input-box input:disabled { opacity:0.5; }
@@ -239,28 +240,28 @@ img { display:block; max-width:100%; }
 
 /* Home specific */
 .hero { padding:44px 0 36px; }
-.hero-badge { display:inline-block; font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--primary); background:var(--primary-dim); border:1px solid rgba(124,196,127,0.18); padding:4px 12px; border-radius:var(--r-pil); margin-bottom:20px; }
+.hero-badge { display:inline-block; font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--primary-text); background:var(--primary-dim); border:1px solid rgba(76,175,80,0.18); padding:4px 12px; border-radius:var(--r-pil); margin-bottom:20px; }
 .hero-title { font-family:var(--font-ui); font-size:2rem; font-weight:800; color:var(--text); line-height:1.15; letter-spacing:-0.5px; margin-bottom:14px; }
-.hero-accent { color:var(--primary); }
+.hero-accent { color:var(--primary-text); }
 .hero-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.7; margin-bottom:24px; max-width:480px; }
 .hero-cta { display:flex; gap:10px; flex-wrap:wrap; }
 
 .home-section { padding:28px 0; border-top:1px solid var(--border); }
-.home-tag { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary); margin-bottom:8px; }
+.home-tag { font-size:0.6875rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--primary-text); margin-bottom:8px; }
 .home-heading { font-family:var(--font-ui); font-size:1.125rem; font-weight:700; color:var(--text); margin-bottom:10px; letter-spacing:-0.2px; }
 .home-text { font-size:0.875rem; color:var(--text-muted); line-height:1.72; margin-bottom:14px; }
 .home-text strong { color:var(--text); }
-.home-link { font-size:0.8125rem; font-weight:600; color:var(--primary); display:inline-flex; align-items:center; gap:4px; min-height:44px; }
+.home-link { font-size:0.8125rem; font-weight:600; color:var(--primary-text); display:inline-flex; align-items:center; gap:4px; min-height:44px; }
 .home-link:hover { gap:7px; transition:gap 0.18s; }
 
-.motto-box { padding:24px 22px; border-radius:var(--r-kartu); background:rgba(124,196,127,0.04); border:1px solid rgba(124,196,127,0.1); text-align:center; margin:0 0 28px; }
+.motto-box { padding:24px 22px; border-radius:var(--r-kartu); background:rgba(76,175,80,0.04); border:1px solid rgba(76,175,80,0.1); text-align:center; margin:0 0 28px; }
 .motto-arabic { font-size:1.25rem; color:var(--text); direction:rtl; line-height:1.9; margin-bottom:10px; }
 .motto-latin { font-size:0.8125rem; color:var(--text-muted); font-style:italic; }
 
 .ai-cta { display:flex; flex-direction:column; gap:14px; padding:20px; border-radius:var(--r-kartu); background:var(--bg-card); border:1px solid var(--border); }
 .ai-cta-top { display:flex; gap:12px; align-items:flex-start; }
 .ai-cta-avatar { width:40px; height:40px; border-radius:var(--r-tombol); object-fit:cover; border:1px solid var(--border); flex-shrink:0; }
-.ai-cta-tag { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; color:var(--primary); text-transform:uppercase; margin-bottom:3px; }
+.ai-cta-tag { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; color:var(--primary-text); text-transform:uppercase; margin-bottom:3px; }
 .ai-cta-title { font-family:var(--font-ui); font-size:1rem; font-weight:700; color:var(--text); margin-bottom:5px; }
 .ai-cta-desc { font-size:0.8125rem; color:var(--text-muted); line-height:1.55; }
 /* ── App Store Cards ── */
@@ -278,12 +279,12 @@ img { display:block; max-width:100%; }
 
 /* ── Banner AMOGENZ 3D VERSE (Beranda) — dipindah dari <style> index.html ── */
 .lab-banner { display:flex; align-items:center; gap:16px; padding:20px; margin:26px 0 4px; border-radius:var(--r-besar);
-    background:linear-gradient(135deg, rgba(124,196,127,0.09), rgba(124,196,127,0.02));
-    border:1px solid rgba(124,196,127,0.28); position:relative; overflow:hidden; }
+    background:linear-gradient(135deg, rgba(76,175,80,0.09), rgba(76,175,80,0.02));
+    border:1px solid rgba(76,175,80,0.28); position:relative; overflow:hidden; }
 .lab-banner::after { content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px;
-    border-radius:50%; background:radial-gradient(circle, rgba(124,196,127,0.22), transparent 70%); pointer-events:none; }
+    border-radius:50%; background:radial-gradient(circle, rgba(76,175,80,0.22), transparent 70%); pointer-events:none; }
 .lab-banner-logo { width:66px; height:66px; border-radius:var(--r-besar); object-fit:cover; flex-shrink:0;
-    border:1px solid rgba(124,196,127,0.4); box-shadow:0 0 26px rgba(124,196,127,0.28); }
+    border:1px solid rgba(76,175,80,0.4); box-shadow:0 0 26px rgba(76,175,80,0.28); }
 .lab-banner-body { flex:1; min-width:0; position:relative; z-index:1; }
 .lab-banner-desc { font-size:0.8125rem; color:var(--text-muted); line-height:1.6; margin-top:6px; }
 .lab-cta-btn { display:inline-flex; align-items:center; gap:10px; margin-top:13px; min-height:44px; padding:9px 18px 9px 9px;
@@ -329,7 +330,7 @@ img { display:block; max-width:100%; }
 .topbar-nav { display:none; align-items:center; gap:2px; }
 .topnav-link { padding:9px 15px; border-radius:var(--r-kecil); font-size:0.875rem; font-weight:500; color:var(--text-muted); transition:all 0.18s; white-space:nowrap; }
 .topnav-link:hover { color:var(--text); background:var(--bg-card); }
-.topnav-link.active { color:var(--primary); background:var(--primary-dim); }
+.topnav-link.active { color:var(--primary-text); background:var(--primary-dim); }
 .topnav-cta { display:inline-flex; align-items:center; gap:8px; margin-left:10px; padding:9px 16px 9px 9px; background:var(--primary); color:#000 !important; font-family:var(--font-ui); font-weight:700; font-size:0.8125rem; border-radius:var(--r-tombol); letter-spacing:0.2px; transition:all 0.18s; }
 .topnav-cta img { width:22px; height:22px; border-radius:6px; object-fit:cover; }
 .topnav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 20px var(--primary-glow); }
@@ -342,7 +343,7 @@ img { display:block; max-width:100%; }
 .footer-nav { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; }
 .footer-head { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:12px; }
 .footer-col a { display:block; font-size:0.85rem; color:var(--text-muted); padding:5px 0; transition:color 0.18s; }
-.footer-col a:hover { color:var(--primary); }
+.footer-col a:hover { color:var(--primary-text); }
 .footer-bottom { border-top:1px solid var(--border); text-align:center; padding:18px 16px; font-size:0.75rem; color:var(--text-faint); }
 
 /* ── Tablet (≥768px) ── */
