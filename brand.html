@@ -77,6 +77,13 @@
         .logo-light-img{ display:none; }
         [data-theme="light"] .logo-dark-img{ display:none; }
         [data-theme="light"] .logo-light-img{ display:block; }
+        /* Perbaikan 13 Okt: .sizes img{ display:block } (0,1,1) mengalahkan
+           .logo-light-img{ display:none } (0,1,0) sehingga dua varian logo
+           tampil berdampingan di demo "Ukuran minimum". Aturan ini
+           mengembalikan sembunyi/tampil yang benar di dalam .sizes. */
+        .sizes .logo-light-img{ display:none; }
+        [data-theme="light"] .sizes .logo-dark-img{ display:none; }
+        [data-theme="light"] .sizes .logo-light-img{ display:block; }
         .pal-label{ font-size:.72rem; font-weight:700; letter-spacing:1.8px; color:var(--text-faint); margin:20px 0 10px; }
         .swatches{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
         @media(min-width:640px){ .swatches{ grid-template-columns:repeat(4,1fr); } }

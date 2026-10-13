@@ -1,5 +1,5 @@
 {
-  "version": 19,
-  "build": "2026-10-13T08:34:28Z",
-  "note": "Panduan brand: demo ukuran minimum + demo larangan diberi latar adaptif (varian logo tak lagi tenggelam); tambah seksi \"Varian warna lockup\" (logo-varian-hijau.svg, logo-varian-putih.svg)"
+  "version": 20,
+  "build": "2026-10-13T08:44:20Z",
+  "note": "Panduan brand: perbaiki demo Ukuran minimum — dua varian logo tampil berdampingan karena .sizes img kalahkan display:none (spesifisitas)"
 }
