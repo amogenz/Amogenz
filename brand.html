@@ -50,9 +50,18 @@
         .cs-x.b{ bottom:-11px; left:50%; transform:translateX(-50%); }
         .cs-x.l{ left:-8px; top:50%; transform:translateY(-50%); }
         .cs-x.r{ right:-8px; top:50%; transform:translateY(-50%); }
-        .sizes{ display:flex; align-items:flex-end; gap:24px; margin-bottom:12px; }
+        .sizes{ display:flex; align-items:flex-end; gap:24px; margin-bottom:12px; flex-wrap:wrap; }
         .sizes figure{ text-align:center; }
-        .sizes img{ display:block; margin:0 auto 6px; }
+        .sizes img{ display:block; }
+        .sizes .stage-auto{ margin-bottom:6px; }
+        /* Latar demo yang ikut tema: gelap di mode gelap, terang di mode terang,
+           supaya varian logo yang tampil tidak pernah tenggelam */
+        .stage-auto{ display:inline-flex; align-items:center; justify-content:center; border-radius:10px; padding:10px 14px; background:#101210; }
+        [data-theme="light"] .stage-auto{ background:#F2F2ED; }
+        .variant-grid{ display:grid; gap:16px; }
+        @media(min-width:640px){ .variant-grid{ grid-template-columns:1fr 1fr; } }
+        .variant-card h4{ margin:10px 0 6px; font-size:.95rem; color:var(--text); }
+        .variant-card p{ margin:0; font-size:.86rem; color:var(--text-muted); }
         .sizes figcaption{ font-size:.72rem; color:var(--text-faint); }
         .donts{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
         @media(min-width:640px){ .donts{ grid-template-columns:repeat(4,1fr); } }
@@ -274,19 +283,19 @@
             <div class="rule-card">
                 <h3>Ukuran minimum</h3>
                 <div class="sizes">
-                    <figure><img class="logo-dark-img" src="logo.svg" style="width:120px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:120px" alt=""><figcaption>120px — ideal</figcaption></figure>
-                    <figure><img class="logo-dark-img" src="logo.svg" style="width:64px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:64px" alt=""><figcaption>64px — oke</figcaption></figure>
-                    <figure><img class="logo-dark-img" src="logo.svg" style="width:36px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:36px" alt=""><figcaption>36px — minimum</figcaption></figure>
+                    <figure><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" style="width:120px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:120px" alt=""></span><figcaption>120px — ideal</figcaption></figure>
+                    <figure><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" style="width:64px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:64px" alt=""></span><figcaption>64px — oke</figcaption></figure>
+                    <figure><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" style="width:36px" alt=""><img class="logo-light-img" src="logo-dark.svg" style="width:36px" alt=""></span><figcaption>36px — minimum</figcaption></figure>
                 </div>
-                <p>Digital: jangan lebih kecil dari <b>36px</b>. Di bawah itu, pakai burung saja tanpa tulisan.</p>
+                <p>Digital: jangan lebih kecil dari <b>36px</b> — di bawah itu tulisan AMOGENZ tidak terbaca lagi. Pakai burung saja tanpa tulisan.</p>
             </div>
         </div>
         <h3 style="margin:24px 0 12px;font-size:1rem;color:var(--text)">Jangan lakukan</h3>
         <div class="donts">
-            <div class="dont"><span class="x">×</span><div class="demo d-stretch"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></div><p>Jangan diregangkan / dipadatkan</p></div>
-            <div class="dont"><span class="x">×</span><div class="demo d-rotate"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></div><p>Jangan diputar / dimiringkan</p></div>
-            <div class="dont"><span class="x">×</span><div class="demo d-recolor"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></div><p>Jangan diwarnai ulang</p></div>
-            <div class="dont"><span class="x">×</span><div class="demo d-shadow"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></div><p>Jangan ditambah efek / bayangan warna</p></div>
+            <div class="dont"><span class="x">×</span><div class="demo d-stretch"><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></span></div><p>Jangan diregangkan / dipadatkan</p></div>
+            <div class="dont"><span class="x">×</span><div class="demo d-rotate"><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></span></div><p>Jangan diputar / dimiringkan</p></div>
+            <div class="dont"><span class="x">×</span><div class="demo d-recolor"><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></span></div><p>Jangan diganti warna sembarangan — pakai varian resmi</p></div>
+            <div class="dont"><span class="x">×</span><div class="demo d-shadow"><span class="stage-auto"><img class="logo-dark-img" src="logo.svg" alt=""><img class="logo-light-img" src="logo-dark.svg" alt=""></span></div><p>Jangan ditambah efek / bayangan warna</p></div>
         </div>
         <h3 style="margin:24px 0 12px;font-size:1rem;color:var(--text)">Logo tunggal (tanpa tulisan)</h3>
         <p class="brand-sec-desc">Burung hantu saja, utuh apa adanya — untuk ruang sempit, foto profil medsos, dan avatar. Tetap hijau <b>#4CAF50</b> di mode gelap maupun terang.</p>
@@ -299,6 +308,26 @@
             <span class="chip">Ukuran kecil / ruang bulat: <b>wajib</b> burung saja</span>
             <span class="chip">Jangan tambah <b>tulisan</b> sendiri</span>
             <span class="chip">Jangan potong <b>kaki / dasi</b> kupu-kupu</span>
+        </div>
+        <h3 style="margin:24px 0 12px;font-size:1rem;color:var(--text)">Varian warna lockup</h3>
+        <p class="brand-sec-desc">Logo lengkap (burung + tulisan AMOGENZ) punya 2 model resmi selain versi standar. Bentuknya sama persis — yang beda hanya warnanya.</p>
+        <div class="variant-grid">
+            <div class="variant-card">
+                <div class="logo-stage dark">
+                    <img src="logo-varian-hijau.svg" alt="Lockup AMOGENZ hijau semua" style="max-width:340px">
+                    <span class="stage-label">HIJAU SEMUA</span>
+                </div>
+                <h4>Hijau semua</h4>
+                <p>Burung dan tulisan <b>AMOGENZ</b> semuanya hijau <b>#4CAF50</b>. Dipakai kalau mau tampil tegas dan berani — misalnya spanduk acara, kaos, atau banner. Wajib di atas latar gelap.</p>
+            </div>
+            <div class="variant-card">
+                <div class="logo-stage dark">
+                    <img src="logo-varian-putih.svg" alt="Lockup AMOGENZ satu warna putih" style="max-width:340px">
+                    <span class="stage-label">SATU WARNA — PUTIH</span>
+                </div>
+                <h4>Satu warna (putih)</h4>
+                <p>Semuanya putih, tanpa warna lain. Dipakai kalau medianya cuma bisa satu warna — misalnya stempel, sablon satu warna, atau fotokopi. Tetap di atas latar gelap.</p>
+            </div>
         </div>
     </section>
     <section class="brand-sec" id="warna">
