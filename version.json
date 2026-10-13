@@ -1,5 +1,5 @@
 {
-  "version": 20,
-  "build": "2026-10-13T10:51:00Z",
-  "note": "brand.html jadi visual AMOGENZ VIBE: +5 seksi (Cara Mendesain, Hirarki Informasi, Hirarki Desain, Spesimen Hidup: topbar/banner/dialog/tombol/aksi44 diklon dari amogenz.xyz & blog.amogenz.xyz, Yang Tidak Dilakukan, Untuk Developer); bahasa dipadatkan"
+  "version": 21,
+  "build": "2026-10-13T11:00:57Z",
+  "note": "brand.html: isolasi tombol tema spesimen (spec-theme-toggle, dulu ikut mengubah tema halaman)"
 }
