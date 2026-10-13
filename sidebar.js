@@ -35,10 +35,13 @@
 
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        // Logo mengikuti tema (teks terang di gelap, teks gelap di terang)
+        // Logo mengikuti tema (teks terang di gelap, teks gelap di terang).
+        // WAJIB pakai getAttribute: img.src mengembalikan URL absolut sehingga
+        // "…/logo-dark.svg".endsWith("logo.svg") === true dan swap batal
+        // (logo teks-gelap nyangkut di topbar gelap = kelihatan tembus).
         document.querySelectorAll('img.brand-logo').forEach(img => {
             const want = theme === 'light' ? LOGO_LIGHT : LOGO_DARK;
-            if (!img.src.endsWith(want)) img.src = want;
+            if (img.getAttribute('src') !== want) img.setAttribute('src', want);
         });
         // theme-color mengikuti tema
         const meta = document.querySelector('meta[name="theme-color"]');

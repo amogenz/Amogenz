@@ -1,5 +1,5 @@
 {
-  "version": 17,
-  "build": "2026-10-13T05:15:00+07:00",
-  "note": "Tema terang soft situs-wide: [data-theme=light] di shared.css, toggle di topbar semua halaman, logo-dark.svg, --primary-text per tema"
+  "version": 18,
+  "build": "2026-10-13T14:20:00+07:00",
+  "note": "Perbaikan logo tembus: sidebar.js bandingkan src via getAttribute (endsWith salah cocok logo-dark.svg), v3 di 6 halaman; seksi Logo Tunggal (bird-soft.svg) di brand.html"
 }
