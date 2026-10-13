@@ -1,5 +1,5 @@
 {
-  "version": 18,
-  "build": "2026-10-13T15:20:00+07:00",
-  "note": "Ikon baru: favicon.svg = burung soft #4CAF50 di #101210; avatar sidebar pakai favicon.svg?v=2 (lepas ibb); header tidak diubah"
+  "version": 19,
+  "build": "2026-10-13T08:34:28Z",
+  "note": "Panduan brand: demo ukuran minimum + demo larangan diberi latar adaptif (varian logo tak lagi tenggelam); tambah seksi \"Varian warna lockup\" (logo-varian-hijau.svg, logo-varian-putih.svg)"
 }
