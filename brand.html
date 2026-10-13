@@ -132,6 +132,122 @@
         .comp .sample-card b{ display:block; margin-bottom:4px; color:var(--text); }
         .comp .sample-card span{ font-size:.85rem; color:var(--text-muted); }
         :focus-visible{ outline:2px solid var(--primary); outline-offset:2px; }
+    
+        /* ===== Perluasan visual AMOGENZ VIBE (v20) ===== */
+        #cara, #hi-info, #hi-visual, #spesimen, #tidak, #dev{
+            --card:var(--bg-card); --hover:var(--bg-card-hover);
+            --muted:var(--text-muted); --faint:var(--text-faint);
+            --green:var(--primary); --green-t:var(--primary-text);
+            --stage:#0B0D0B;
+            --accent:#4CAF50; --accent-tint:rgba(76,175,80,.14); --danger-tint:rgba(229,72,77,.12);
+            --green-text:var(--primary-text); --text-2:var(--text-muted); --hairline:var(--border);
+            --shadow:0 12px 32px rgba(0,0,0,.4); --ease:cubic-bezier(.2,.7,.3,1); --overlay:rgba(0,0,0,.55);
+        }
+        [data-theme="light"] #cara, [data-theme="light"] #hi-info, [data-theme="light"] #hi-visual,
+        [data-theme="light"] #spesimen, [data-theme="light"] #tidak, [data-theme="light"] #dev{ --stage:#E7E7DE; }
+        .vb-card{ background:var(--card); border:1px solid var(--border); border-radius:20px; padding:20px; margin-bottom:14px; }
+        .vb-card h3{ font-size:1.02rem; margin-bottom:6px; color:var(--text); }
+        .vb-card p{ color:var(--muted); font-size:.92rem; }
+        .vb-card p b{ color:var(--text); }
+        .gampangnya{ border-left:3px solid var(--green); padding:8px 14px; background:var(--hover); border-radius:0 12px 12px 0; margin:12px 0; color:var(--muted); font-size:.92rem; }
+        .gampangnya b{ color:var(--green-t); }
+        .chain{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:14px 0; }
+        .chain .step{ background:var(--hover); border:1px solid var(--border); border-radius:999px; padding:8px 18px; font-weight:700; color:var(--text); }
+        .chain .step.hl{ background:var(--green); border-color:var(--green); color:#101210; }
+        .chain .arr{ color:var(--faint); font-weight:700; }
+        .grid3{ display:grid; gap:12px; }
+        @media(min-width:640px){ .grid3{ grid-template-columns:repeat(3,1fr); } }
+        .mini{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; }
+        .mini h4{ font-size:.92rem; margin-bottom:6px; color:var(--text); }
+        .mini p{ font-size:.83rem; color:var(--muted); }
+        .mini p b{ color:var(--text); }
+        .plain{ color:var(--muted); margin-bottom:12px; }
+        .plain b{ color:var(--text); }
+        .demo-zone{ position:relative; background:var(--stage); border:1px solid var(--border); border-radius:16px; padding:28px 18px; margin-top:12px; overflow:hidden; min-height:150px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; }
+        .demo-tabs{ display:flex; gap:8px; margin-bottom:4px; }
+        .demo-tabs button{ border:1px solid var(--border); background:var(--card); color:var(--muted); border-radius:999px; padding:8px 18px; cursor:pointer; font-size:.85rem; font-family:inherit; }
+        .demo-tabs button.active{ background:var(--green); border-color:var(--green); color:#101210; font-weight:700; }
+        .demo-note{ font-size:.82rem; color:var(--faint); text-align:center; max-width:440px; }
+        .src-tag{ display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:1.2px; background:var(--green); color:#101210; border-radius:6px; padding:4px 10px; margin-bottom:10px; }
+        .btn-pill{ background:var(--accent); color:#fff; border:none; border-radius:999px; font-size:14px; font-weight:600; padding:12px 24px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; box-shadow:0 6px 18px rgba(76,175,80,.3); transition:transform .15s var(--ease); text-decoration:none; font-family:inherit; }
+        .btn-pill:active{ transform:scale(.96); }
+        .btn-pill.btn-danger{ background:var(--danger); box-shadow:0 6px 18px rgba(229,72,77,.3); }
+        .btn-ghost{ background:transparent; border:1px solid var(--hairline); color:var(--text-2); font-size:14px; font-weight:600; padding:11px 22px; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:transform .15s var(--ease); font-family:inherit; }
+        .btn-ghost:active{ transform:scale(.96); }
+        .real-banner{ position:absolute; top:12px; left:50%; z-index:5; max-width:calc(100% - 32px); transform:translateX(-50%) translateY(-10px); opacity:0; pointer-events:none; display:flex; align-items:center; gap:10px; background:var(--card); border:1px solid var(--hairline); border-radius:999px; padding:11px 18px 11px 14px; font-size:13.5px; font-weight:500; color:var(--text); box-shadow:var(--shadow); transition:all .25s var(--ease); white-space:nowrap; }
+        .real-banner.show{ transform:translateX(-50%) translateY(0); opacity:1; }
+        .real-banner svg{ width:20px; height:20px; flex-shrink:0; }
+        .real-banner.success svg{ color:var(--accent); }
+        .real-banner.error svg{ color:var(--danger); }
+        .real-banner.info svg{ color:var(--green-text); }
+        .r-modal{ position:absolute; inset:0; z-index:10; background:var(--overlay); display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; visibility:hidden; transition:.25s var(--ease); }
+        .r-modal.active{ opacity:1; visibility:visible; }
+        .r-dialog{ background:var(--card); border:1px solid var(--hairline); border-radius:28px; padding:30px 24px 24px; width:100%; max-width:360px; text-align:center; box-shadow:var(--shadow); transform:translateY(14px) scale(.98); transition:.25s var(--ease); }
+        .r-modal.active .r-dialog{ transform:none; }
+        .r-dialog .icon-ring{ width:58px; height:58px; border-radius:50%; margin:0 auto; background:var(--accent-tint); display:flex; align-items:center; justify-content:center; color:var(--accent); }
+        .r-dialog .icon-ring.danger{ background:var(--danger-tint); color:var(--danger); }
+        .r-dialog .icon-ring svg{ width:27px; height:27px; fill:currentColor; }
+        .r-dialog h3{ font-size:18px; font-weight:700; margin-top:14px; letter-spacing:-.2px; color:var(--text); }
+        .r-dialog-desc{ font-size:13.5px; color:var(--text-2); margin-top:8px; line-height:1.6; }
+        .r-dialog-actions{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:22px; }
+        .r-dialog-actions .btn-ghost, .r-dialog-actions .btn-pill{ flex:1; justify-content:center; }
+        .read-action-btn{ width:44px; height:44px; border-radius:50%; border:1px solid var(--hairline); background:var(--card); color:var(--text-2); cursor:pointer; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; transition:.15s var(--ease); }
+        .read-action-btn svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; }
+        .read-action-btn.on{ background:var(--accent); border-color:var(--accent); color:#fff; }
+        .read-action-btn.on svg{ fill:#fff; }
+        .like-count{ font-variant-numeric:tabular-nums; min-width:6ch; display:inline-block; text-align:left; color:var(--muted); font-size:.95rem; }
+        .like-row{ display:flex; align-items:center; gap:10px; }
+        .spec-frame{ border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-top:12px; background:var(--stage); }
+        .spec-bar{ display:flex; gap:6px; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .spec-bar span{ width:10px; height:10px; border-radius:50%; background:var(--faint); opacity:.5; }
+        .spec-bar span:first-child{ background:var(--danger); opacity:.8; }
+        .spec-bar span:nth-child(2){ background:#E8A13D; opacity:.8; }
+        .spec-bar span:nth-child(3){ background:var(--green); opacity:.8; }
+        #specTopbar{ --tb-bg:rgba(16,18,16,.97); --tb-text:#F2F3F0; --tb-muted:#A9ADA6; --tb-border:rgba(255,255,255,.09); --tb-hover:#262826; --tb-pdim:rgba(76,175,80,.12); --tb-ptext:#4CAF50; }
+        #specTopbar[data-theme="light"]{ --tb-bg:rgba(242,242,237,.97); --tb-text:#20221F; --tb-muted:#5A5E58; --tb-border:rgba(0,0,0,.09); --tb-hover:#EDEDE3; --tb-pdim:rgba(76,175,80,.16); --tb-ptext:#2E7D32; }
+        #specTopbar .topbar{ position:relative; height:56px; z-index:1; display:flex; align-items:center; justify-content:space-between; padding:0 14px; background:var(--tb-bg); border-bottom:1px solid var(--tb-border); top:auto; left:auto; right:auto; backdrop-filter:none; }
+        #specTopbar .topbar-brand{ display:flex; align-items:center; }
+        #specTopbar .topbar-logo{ width:96px; height:44px; object-fit:contain; }
+        #specTopbar .topbar-nav{ display:none; align-items:center; gap:2px; }
+        #specTopbar .topnav-link{ padding:9px 13px; border-radius:8px; font-size:.85rem; font-weight:500; color:var(--tb-muted); text-decoration:none; white-space:nowrap; }
+        #specTopbar .topnav-link.active{ color:var(--tb-ptext); background:var(--tb-pdim); }
+        #specTopbar .topnav-cta{ display:none; align-items:center; gap:8px; margin-left:8px; padding:8px 14px 8px 8px; background:var(--green); color:#101210; font-weight:700; font-size:.75rem; border-radius:12px; text-decoration:none; }
+        #specTopbar .topnav-cta .cta-ic{ width:22px; height:22px; border-radius:6px; background:#101210; color:var(--green); display:inline-flex; align-items:center; justify-content:center; font-weight:900; font-size:.8rem; }
+        #specTopbar .topbar-actions{ display:flex; align-items:center; gap:6px; }
+        #specTopbar .theme-toggle{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:999px; border:none; background:transparent; color:var(--tb-muted); cursor:pointer; }
+        #specTopbar .theme-toggle svg{ width:20px; height:20px; }
+        #specTopbar .theme-toggle .ic-sun{ display:none; }
+        #specTopbar[data-theme="light"] .theme-toggle .ic-moon{ display:none; }
+        #specTopbar[data-theme="light"] .theme-toggle .ic-sun{ display:block; }
+        #specTopbar .hamburger-btn{ width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4.5px; border:none; background:transparent; border-radius:8px; cursor:pointer; }
+        #specTopbar .hamburger-btn span{ display:block; width:18px; height:1.5px; background:var(--tb-text); border-radius:2px; transition:all .25s var(--ease); }
+        #specTopbar .hamburger-btn.open span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+        #specTopbar .hamburger-btn.open span:nth-child(2){ opacity:0; transform:scaleX(0); }
+        #specTopbar .hamburger-btn.open span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+        #specTopbar .spec-drawer{ display:none; background:var(--tb-bg); border-bottom:1px solid var(--tb-border); padding:8px; }
+        #specTopbar .spec-drawer.open{ display:block; }
+        #specTopbar .spec-drawer a{ display:block; padding:12px 14px; border-radius:8px; color:var(--tb-muted); text-decoration:none; font-size:.9rem; }
+        #specTopbar .spec-drawer a.active{ color:var(--tb-ptext); background:var(--tb-pdim); font-weight:600; }
+        .hi-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; width:100%; max-width:420px; }
+        .hi-card .t-title{ font-size:1.25rem; font-weight:800; margin-bottom:8px; color:var(--text); }
+        .hi-card .t-body{ color:var(--muted); font-size:.92rem; margin-bottom:12px; }
+        .hi-card .t-meta{ font-size:.78rem; color:var(--faint); }
+        .hi-card .t-link{ color:var(--green-t); font-size:.9rem; font-weight:600; margin-top:10px; display:inline-block; }
+        .hi-acak .t-meta{ font-size:.78rem; color:var(--faint); margin-bottom:10px; }
+        .hi-acak .t-date{ font-size:1.5rem; font-weight:900; color:var(--danger); margin-bottom:10px; }
+        .hi-acak .t-title{ font-size:.85rem; font-weight:400; color:var(--muted); margin-bottom:10px; }
+        .hi-acak .t-link{ font-size:1.15rem; font-weight:800; color:var(--green); }
+        .hv-card{ position:relative; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; width:100%; max-width:420px; }
+        .hv-card .hv-title{ font-size:1.3rem; font-weight:800; margin-bottom:6px; color:var(--text); }
+        .hv-card .hv-sub{ color:var(--green-t); font-weight:700; font-size:1.05rem; margin-bottom:14px; }
+        .hv-num{ position:absolute; width:30px; height:30px; border-radius:50%; background:var(--green); color:#101210; font-weight:800; display:none; align-items:center; justify-content:center; font-size:.85rem; box-shadow:0 4px 12px rgba(0,0,0,.4); }
+        .hv-num.on{ display:inline-flex; animation:vbpop .25s ease; }
+        @keyframes vbpop{ from{ transform:scale(.92); opacity:0; } to{ transform:scale(1); opacity:1; } }
+        .no-list{ list-style:none; padding:0; }
+        .no-list li{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:12px 16px; margin-bottom:10px; font-size:.9rem; color:var(--muted); display:flex; gap:10px; }
+        .no-list li b{ color:var(--text); }
+        .no-list .x{ color:var(--danger); font-weight:800; flex-shrink:0; }
+
     </style>
 </head>
 <body>
@@ -258,7 +374,29 @@
         </div>
     </section>
 
+    <section class="brand-sec" id="cara">
+        <h2>Cara Kami Mendesain</h2>
+        <p class="brand-sec-desc">Tiga pegangan kami dalam mendesain:</p>
+        <div class="rules">
+            <div class="rule-card"><h3>1. User tidak disuruh mikir</h3><p>UI yang bagus itu yang tidak disadari. User memikirkan isi — pesan, postingan, orang — bukan aplikasinya. Setiap detik user berhenti dan bertanya "ini tombol apa ya?" adalah kegagalan kami.</p></div>
+            <div class="rule-card"><h3>2. Setiap aksi ada jawabannya</h3><p>Setiap aksi ada jawabannya: terkirim, tersimpan, terhapus — seketika. Aplikasi bertanya <b>hanya</b> kalau akibatnya tidak bisa dibatalkan.</p></div>
+            <div class="rule-card"><h3>3. Posisi tidak pindah-pindah</h3><p>Jari sudah hafal letak tombol dan menu. Jangan digeser-geser — antarhalaman maupun antarversi.</p></div>
+        </div>
+        <div class="gampangnya"><b>Intinya satu rantai:</b></div>
+        <div class="chain"><span class="step">Biasa</span><span class="arr">→</span><span class="step">Nyaman</span><span class="arr">→</span><span class="step hl">Langsung Paham</span></div>
+        <p class="plain">Pakai pola yang <b>sudah biasa</b>. Biasa → <b>nyaman</b>, nyaman → <b>langsung paham</b> tanpa belajar. Tidak harus beda — kalau beda, user harus kenalan dulu.</p>
+        <div class="gampangnya"><b>Targetnya bukan</b> "mudah dipahami", tapi <b>"tidak perlu dipahami"</b>. Baru sekali buka, rasanya sudah pernah pakai.</div>
+        <div class="gampangnya"><b>Kagum itu cuma sehari.</b> Yang bikin betah bertahun-tahun: hal kecil yang mulus setiap hari — tombol yang tetap di tempatnya, kabar yang hilang sendiri.</div>
+        <h3 style="margin:20px 0 10px;font-size:1rem;color:var(--text)">Beda medium, beda kebiasaan</h3>
+        <p class="plain">Tiap layar punya kebiasaan sendiri — jangan saling memaksa:</p>
+        <div class="grid3">
+            <div class="mini"><h4>HP</h4><p>Satu tangan, sesi cepat. Menu jadi satu tombol, yang penting dalam jangkauan jempol. <b>Contoh:</b> halaman ini — buka di HP.</p></div>
+            <div class="mini"><h4>iPad</h4><p>Disentuh seperti HP, tapi layarnya lega.</p></div>
+            <div class="mini"><h4>Desktop</h4><p>Mouse + keyboard. Navigasi terlihat semua, tidak perlu berburu menu. <b>Contoh:</b> spesimen topbar di bawah.</p></div>
+        </div>
+    </section>
     <section class="brand-sec" id="logo">
+
         <h2>Logo</h2>
         <p class="brand-sec-desc">Varian A — font asli dipertahankan, burung hantu 100% utuh. Logo utama untuk latar gelap; varian teks gelap untuk latar terang.</p>
         <div class="logo-stage dark">
@@ -396,6 +534,52 @@
             <div class="l4">Tautan penting → hijau, hanya untuk aksi &amp; penanda.</div>
         </div>
     </section>
+    <section class="brand-sec" id="hi-info">
+        <h2>Hirarki Informasi</h2>
+        <p class="brand-sec-desc">Urutan penting-tidaknya informasi di sebuah tampilan.</p>
+        <div class="gampangnya"><b>Gampangnya:</b> ibarat koran — <b>judul besar</b> dulu, baru <b>isi</b>, paling bawah <b>keterangan kecil</b>. Mata dituntun dari yang penting ke yang kurang penting.</div>
+        <p class="plain">Coba bandingkan dua kartu berisi info yang <b>sama persis</b> ini:</p>
+        <div class="demo-tabs">
+            <button class="active" data-hi="acak">Versi acak</button>
+            <button data-hi="rapi">Versi rapi</button>
+        </div>
+        <div class="demo-zone" style="min-height:230px">
+            <div class="hi-card hi-acak" id="hiAcak">
+                <div class="t-meta">oleh @amogenz</div>
+                <div class="t-date">13 OKT 2026</div>
+                <div class="t-title">peluncuran fitur baru</div>
+                <div class="t-body">Mulai hari ini semua pengguna bisa mencoba tema terang yang lembut di mata, lengkap dengan pilihan warna aksen.</div>
+                <a class="t-link">BACA SELENGKAPNYA →</a>
+            </div>
+            <div class="hi-card" id="hiRapi" style="display:none">
+                <div class="t-title">Peluncuran Fitur Baru</div>
+                <div class="t-body">Mulai hari ini semua pengguna bisa mencoba tema terang yang lembut di mata, lengkap dengan pilihan warna aksen.</div>
+                <div class="t-meta">@amogenz • 13 Okt 2026</div>
+                <a class="t-link">Baca selengkapnya →</a>
+            </div>
+        </div>
+        <p class="plain" style="margin-top:12px">Versi acak: tanggalnya teriak, judulnya bisik — mata bingung mulai dari mana. Versi rapi: sekali lirik langsung paham. Yang penting tampil penting.</p>
+    </section>
+
+    <section class="brand-sec" id="hi-visual">
+        <h2>Hirarki Desain (Visual)</h2>
+        <p class="brand-sec-desc">Urutan yang dilihat mata — diatur lewat ukuran, warna, dan jarak.</p>
+        <div class="gampangnya"><b>Gampangnya:</b> mata manusia itu malas — dia selalu menangkap <b>yang besar dan kontras dulu</b>. Jadi kalau ada yang penting, bikin dia besar atau kontras. Kalau semuanya besar dan warna-warni, mata menyerah: tidak ada yang penting.</div>
+        <div class="demo-zone" style="min-height:250px">
+            <div class="hv-card">
+                <span class="hv-num" id="hv1" style="top:8px; left:8px;">1</span>
+                <span class="hv-num" id="hv2" style="top:64px; left:8px;">2</span>
+                <span class="hv-num" id="hv3" style="bottom:14px; right:14px;">3</span>
+                <div class="hv-title">Kaos AMOGENZ 2026</div>
+                <div class="hv-sub">Rp 120.000</div>
+                <div class="t-body" style="color:var(--text-muted); font-size:.9rem; margin-bottom:14px;">Katun combed 30s, sablon hijau AMOGENZ. Stok terbatas.</div>
+                <button class="btn-pill">Beli Sekarang</button>
+            </div>
+            <button class="btn-ghost" id="hvShow" style="margin-top:6px">Tunjukkan urutan baca mata</button>
+        </div>
+        <p class="plain" style="margin-top:12px">Urutan baca mata: <b>judul</b> (paling besar) → <b>harga</b> (kontras) → <b>tombol beli</b>. Alatnya cuma tiga: <b>ukuran</b>, <b>warna</b>, <b>jarak</b>.</p>
+    </section>
+
 
     <section class="brand-sec" id="terap">
         <h2>Penerapan</h2>
@@ -420,6 +604,141 @@
                 <p style="font-size:.88rem;color:var(--text-muted)">Semua sudut <b style="color:var(--text)">membulat</b> — tanpa sudut lancip. Jari-jari: 8 / 10 / 12 / 16 / pil.</p>
             </div>
         </div>
+    </section>
+    <section class="brand-sec" id="spesimen">
+        <h2>Spesimen Hidup</h2>
+        <p class="brand-sec-desc">Ini <b>elemen asli</b> dari produk kami — hidup dan bisa diklik, bukan gambar.</p>
+
+        <div class="vb-card">
+            <span class="src-tag">DIKLON DARI — AMOGENZ.XYZ</span>
+            <h3>Topbar web utama</h3>
+            <p>Topbar asli web utama — kode dan gayanya sama persis dengan yang live.</p>
+            <div class="gampangnya"><b>Gampangnya:</b> bingkai ini sempit seperti layar HP — makanya tampil hamburger. Klik untuk membuka drawer; klik bulan/matahari untuk ganti tema di dalam bingkai.</div>
+            <div class="spec-frame">
+                <div class="spec-bar"><span></span><span></span><span></span></div>
+                <div id="specTopbar" data-theme="dark">
+                    <header class="topbar">
+                        <a class="topbar-brand"><img class="topbar-logo brand-logo" src="logo.svg" alt="AMOGENZ"></a>
+                        <nav class="topbar-nav">
+                            <a class="topnav-link active" href="index.html">Beranda</a>
+                            <a class="topnav-link" href="produk.html">Produk</a>
+                            <a class="topnav-link" href="about.html">Tentang Kami</a>
+                            <a class="topnav-link" href="ai.html">Ammo AI</a>
+                            <a class="topnav-cta" href="https://3d.amogenz.xyz/" target="_blank" rel="noopener"><span class="cta-ic">A</span>AMOGENZ 3D VERSE</a>
+                        </nav>
+                        <div class="topbar-actions">
+                            <button class="theme-toggle" id="specThemeBtn" aria-label="Ganti tema">
+                                <svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+                                <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                            </button>
+                            <button class="hamburger-btn" id="specBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+                        </div>
+                    </header>
+                    <div class="spec-drawer" id="specDrawer">
+                        <a class="active" href="index.html">Beranda</a><a href="produk.html">Produk</a><a href="about.html">Tentang Kami</a><a href="ai.html">Ammo AI</a><a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener">AMOGENZ 3D VERSE</a>
+                    </div>
+                </div>
+            </div>
+            <p class="demo-note" style="margin-top:10px">Ini topbar beneran — bukan gambar. Di web aslinya yang layar lebar, navigasinya tampil semua.</p>
+        </div>
+
+        <div class="vb-card">
+            <span class="src-tag">DIKLON DARI — BLOG.AMOGENZ.XYZ</span>
+            <h3>Banner — kabar yang hilang sendiri</h3>
+            <p>Persis seperti banner blog kami: muncul 3,2 detik, lalu hilang sendiri.</p>
+            <div class="gampangnya"><b>Gampangnya:</b> seperti pelayan — lapor "beres", lalu pergi.</div>
+            <div class="demo-zone">
+                <div class="real-banner" id="realBanner"></div>
+                <button class="btn-pill" id="btnRealBanner">Coba: Simpan artikel</button>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+                    <button class="btn-ghost" id="btnRealBannerInfo">Coba: versi info</button>
+                    <button class="btn-ghost" id="btnRealBannerErr">Coba: versi error</button>
+                </div>
+                <p class="demo-note">Klik tombolnya — ini banner asli blog kami.</p>
+            </div>
+        </div>
+
+        <div class="vb-card">
+            <span class="src-tag">DIKLON DARI — BLOG.AMOGENZ.XYZ</span>
+            <h3>Dialog konfirmasi — bertanya hanya kalau permanen</h3>
+            <p>Dialog asli blog kami saat menghapus gambar. <b>Batal kiri</b>, tombol bahaya <b>kanan</b> — tidak pernah tukar. Pola yang sama dipakai aplikasi Aksara.</p>
+            <div class="gampangnya"><b>Gampangnya:</b> aplikasi bertanya hanya untuk hal yang tidak bisa dibatalkan.</div>
+            <div class="demo-zone" style="min-height:300px">
+                <div class="r-modal" id="realModal">
+                    <div class="r-dialog" role="dialog" aria-modal="true" aria-label="Konfirmasi">
+                        <div class="icon-ring danger">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        </div>
+                        <h3 id="realConfirmTitle">Hapus gambar ini?</h3>
+                        <p class="r-dialog-desc" id="realConfirmDesc">Gambar yang sudah dihapus tidak bisa kembali.</p>
+                        <div class="r-dialog-actions">
+                            <button class="btn-ghost" id="realDlgBatal">Batal</button>
+                            <button class="btn-pill btn-danger" id="realDlgOk">Ya, hapus</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="real-banner" id="realBanner2"></div>
+                <button class="btn-pill btn-danger" id="btnRealDlg">Coba: Hapus gambar</button>
+                <p class="demo-note">Klik → jawab → banner muncul. Alur beneran di blog kami.</p>
+            </div>
+        </div>
+
+        <div class="vb-card">
+            <span class="src-tag">DIKLON DARI — BLOG.AMOGENZ.XYZ</span>
+            <h3>Tombol — bentuk dan posisi dikunci</h3>
+            <p>Tombol asli blog kami: utama pil hijau, bahaya pil merah, sekunder hantu.</p>
+            <div class="demo-zone" style="flex-direction:row; flex-wrap:wrap;">
+                <button class="btn-pill" id="btnPillDemo">Simpan</button>
+                <button class="btn-ghost">Batal</button>
+                <button class="btn-pill btn-danger" id="btnDangerDemo">Hapus</button>
+            </div>
+            <p class="demo-note" style="margin-top:10px">Klik Simpan → banner. Klik Hapus → dialog. Tersambung seperti di produk asli.</p>
+        </div>
+
+        <div class="vb-card">
+            <span class="src-tag">DIKLON DARI — BLOG.AMOGENZ.XYZ</span>
+            <h3>Tombol aksi 44 — dijawab seketika</h3>
+            <p>Tombol bulat 44px dari halaman baca blog kami — pas seukuran jari. Sentuh → langsung merespons. Sentuh lagi → batal.</p>
+            <div class="gampangnya"><b>Gampangnya:</b> untuk hal ringan, aplikasi percaya saja sama jarimu.</div>
+            <div class="demo-zone">
+                <div class="like-row">
+                    <button class="read-action-btn" id="realLike" aria-label="Suka">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </button>
+                    <span class="like-count" id="realLikeCount">1.245</span>
+                </div>
+                <p class="demo-note">Klik — langsung hijau, angka tambah, posisi tidak bergeser.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="brand-sec" id="tidak">
+        <h2>Yang Tidak Kami Lakukan</h2>
+        <p class="brand-sec-desc">Daftar larangan kami — kalau ada yang melanggar ini di produk AMOGENZ, itu bug.</p>
+        <ul class="no-list">
+            <li><span class="x">×</span><span><b>Tombol pindah-pindah tempat</b> antarhalaman atau antarversi tanpa alasan.</span></li>
+            <li><span class="x">×</span><span><b>Satu ikon untuk dua maksud</b>, atau dua ikon beda untuk maksud yang sama.</span></li>
+            <li><span class="x">×</span><span><b>Bertanya untuk hal yang bisa dibatalkan.</b> Masa like saja ditanya yakin?</span></li>
+            <li><span class="x">×</span><span><b>Kabar baik yang nempel terus.</b> Notifikasi yang tidak hilang sendiri untuk kabar gembira = dilarang.</span></li>
+            <li><span class="x">×</span><span><b>Animasi yang minta dikagumi.</b> UI tidak sedang tampil di panggung.</span></li>
+            <li><span class="x">×</span><span><b>Tombol penting di luar jangkauan jempol</b> pada layar utama HP.</span></li>
+            <li><span class="x">×</span><span><b>Memaksa pola satu layar ke layar lain.</b> Pola HP dipaksa ke desktop, atau pola aplikasi dipaksa ke web.</span></li>
+        </ul>
+    </section>
+
+    <section class="brand-sec" id="dev">
+        <h2>Untuk Developer: Angka yang Dikunci</h2>
+        <p class="brand-sec-desc">Mau pakai AMOGENZ VIBE di proyekmu? Ini angka yang tidak boleh diubah:</p>
+        <div class="grid3">
+            <div class="mini"><h4>Hijau utama</h4><p>Tombol &amp; elemen: <b>#4CAF50</b><br>Teks hijau di latar gelap: <b>#7CC47F</b><br>Teks hijau di latar terang: <b>#2E7D32</b></p></div>
+            <div class="mini"><h4>Makna warna</h4><p>Bahaya (hapus): <b>#E5484D</b><br>Peringatan: <b>#E8A13D</b></p></div>
+            <div class="mini"><h4>Latar gelap</h4><p>Latar: <b>#101210</b><br>Kartu: <b>#212421</b><br>Teks: <b>#F2F3F0</b></p></div>
+            <div class="mini"><h4>Latar terang</h4><p>Latar: <b>#F2F2ED</b><br>Kartu: <b>#FAFAF6</b><br>Teks: <b>#20221F</b></p></div>
+            <div class="mini"><h4>Sudut (radius)</h4><p>Kartu: <b>20</b><br>Dialog: <b>28</b><br>Kolom isian: <b>12</b><br>Tombol aksi: <b>pil 999</b></p></div>
+            <div class="mini"><h4>Lainnya</h4><p>Font: <b>font sistem</b> (bukan kustom)<br>Jarak: kelipatan <b>4 / 8</b><br>Target sentuh minimal: <b>44</b></p></div>
+        </div>
+        <p class="plain" style="margin-top:12px"><b>Yang dikunci: angka dan perilakunya.</b> Selama itu dipatuhi, proyekmu sudah ber-VIBE.</p>
     </section>
 
 </div>
@@ -464,5 +783,107 @@ document.querySelectorAll('.swatch').forEach(function(sw){
   });
 });
 </script>
+
+<script>
+/* ===== Spesimen hidup: interaksi (v20) ===== */
+(function(){
+  // Hirarki info: acak vs rapi
+  var hiAcak = document.getElementById('hiAcak'), hiRapi = document.getElementById('hiRapi');
+  if (hiAcak) document.querySelectorAll('[data-hi]').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('[data-hi]').forEach(function(x){ x.classList.remove('active'); });
+      b.classList.add('active');
+      var rapi = b.getAttribute('data-hi') === 'rapi';
+      hiAcak.style.display = rapi ? 'none' : '';
+      hiRapi.style.display = rapi ? '' : 'none';
+    });
+  });
+
+  // Hirarki visual: urutan baca
+  var hvBtn = document.getElementById('hvShow'), hvTimer = null;
+  if (hvBtn) hvBtn.addEventListener('click', function(){
+    ['hv1','hv2','hv3'].forEach(function(id){ document.getElementById(id).classList.remove('on'); });
+    var step = 0, btn = this;
+    clearInterval(hvTimer); btn.textContent = 'Memutar ulang…';
+    hvTimer = setInterval(function(){
+      step++;
+      if (step <= 3) document.getElementById('hv' + step).classList.add('on');
+      else { clearInterval(hvTimer); btn.textContent = 'Tunjukkan urutan baca mata'; }
+    }, 600);
+  });
+
+  // Spesimen topbar: tema + drawer (klon amogenz.xyz)
+  var specTop = document.getElementById('specTopbar');
+  if (specTop) {
+    document.getElementById('specThemeBtn').addEventListener('click', function(){
+      specTop.setAttribute('data-theme', specTop.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    var burger = document.getElementById('specBurger');
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('open');
+      document.getElementById('specDrawer').classList.toggle('open');
+    });
+  }
+
+  // Spesimen banner (klon blog.amogenz.xyz — showNotification persis)
+  var ICONS = {
+    success: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>',
+    error: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"/></svg>',
+    info: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>'
+  };
+  var timers = {};
+  function showNotificationOn(banner, message, type){
+    if (!banner) return;
+    type = type || 'success';
+    banner.className = 'real-banner ' + type;
+    banner.innerHTML = ICONS[type] + '<span></span>';
+    banner.lastChild.textContent = message;
+    var showIt = function(){ banner.classList.add('show'); };
+    if (window.requestAnimationFrame) requestAnimationFrame(showIt);
+    setTimeout(showIt, 60);
+    clearTimeout(timers[banner.id]);
+    timers[banner.id] = setTimeout(function(){ banner.classList.remove('show'); }, 3200);
+  }
+  function on(id, fn){ var el = document.getElementById(id); if (el) el.addEventListener('click', fn); }
+  var rb1 = document.getElementById('realBanner');
+  on('btnRealBanner', function(){ showNotificationOn(rb1, 'Artikel tersimpan.'); });
+  on('btnRealBannerInfo', function(){ showNotificationOn(rb1, 'Draf dipulihkan otomatis.', 'info'); });
+  on('btnRealBannerErr', function(){ showNotificationOn(rb1, 'Gagal menyimpan. Coba lagi.', 'error'); });
+  on('btnPillDemo', function(){ showNotificationOn(rb1, 'Perubahan tersimpan.'); });
+
+  // Spesimen dialog (klon blog.amogenz.xyz — openConfirmModal persis)
+  var realModal = document.getElementById('realModal'), confirmCallback = null;
+  function openConfirmModal(title, desc, okLabel, onOk){
+    document.getElementById('realConfirmTitle').textContent = title;
+    document.getElementById('realConfirmDesc').textContent = desc;
+    document.getElementById('realDlgOk').textContent = okLabel;
+    confirmCallback = onOk;
+    realModal.classList.add('active');
+  }
+  function closeConfirmModal(){ realModal.classList.remove('active'); confirmCallback = null; }
+  on('realDlgBatal', closeConfirmModal);
+  if (realModal) realModal.addEventListener('click', function(e){ if (e.target === realModal) closeConfirmModal(); });
+  on('realDlgOk', function(){ var cb = confirmCallback; closeConfirmModal(); if (cb) cb(); });
+  var rb2 = document.getElementById('realBanner2');
+  function askDeleteGambar(){
+    openConfirmModal('Hapus gambar ini?', 'Gambar yang sudah dihapus tidak bisa kembali.', 'Ya, hapus',
+      function(){ showNotificationOn(rb2, 'Gambar dihapus.'); });
+  }
+  on('btnRealDlg', askDeleteGambar);
+  on('btnDangerDemo', askDeleteGambar);
+
+  // Spesimen tombol aksi 44 (klon blog.amogenz.xyz)
+  var realLike = document.getElementById('realLike'), realLikeCount = document.getElementById('realLikeCount');
+  if (realLike) {
+    var liked = false, base = 1245;
+    realLike.addEventListener('click', function(){
+      liked = !liked;
+      realLike.classList.toggle('on', liked);
+      realLikeCount.textContent = (base + (liked ? 1 : 0)).toLocaleString('id-ID');
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
