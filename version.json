@@ -1,1 +1,5 @@
-{"build":"2026-10-13T23:30:00Z","note":"Hapus tagline 'Spirit of Youth & Technology' dari web utama (title, og:title, sidebar, footer); teks .xyz kini hanya muncul di URL, tidak di teks terlihat","version":23}
+{
+  "build": "2026-10-14T22:04:10Z",
+  "note": "about.html: kartu Pesan Founder & Dokumentasi dibungkus .product-list (jarak 8px, dulu menempel 0px)",
+  "version": 24
+}
