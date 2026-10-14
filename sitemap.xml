@@ -6,15 +6,23 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://www.amogenz.xyz/produk.html</loc>
+    <loc>https://www.amogenz.xyz/produk</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.amogenz.xyz/about.html</loc>
+    <loc>https://www.amogenz.xyz/about</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.amogenz.xyz/ai.html</loc>
+    <loc>https://www.amogenz.xyz/ai</loc>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.amogenz.xyz/brand</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.amogenz.xyz/dokumentasi</loc>
+    <priority>0.70</priority>
   </url>
 </urlset>

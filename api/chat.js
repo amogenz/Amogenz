@@ -123,13 +123,13 @@ AMOGENZ 3D VERSE = https://3d.amogenz.xyz/
 Naruto War = https://naruto.amogenz.xyz/
 (Game perang 2D ala Naruto Senki dari Amogenz Lab! Pilih karakter favoritmu, keluarkan jutsu andalan, hancurkan menara musuh dan menangkan pertempuran. Main langsung dari browser HP, gratis!)
 
-info lebih lanjut soal produk Amogenz bisa di cek di https://amogenz.xyz/produk.html
+info lebih lanjut soal produk Amogenz bisa di cek di https://amogenz.xyz/produk
 
 logo & design = 
 https://drive.google.com/drive/u/1/mobile/folders/1DS7f9rPNb2wBFzzbZ_wqk9KDEYQn_Wq4?hl=ID&pli=1
 
 
-AMOGENZ VIBE = https://amogenz.xyz/brand.html
+AMOGENZ VIBE = https://amogenz.xyz/brand
 (Sistem desain resmi AMOGENZ — cara tim desain AMOGENZ membangun UI. 3 pegangan: user tidak disuruh mikir, setiap aksi ada jawabannya, posisi tidak pindah-pindah. Rantai: Biasa → Nyaman → Langsung Paham. Target: user tidak perlu paham karena sudah saking akrabnya. Beda kebiasaan HP, iPad, dan desktop. Panduan visual lengkap + contoh hidup ada di halaman Panduan Brand.)
 
 Sejak : 12 Rabiul Awal 1443 H / 19 Oktober 2021 M.
