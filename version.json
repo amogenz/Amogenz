@@ -1,5 +1,5 @@
 {
-  "build": "2026-10-14T22:12:20Z",
-  "note": "URL bersih: rewrite /brand /produk /about /ai /dokumentasi + redirect permanen .html->bersih; 87 link internal diperbarui; sitemap URL bersih",
-  "version": 25
+  "build": "2026-10-15T04:18:07Z",
+  "note": "Hapus tagline \"Youth & Technology Community\" di about.html (titah Bos 2026-10-15)",
+  "version": 26
 }
