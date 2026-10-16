@@ -27,10 +27,17 @@
 /* OAuth2 callback "Login with AMOGENZ" — klien publik + PKCE S256 */
 (async () => {
   const $ = (id) => document.getElementById(id);
-  const fail = (msg) => {
+  const fail = (msg, retry = true) => {
     $('cbCard').classList.add('err');
     $('cbTitle').textContent = 'Gagal masuk';
-    $('cbMsg').textContent = msg + ' Coba lagi dari halaman utama.';
+    $('cbMsg').textContent = msg;
+    if (retry) {
+      const btn = document.createElement('button');
+      btn.textContent = 'Kembali ke beranda';
+      btn.style.cssText = 'margin-top:16px;padding:10px 24px;background:var(--primary);color:#000;border:none;border-radius:99px;font-weight:700;cursor:pointer;';
+      btn.onclick = () => location.href = '/';
+      $('cbCard').appendChild(btn);
+    }
   };
   try {
     const q = new URLSearchParams(location.search);
@@ -41,8 +48,11 @@
     const returnTo = sessionStorage.getItem('amgz_oauth_return') || '/';
     sessionStorage.removeItem('amgz_oauth_state');
     sessionStorage.removeItem('amgz_oauth_verifier');
-    if (!code || !state || state !== savedState || !verifier)
-      return fail('Data login tidak valid.');
+    if (!code || !state || state !== savedState || !verifier) {
+      if (!code && !state)
+        return fail('Halaman ini hanya untuk proses login. Klik tombol "Masuk" di beranda untuk mulai.');
+      return fail('Data login tidak valid atau sudah kedaluwarsa. Mulai lagi dari tombol "Masuk".');
+    }
 
     const tokenRes = await fetch('https://account.amogenz.xyz/api/oauth/token', {
       method: 'POST',
