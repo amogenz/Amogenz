@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk — AMOGENZ</title>
+<link rel="stylesheet" href="/shared.css?v=1">
+<style>
+  .cb-wrap { min-height:70vh; display:flex; align-items:center; justify-content:center; padding:40px 20px; }
+  .cb-card { text-align:center; max-width:380px; }
+  .cb-card .spin { width:44px; height:44px; border:4px solid var(--border); border-top-color:var(--primary); border-radius:50%; margin:0 auto 20px; animation:sp 0.8s linear infinite; }
+  @keyframes sp { to { transform:rotate(360deg); } }
+  .cb-card h1 { font-size:1.2rem; margin-bottom:8px; }
+  .cb-card p { color:var(--text-muted); font-size:.88rem; line-height:1.6; }
+  .cb-card.err .spin { display:none; }
+</style>
+</head>
+<body>
+<div class="cb-wrap">
+  <div class="cb-card" id="cbCard">
+    <div class="spin"></div>
+    <h1 id="cbTitle">Masuk dengan AMOGENZ…</h1>
+    <p id="cbMsg">Sebentar ya, lagi verifikasi.</p>
+  </div>
+</div>
+<script>
+/* OAuth2 callback "Login with AMOGENZ" — klien publik + PKCE S256 */
+(async () => {
+  const $ = (id) => document.getElementById(id);
+  const fail = (msg) => {
+    $('cbCard').classList.add('err');
+    $('cbTitle').textContent = 'Gagal masuk';
+    $('cbMsg').textContent = msg + ' Coba lagi dari halaman utama.';
+  };
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('error')) return fail('Akses ditolak.');
+    const code = q.get('code'), state = q.get('state');
+    const savedState = sessionStorage.getItem('amgz_oauth_state');
+    const verifier = sessionStorage.getItem('amgz_oauth_verifier');
+    const returnTo = sessionStorage.getItem('amgz_oauth_return') || '/';
+    sessionStorage.removeItem('amgz_oauth_state');
+    sessionStorage.removeItem('amgz_oauth_verifier');
+    if (!code || !state || state !== savedState || !verifier)
+      return fail('Data login tidak valid.');
+
+    const tokenRes = await fetch('https://account.amogenz.xyz/api/oauth/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        grant_type: 'authorization_code',
+        code, redirect_uri: 'https://amogenz.xyz/oauth/callback',
+        client_id: 'web-amogenz', code_verifier: verifier,
+      }),
+    });
+    const tokens = await tokenRes.json();
+    if (!tokens.access_token) return fail('Gagal menukar kode login.');
+
+    /* Ambil profil via userinfo, simpan identitas (tanpa token sensitif) */
+    const uiRes = await fetch('https://account.amogenz.xyz/api/oauth/userinfo', {
+      headers: { Authorization: 'Bearer ' + tokens.access_token },
+    });
+    const prof = await uiRes.json();
+    if (!prof.sub) return fail('Gagal membaca profil.');
+
+    localStorage.setItem('amgz_identity', JSON.stringify({
+      sub: prof.sub,
+      name: prof.name || prof.preferred_username || 'Pengguna',
+      username: prof.preferred_username || '',
+      email: prof.email || '',
+      picture: (prof.picture || '').startsWith('data:') ? '' : (prof.picture || ''),
+      loginAt: Date.now(),
+    }));
+    location.href = returnTo;
+  } catch (e) {
+    fail('Terjadi kesalahan jaringan.');
+  }
+})();
+</script>
+</body>
+</html>
