@@ -440,3 +440,10 @@ img { display:block; max-width:100%; }
     .lab-banner { padding:28px 32px; gap:24px; margin:36px 0 8px; }
     .lab-banner-logo { width:84px; height:84px; }
 }
+
+/* ── Login with AMOGENZ (identitas opsional) ── */
+.amgz-login-btn { display:inline-flex; align-items:center; gap:7px; padding:9px 18px; background:var(--primary); color:#000; font-family:var(--font-ui); font-weight:700; font-size:.82rem; border:none; border-radius:99px; cursor:pointer; transition:all .18s; }
+.amgz-login-btn:hover { transform:translateY(-1px); box-shadow:0 6px 20px var(--primary-glow); }
+.amgz-chip { display:inline-flex; align-items:center; gap:8px; padding:5px 14px 5px 5px; background:var(--card2); border:1px solid var(--border); border-radius:99px; font-family:var(--font-ui); font-size:.82rem; font-weight:600; color:var(--text); cursor:pointer; }
+.amgz-chip:hover { border-color:var(--primary); }
+.amgz-av { width:28px; height:28px; border-radius:50%; background:var(--primary); color:#000; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:.75rem; }
