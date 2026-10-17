@@ -363,7 +363,7 @@
             <div class="app-dev">AMOGENZ</div>
             <div class="app-ver" id="aksara-ver">Memeriksa versi terbaru…</div>
         </div>
-        <a href="https://przhtugnbheqyprlwbdr.supabase.co/storage/v1/object/public/apk/Aksara-1.3.71.apk" target="_blank" rel="noopener" class="app-install-btn" id="btn-dl-aksara">
+        <a href="https://aksara.amogenz.xyz/unduh.html" class="app-install-btn" id="btn-dl-aksara">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Install
         </a>
@@ -467,18 +467,12 @@
 
 <script src="sidebar.js?v=3"></script>
 <script>
-// Tombol Download APK Aksara — selalu menunjuk ke versi terbaru.
-// Pola sama seperti web Aksara: ambil URL terbaru dari API,
-// fallback ke URL yang sudah tertulis bila API tidak bisa dijangkau.
+// Tombol Download APK Aksara — mengarah ke halaman unduh.
+// Versi terbaru tetap ditampilkan dari API.
 (function () {
-  // ?t=Date.now() agar SELALU fresh — lewati semua cache (CDN maupun browser),
-  // jadi APK yang baru dirilis langsung kedetek detik itu juga.
   fetch('/api/apk-version?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (j) {
-    var url = (j && j.fallbackUrls && j.fallbackUrls[0]) || (j && j.url);
     var ver = j && (j.versionName || j.version);
-    var btn = document.getElementById('btn-dl-aksara');
     var vEl = document.getElementById('aksara-ver');
-    if (url && btn) btn.href = url;
     if (vEl) vEl.textContent = ver ? 'Versi terbaru: v' + ver : 'Versi terbaru tersedia';
   }).catch(function () {
     var vEl = document.getElementById('aksara-ver');
