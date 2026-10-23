@@ -5,6 +5,21 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v28 (2026-10-23) — Upgrade halaman produk + tombol utama beranda
+
+- `produk.html`: urutan baru — seksi "Paling Sering Dipakai" (Aksara,
+  Amogenz Verse, Nahwu OS) di atas, "Semua Produk" menyusul; kalimat kartu
+  dipertajam berpola apa + untuk siapa + kenapa mudah, keluarga Nahwu diberi
+  pembeda; lencana konsisten (Gratis, Tanpa Install, Tanpa Daftar, Baru);
+  seksi aplikasi tanpa rating bintang — diganti info ukuran terverifikasi,
+  Aksara menampilkan versi live + ±10 MB + Android 8.0+; blok jasa pindah ke
+  bawah; subjudul halaman diperjelas. (Mockup disetujui Bos 23 Okt 2026.)
+- `index.html`: tombol utama hero kini "Lihat Produk" → `/produk`;
+  "Tentang Kami" jadi tombol kedua.
+- Cache-bust: rujukan `shared.css` naik `?v=8` → `?v=9` di index, produk,
+  about, ai, brand, dokumentasi (isi CSS tidak berubah; baseline guard
+  diperbarui karena isi CSS ternyata sudah bergeser dari baseline lama).
+
 ## v26 (2026-10-15) — Hapus tagline about.html
 
 - `about.html`: hapus tagline "Youth & Technology Community" di bawah tulisan
