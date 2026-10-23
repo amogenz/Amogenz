@@ -14,7 +14,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared.css?v=8">
+    <link rel="stylesheet" href="shared.css?v=9">
+    <style>
+    /* Lencana kartu produk (upgrade halaman produk, 23 Okt 2026) */
+    .prod-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+    .prod-badge { font-size:0.68rem; font-weight:600; letter-spacing:0.02em; padding:3px 9px; border-radius:999px; border:1px solid rgba(76,175,80,0.45); color:var(--primary-text); background:rgba(76,175,80,0.10); }
+    .list-head { margin:26px 0 2px; }
+    .list-head:first-child { margin-top:0; }
+    </style>
 </head>
 <body>
 
@@ -116,43 +123,35 @@
     <div class="page-header">
         <div class="page-eyebrow">Karya Kami</div>
         <h1 class="page-title">Produk & Platform</h1>
-        <p class="page-subtitle">Platform yang lahir dari kebutuhan nyata dan semangat inovasi AMOGENZ.</p>
+        <p class="page-subtitle">Karya AMOGENZ yang bisa langsung kamu pakai — gratis, dari browser HP, tanpa ribet.</p>
     </div>
     
-    <div class="motto-box" style="margin-bottom: 40px;">
-        <div class="page-eyebrow" style="margin-bottom: 8px;">Jasa Kami</div>
-        <h2 class="page-title" style="font-size: 1.5rem; margin-bottom: 12px;">Buat Website Impianmu</h2>
-        <p class="page-subtitle" style="margin-bottom: 20px; font-size: 0.85rem;">Wujudkan website profesional untuk bisnis, portofolio, atau proyekmu dengan teknologi terbaik dari AMOGENZ.</p>
-        <a href="https://buatwebsite.amogenz.xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            Pesan Sekarang
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-    </div>
-   
     <div class="product-list">
 
-        <!-- Featured: Web AMOGENZ LAB (divisi riset & pengembangan) -->
-        <a href="https://lab.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
+        <div class="list-head"><div class="page-eyebrow">Paling Sering Dipakai</div></div>
+
+        <a href="https://universe.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
             <div class="prod-icon">
-                <img src="https://lab.amogenz.xyz/assets/logo-lab.jpg" alt="AMOGENZ LAB">
+                <img src="https://i.ibb.co.com/VpWvWk95/Logo-aksara.webp" alt="Aksara">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Divisi &#8226; Riset &amp; Eksperimen</div>
-                <div class="prod-name">AMOGENZ LAB</div>
-                <p class="prod-desc">Wadah riset & eksperimen AMOGENZ: dunia 3D, game, dan karya digital. Ngobrol dengan Zero AI, usulkan idemu.</p>
+                <div class="prod-tag">Media Sosial</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span></div>
+                <div class="prod-name">Aksara</div>
+                <p class="prod-desc">Media sosial dari AMOGENZ untuk berbagi kabar, karya, dan cerita dengan komunitas. Posting, berkomentar, dan terhubung — dari browser atau aplikasi Android.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
         </a>
 
-        <!-- Featured: Amogenz Verse -->
         <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
             <div class="prod-icon">
                 <img src="https://3d.amogenz.xyz/assets/icon-verse.jpg?v=1" alt="Amogenz Verse">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">3D &#8226; Dunia Virtual</div>
+                <div class="prod-tag">Dunia Virtual 3D</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span><span class="prod-badge">Baru</span></div>
                 <div class="prod-name">Amogenz Verse</div>
                 <p class="prod-desc">Jelajahi dunia 3D AMOGENZ dari browser HP: mabar, voice chat, naik helikopter & sepeda. Gratis, tanpa install.</p>
             </div>
@@ -161,44 +160,61 @@
             </div>
         </a>
 
-        <!-- Featured: Cloth from AMOGENZ (desainer baju 3D) -->
-        <a href="https://cloth.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
+        <a href="https://Nahwu.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
             <div class="prod-icon">
-                <img src="https://cloth.amogenz.xyz/icon-512.png" alt="Cloth from AMOGENZ">
+                <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="NahwuOS">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Alat Desain &#8226; Kaos 3D</div>
-                <div class="prod-name">Cloth from AMOGENZ</div>
-                <p class="prod-desc">Desainer baju 3D ringan dari browser HP: putar, zoom, tempel desainmu, lalu unduh, bagikan ke WhatsApp, atau cetak lembar sablonnya. Gratis, tanpa install.</p>
+                <div class="prod-tag">Belajar Bahasa Arab</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
+                <div class="prod-name">Nahwu OS</div>
+                <p class="prod-desc">Belajar nahwu (tata bahasa Arab) langsung dari web: materi dan latihan interaktif untuk santri dan pelajar.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
         </a>
 
-        <!-- Featured -->
-        <a href="https://Nahwu.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card featured">
-            <div class="prod-icon">
-                <img src="https://i.ibb.co.com/Jjj7tx4j/ammo-ai.webp" alt="NahwuOS">
-            </div>
-            <div class="prod-info">
-                <div class="prod-tag">Game • Edukasi Bahasa Arab</div>
-                <div class="prod-name">Nahwu OS</div>
-                <p class="prod-desc">Belajar Ilmu Nahwu (tata bahasa Arab) interaktif langsung dari web.</p>
-            </div>
-            <div class="prod-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-        </a>
-        
+        <div class="list-head"><div class="page-eyebrow">Semua Produk</div></div>
+
         <a href="https://naruto.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://naruto.amogenz.xyz/assets/naruto-war-logo.jpg" alt="Naruto War">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Game &#8226; 2D Fighting</div>
+                <div class="prod-tag">Game</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
                 <div class="prod-name">Naruto War</div>
-                <p class="prod-desc">Perang 2D ala Naruto Senki: pilih karakter, keluarkan jutsu, hancurkan menara musuh. Gratis di browser HP.</p>
+                <p class="prod-desc">Perang 2D ala Naruto Senki: pilih karakter, keluarkan jutsu, hancurkan menara musuh. Main gratis di browser HP.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://lab.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-icon">
+                <img src="https://lab.amogenz.xyz/assets/logo-lab.jpg" alt="AMOGENZ LAB">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Divisi Riset</div>
+                <div class="prod-name">AMOGENZ LAB</div>
+                <p class="prod-desc">Divisi riset &amp; eksperimen AMOGENZ: tempat dunia 3D, game, dan karya digital diuji sebelum dirilis. Ada Zero AI dan Log Lab.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://cloth.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-icon">
+                <img src="https://cloth.amogenz.xyz/icon-512.png" alt="Cloth from AMOGENZ">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Alat Desain</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
+                <div class="prod-name">Cloth from AMOGENZ</div>
+                <p class="prod-desc">Desainer baju 3D ringan dari browser HP: putar, zoom, tempel desainmu, lalu unduh, bagikan ke WhatsApp, atau cetak lembar sablonnya. Gratis, tanpa install.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -210,9 +226,25 @@
                 <img src="https://i.ibb.co.com/G4JH6kXK/My-Nahwu.webp" alt="My Nahwu">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Game • Edukasi</div>
+                <div class="prod-tag">Belajar Bahasa Arab</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
                 <div class="prod-name">My Nahwu</div>
-                <p class="prod-desc">Belajar Nahwu-Shorof interaktif dengan analisis I’rab yang mendalam.</p>
+                <p class="prod-desc">Latihan nahwu–shorof dengan analisis I’rab yang mendalam — untuk yang ingin memperdalam, bukan sekadar hafal.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://nahwuai.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-icon">
+                <img src="https://i.ibb.co.com/DDkjDMQC/20260502-070855.png" alt="Nahwu AI">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Belajar Bahasa Arab &#8226; AI</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span></div>
+                <div class="prod-name">Nahwu AI</div>
+                <p class="prod-desc">Bedah kalimat Arab dengan AI: tempel kalimat, langsung dianalisis nahwu, shorof, dan i’rab-nya sesuai kaidah kitab klasik.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -224,65 +256,25 @@
                 <img src="https://i.ibb.co.com/ns5Zd3gp/20260428-140912.png" alt="Nahwu Game">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Game • Edukasi</div>
+                <div class="prod-tag">Belajar Bahasa Arab &#8226; Game</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
                 <div class="prod-name">Nahwu Game Card</div>
-                <p class="prod-desc">Belajar Nahwu & Shorof lewat game kartu yang seru.</p>
-            </div>
-            <div class="prod-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-        </a>
-        
-        <a href="https://tajwid.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
-            <div class="prod-icon">
-                <img src="https://i.ibb.co.com/Lh2Y6SdB/20260428-141457.png" alt="Tajwid Game">
-            </div>
-            <div class="prod-info">
-                <div class="prod-tag">Game • Edukasi</div>
-                <div class="prod-name">Tajwid Game</div>
-                <p class="prod-desc">Belajar ilmu Tajwid Al-Qur’an dengan cara interaktif dan menyenangkan.</p>
+                <p class="prod-desc">Belajar Nahwu &amp; Shorof lewat permainan kartu — cara ringan untuk yang ingin belajar sambil bermain.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
         </a>
 
-        <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+        <a href="https://tajwid.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
-                <img src="https://i.ibb.co.com/s9pk0Rym/Nadim-Media-1775839444903.jpg" alt="KesanAMDK">
+                <img src="https://i.ibb.co.com/Lh2Y6SdB/20260428-141457.png" alt="Tajwid Game">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Web • Air Mineral</div>
-                <div class="prod-name">Air Kesan Langitan</div>
-                <p class="prod-desc">Produk air mineral berkualitas untuk kesehatan & keberkahan.</p>
-            </div>
-            <div class="prod-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-        </a>
-        
-        <a href="https://blog.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
-            <div class="prod-icon">
-                <img src="https://i.ibb.co.com/9m2C0Bsy/Logo-aksara.png" alt="Blog Amogenz">
-            </div>
-            <div class="prod-info">
-                <div class="prod-tag">Web • Blog Amogenz</div>
-                <div class="prod-name">Blog Platform</div>
-                <p class="prod-desc">Wadah menulis dan berbagi ide lewat blog serta tulisan panjang.</p>
-            </div>
-            <div class="prod-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-        </a>
-        
-        <a href="https://universe.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
-            <div class="prod-icon">
-                <img src="https://i.ibb.co.com/VpWvWk95/Logo-aksara.webp" alt="Aksara">
-            </div>
-            <div class="prod-info">
-                <div class="prod-tag">Web • Sosmed Basic</div>
-                <div class="prod-name">Aksara</div>
-                <p class="prod-desc">Media sosial karya AMOGENZ: posting, komentar, dan like sesukamu.</p>
+                <div class="prod-tag">Belajar Al-Qur&#8217;an &#8226; Game</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
+                <div class="prod-name">Tajwid Game</div>
+                <p class="prod-desc">Belajar tajwid Al-Qur’an lewat permainan interaktif: kenali hukum bacaan sambil bermain.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -294,51 +286,69 @@
                 <img src="https://i.ibb.co.com/5h4B8Bhq/Icon-web.jpg" alt="Telepati">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Tools • Sharing file</div>
+                <div class="prod-tag">Alat Kirim File</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Daftar</span></div>
                 <div class="prod-name">Telepati</div>
-                <p class="prod-desc">Kirim file aman & anonim. Hancur otomatis dalam 7 menit.</p>
+                <p class="prod-desc">Kirim file aman &amp; anonim, tanpa daftar. File terhapus otomatis dalam 7 menit.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
         </a>
-        
-        <a href="https://editno.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
-            <div class="prod-icon">
-                <img src="https://i.ibb.co.com/VWJQfJjL/IMG-20260506-133731.png" alt="Editno">
-            </div>
-            <div class="prod-info">
-                <div class="prod-tag">Tools • edit</div>
-                <div class="prod-name">Editno</div>
-                <p class="prod-desc">Alat edit simpel & mudah, Tinggal Jadi, Bebas Ekspresi.</p>
-            </div>
-            <div class="prod-arrow">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-        </a>
-        
+
         <a href="https://spec.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
                 <img src="https://i.ibb.co.com/tPwTvJF2/Spec.webp" alt="Spec">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Tools • unduhan</div>
+                <div class="prod-tag">Alat Unduhan</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Daftar</span></div>
                 <div class="prod-name">Spec</div>
-                <p class="prod-desc">Unduh video HD/SD tanpa watermark dan convert MP3 320kbps. Cepat, gratis.</p>
+                <p class="prod-desc">Unduh video HD/SD tanpa watermark dan ubah ke MP3 320kbps. Cepat dan gratis.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
         </a>
-        
-        <a href="https://nahwuai.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+
+        <a href="https://editno.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
             <div class="prod-icon">
-                <img src="https://i.ibb.co.com/DDkjDMQC/20260502-070855.png" alt="Nahwu AI">
+                <img src="https://i.ibb.co.com/VWJQfJjL/IMG-20260506-133731.png" alt="Editno">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">AI • Nahwu</div>
-                <div class="prod-name">Nahwu AI</div>
-                <p class="prod-desc">Bedah kalimat Arab dengan AI — analisis Nahwu, Shorof & I’rab sesuai kaidah kitab klasik.</p>
+                <div class="prod-tag">Alat Desain</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span><span class="prod-badge">Tanpa Install</span></div>
+                <div class="prod-name">Editno</div>
+                <p class="prod-desc">Editor desain dari browser: pilih template (feed, story, landscape), edit bebas, lalu simpan. Bisa memindai gambar contoh menjadi template.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://blog.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-icon">
+                <img src="https://i.ibb.co.com/9m2C0Bsy/Logo-aksara.png" alt="Blog Amogenz">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Blog</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span></div>
+                <div class="prod-name">Blog Platform</div>
+                <p class="prod-desc">Wadah menulis dan berbagi ide lewat blog serta tulisan panjang.</p>
+            </div>
+            <div class="prod-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a href="https://airkesan-langitan.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="product-card">
+            <div class="prod-icon">
+                <img src="https://i.ibb.co.com/s9pk0Rym/Nadim-Media-1775839444903.jpg" alt="KesanAMDK">
+            </div>
+            <div class="prod-info">
+                <div class="prod-tag">Produk Komunitas</div>
+                <div class="prod-name">Air Kesan Langitan</div>
+                <p class="prod-desc">Produk air mineral berkualitas untuk kesehatan & keberkahan.</p>
             </div>
             <div class="prod-arrow">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -350,7 +360,8 @@
                 <img src="https://img.icons8.com/color/48/telegram-app.png" alt="Ammo Tele">
             </div>
             <div class="prod-info">
-                <div class="prod-tag">Ai • Chatbot</div>
+                <div class="prod-tag">AI &#8226; Chatbot</div>
+                <div class="prod-badges"><span class="prod-badge">Gratis</span></div>
                 <div class="prod-name">Ammo Tele</div>
                 <p class="prod-desc">Chatbot Telegram 24 jam. Cepat & hemat kuota.</p>
             </div>
@@ -359,7 +370,7 @@
             </div>
         </a>
 
-    </div><!-- /.product-list -->
+</div><!-- /.product-list -->
 
         
         <!-- Aplikasi -->
@@ -377,6 +388,7 @@
             <div class="app-name">Aksara</div>
             <div class="app-dev">AMOGENZ</div>
             <div class="app-ver" id="aksara-ver">Memeriksa versi terbaru…</div>
+            <div class="app-ver">±10 MB &#8226; Android 8.0+</div>
         </div>
         <a href="https://aksara.amogenz.xyz/unduh" class="app-install-btn" id="btn-dl-aksara">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -389,10 +401,7 @@
         <div class="app-info">
             <div class="app-name">Nahwu OS</div>
             <div class="app-dev">AMOGENZ</div>
-            <div class="app-rating">
-                <span class="app-stars">★★★★★</span>
-                <span class="app-rating-val">5.0</span>
-            </div>
+            <div class="app-ver">±0,9 MB</div>
         </div>
         <a href="https://github.com/amogenz/Nahwu-OS/releases/download/Apk/NahwuOS.apk" class="app-install-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -401,32 +410,26 @@
     </div>
 
     <div class="app-card">
-        <img src="https://i.ibb.co.com/Lh2Y6SdB/20260428-141457.png" alt="Tajwid AI" class="app-icon">
+        <img src="https://i.ibb.co.com/DDkjDMQC/20260502-070855.png" alt="Nahwu Ai" class="app-icon">
         <div class="app-info">
-            <div class="app-name">Tajwid AI</div>
+            <div class="app-name">Nahwu AI</div>
             <div class="app-dev">AMOGENZ</div>
-            <div class="app-rating">
-                <span class="app-stars">★★★★★</span>
-                <span class="app-rating-val">5.0</span>
-            </div>
+            <div class="app-ver">±0,9 MB</div>
         </div>
-        <a href="https://github.com/amogenz/Tajwid/releases/download/Apk/Tajwid.Ai.apk" class="app-install-btn">
+        <a href="https://github.com/amogenz/NahwuAi/releases/download/Apk/Nahwu.Ai.apk" class="app-install-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Install
         </a>
     </div>
     
     <div class="app-card">
-        <img src="https://i.ibb.co.com/DDkjDMQC/20260502-070855.png" alt="Nahwu Ai" class="app-icon">
+        <img src="https://i.ibb.co.com/Lh2Y6SdB/20260428-141457.png" alt="Tajwid AI" class="app-icon">
         <div class="app-info">
-            <div class="app-name">Nahwu Ai</div>
+            <div class="app-name">Tajwid AI</div>
             <div class="app-dev">AMOGENZ</div>
-            <div class="app-rating">
-                <span class="app-stars">★★★★★</span>
-                <span class="app-rating-val">5.0</span>
-            </div>
+            <div class="app-ver">±15 MB</div>
         </div>
-        <a href="https://github.com/amogenz/NahwuAi/releases/download/Apk/Nahwu.Ai.apk" class="app-install-btn">
+        <a href="https://github.com/amogenz/Tajwid/releases/download/Apk/Tajwid.Ai.apk" class="app-install-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Install
         </a>
@@ -437,10 +440,7 @@
         <div class="app-info">
             <div class="app-name">Nahwu Card Master</div>
             <div class="app-dev">AMOGENZ</div>
-            <div class="app-rating">
-                <span class="app-stars">★★★★★</span>
-                <span class="app-rating-val">5.0</span>
-            </div>
+            <div class="app-ver">±14 MB</div>
         </div>
         <a href="https://github.com/amogenz/Game/releases/download/Apk/Nahwu-Card-Master.apk" class="app-install-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -449,6 +449,16 @@
     </div>
 
 </div>
+
+    <div class="motto-box" style="margin-top: 40px;">
+        <div class="page-eyebrow" style="margin-bottom: 8px;">Jasa Kami</div>
+        <h2 class="page-title" style="font-size: 1.5rem; margin-bottom: 12px;">Buat Website Impianmu</h2>
+        <p class="page-subtitle" style="margin-bottom: 20px; font-size: 0.85rem;">Wujudkan website profesional untuk bisnis, portofolio, atau proyekmu dengan teknologi terbaik dari AMOGENZ.</p>
+        <a href="https://buatwebsite.amogenz.xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Pesan Sekarang
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+    </div>
 
 </div>
 
