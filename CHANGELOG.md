@@ -5,6 +5,30 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v30 (2026-10-30) — Carousel Sorotan Produk di beranda + rombak halaman produk
+
+- `index.html`: banner statis Amogenz Verse diganti carousel "Sorotan
+  Produk" 6 slide (Aksara, Amogenz Verse, Nahwu OS, Cecak Dynamic Island,
+  Kompres, AMOGENZ LAB, urutan disetujui Bos); hero tidak diubah. Geser
+  hanya transform 620ms, autoplay 6 detik dengan batang progres, jeda saat
+  disentuh/hover/fokus/tab disembunyikan, mati bila reduced-motion; kontrol
+  sebelum/sesudah, titik, tab nama, geser, keyboard, penghitung.
+- `produk.html`: satu pola kartu untuk semua (ikon kiri, nama, satu frasa),
+  dua kelompok saja (Unggulan 6, Semua Produk 12 + Jasa sebagai kartu
+  biasa); Cecak dan Kompres ditambahkan, badge hanya "Baru" untuk keduanya;
+  daftar Aplikasi terpisah dihapus — produk ber-APK (Aksara, Nahwu OS,
+  Nahwu AI, Nahwu Game Card, Tajwid Game) memakai tombol Install kecil di
+  kartunya, Cecak ditandai Android (portal masih Segera Hadir).
+- `shared.css`: gaya carousel + kartu produk pola daftar; rujukan naik
+  `?v=9` → `?v=10` di index dan produk. (Mockup carousel dan mockup halaman
+  produk disetujui Bos 30 Okt 2026; deploy bareng atas perintah Bos.)
+
+## v29 (2026-10-30) — Perbaikan ikon produk
+
+- Ikon imgbb yang mati diganti logo self-hosted (Aksara, Nahwu OS, Nahwu
+  AI, Nahwu Game, Telepati, Editno, Air Kesan) + normalisasi tautan
+  nahwu.amogenz.xyz. (Sesuai `version.json` build 2026-10-30T11:21:55Z.)
+
 ## v28 (2026-10-23) — Upgrade halaman produk + tombol utama beranda
 
 - `produk.html`: urutan baru — seksi "Paling Sering Dipakai" (Aksara,

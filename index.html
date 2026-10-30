@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="shared.css?v=9">
+    <link rel="stylesheet" href="shared.css?v=10">
     
     <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
     <script defer src="/_vercel/insights/script.js"></script>
@@ -168,20 +168,78 @@
     </div>
 
 
-    <!-- Banner Amogenz Verse -->
-    <div class="lab-banner">
-        <img src="https://3d.amogenz.xyz/assets/icon-verse.jpg?v=1" alt="Amogenz Verse" class="lab-banner-logo">
-        <div class="lab-banner-body">
-            <div class="home-tag">Baru &bull; Dunia Virtual 3D</div>
-            <h2 class="home-heading" style="font-size:1.2rem; margin-bottom:4px;">AMOGENZ kini bisa dijelajahi dalam 3D!</h2>
-            <p class="lab-banner-desc">Jelajahi dunia 3D AMOGENZ dari browser HP: mabar, voice chat, naik helikopter &amp; sepeda. Gratis, tanpa install.</p>
-            <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="lab-cta-btn">
-                <img src="https://3d.amogenz.xyz/assets/icon-verse.jpg?v=1" alt="Logo Amogenz Verse">
-                <span>Jelajahi Amogenz Verse</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+    <!-- Sorotan Produk: carousel 6 produk unggulan (mockup disetujui Bos, 30 Okt 2026) -->
+    <section class="spotlight" aria-label="Sorotan Produk">
+        <div class="spotlight-head">
+            <div>
+                <div class="page-eyebrow">Sorotan Produk</div>
+                <h2 class="home-heading" style="margin-bottom:0;">Produk unggulan AMOGENZ</h2>
+            </div>
+            <a href="/produk" class="spotlight-all">Lihat Semua Produk &rarr;</a>
         </div>
-    </div>
+        <div class="spotlight-viewport" id="spotlightViewport" tabindex="0" aria-roledescription="carousel" aria-label="Sorotan Produk">
+            <div class="spotlight-track" id="spotlightTrack">
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="assets/logos/aksara.webp" alt="Aksara" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Media Sosial</div>
+                    <h3 class="spotlight-name">Aksara</h3>
+                    <p class="spotlight-desc">Media sosial komunitas AMOGENZ</p>
+                    <a href="https://aksara.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Aksara &rarr;</a>
+                </article>
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="https://3d.amogenz.xyz/assets/icon-verse.jpg?v=1" alt="Amogenz Verse" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Dunia Virtual 3D</div>
+                    <h3 class="spotlight-name">Amogenz Verse</h3>
+                    <p class="spotlight-desc">Dunia virtual 3D dari browser</p>
+                    <a href="https://3d.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Amogenz Verse &rarr;</a>
+                </article>
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="assets/logos/nahwuos.webp" alt="Nahwu OS" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Belajar Bahasa Arab</div>
+                    <h3 class="spotlight-name">Nahwu OS</h3>
+                    <p class="spotlight-desc">Belajar nahwu interaktif</p>
+                    <a href="https://nahwu.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Nahwu OS &rarr;</a>
+                </article>
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="https://cecak.amogenz.xyz/assets/b4eac694fd.webp" alt="Cecak Dynamic Island" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Android &bull; Baru</div>
+                    <h3 class="spotlight-name">Cecak Dynamic Island</h3>
+                    <p class="spotlight-desc">Dynamic Island untuk Android</p>
+                    <a href="https://cecak.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Cecak &rarr;</a>
+                </article>
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="https://kompres.amogenz.xyz/assets/favicon.png" alt="Kompres" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Alat Foto &amp; Video &bull; Baru</div>
+                    <h3 class="spotlight-name">Kompres</h3>
+                    <p class="spotlight-desc">Foto dan video jadi burik ala HP jadul</p>
+                    <a href="https://kompres.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka Kompres &rarr;</a>
+                </article>
+                <article class="spotlight-slide">
+                    <img class="spotlight-icon" src="https://lab.amogenz.xyz/assets/logo-lab.jpg" alt="AMOGENZ LAB" width="64" height="64" loading="lazy" decoding="async">
+                    <div class="spotlight-tag">Divisi Riset</div>
+                    <h3 class="spotlight-name">AMOGENZ LAB</h3>
+                    <p class="spotlight-desc">Riset dan eksperimen digital</p>
+                    <a href="https://lab.amogenz.xyz/" target="_blank" rel="noopener noreferrer" class="btn-primary">Buka AMOGENZ LAB &rarr;</a>
+                </article>
+            </div>
+        </div>
+        <div class="spotlight-controls">
+            <button type="button" class="spotlight-btn" id="spotlightPrev" aria-label="Produk sebelumnya">&lsaquo;</button>
+            <div class="spotlight-dots" id="spotlightDots" role="tablist" aria-label="Pilih produk"></div>
+            <span class="spotlight-counter" id="spotlightCounter">1 / 6</span>
+            <button type="button" class="spotlight-btn spotlight-pause" id="spotlightPause" aria-label="Jeda putar otomatis">Jeda</button>
+            <button type="button" class="spotlight-btn" id="spotlightNext" aria-label="Produk berikutnya">&rsaquo;</button>
+        </div>
+        <div class="spotlight-progress" aria-hidden="true"><span class="spotlight-progress-fill" id="spotlightProgress"></span></div>
+        <div class="spotlight-tabs" id="spotlightTabs" role="tablist" aria-label="Daftar produk unggulan">
+            <button type="button" role="tab">Aksara</button>
+            <button type="button" role="tab">Amogenz Verse</button>
+            <button type="button" role="tab">Nahwu OS</button>
+            <button type="button" role="tab">Cecak</button>
+            <button type="button" role="tab">Kompres</button>
+            <button type="button" role="tab">AMOGENZ LAB</button>
+        </div>
+    </section>
 
     <!-- Section 1: Perjalanan & Sejarah -->
     <div class="home-section">
@@ -299,6 +357,90 @@
 
 </main>
 
+<script>
+/* Sorotan Produk: geser transform 620ms, autoplay 6 detik, jeda saat
+   disentuh/hover/fokus/tab disembunyikan, mati bila reduced-motion. */
+(function () {
+    var root = document.querySelector('.spotlight');
+    if (!root) return;
+    var track = document.getElementById('spotlightTrack');
+    var viewport = document.getElementById('spotlightViewport');
+    var slides = track.children.length;
+    var dotsWrap = document.getElementById('spotlightDots');
+    var tabsWrap = document.getElementById('spotlightTabs');
+    var counter = document.getElementById('spotlightCounter');
+    var pauseBtn = document.getElementById('spotlightPause');
+    var progress = document.getElementById('spotlightProgress');
+    var current = 0, timer = null, userPaused = false, touchPaused = false;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dots = [], tabs = [];
+    for (var i = 0; i < slides; i++) {
+        (function (idx) {
+            var d = document.createElement('button');
+            d.type = 'button'; d.className = 'spotlight-dot';
+            d.setAttribute('aria-label', 'Produk ' + (idx + 1));
+            d.addEventListener('click', function () { go(idx); restart(); });
+            dotsWrap.appendChild(d); dots.push(d);
+        })(i);
+    }
+    tabs = Array.prototype.slice.call(tabsWrap.children);
+    tabs.forEach(function (t, idx) {
+        t.addEventListener('click', function () { go(idx); restart(); });
+    });
+    function render() {
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+        tabs.forEach(function (t, i) { t.classList.toggle('active', i === current); });
+        counter.textContent = (current + 1) + ' / ' + slides;
+    }
+    function isPaused() { return userPaused || touchPaused || document.hidden; }
+    function runProgress() {
+        progress.classList.remove('run');
+        void progress.offsetWidth;
+        if (!reduced && !isPaused()) progress.classList.add('run');
+    }
+    function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+    function start() {
+        stop();
+        if (reduced || isPaused()) { root.classList.toggle('paused', isPaused()); runProgress(); return; }
+        root.classList.remove('paused');
+        runProgress();
+        timer = setTimeout(function () { go((current + 1) % slides); start(); }, 6000);
+    }
+    function restart() { start(); }
+    function go(idx) {
+        current = (idx + slides) % slides;
+        render(); runProgress();
+    }
+    document.getElementById('spotlightPrev').addEventListener('click', function () { go(current - 1); restart(); });
+    document.getElementById('spotlightNext').addEventListener('click', function () { go(current + 1); restart(); });
+    pauseBtn.addEventListener('click', function () {
+        userPaused = !userPaused;
+        pauseBtn.textContent = userPaused ? 'Putar' : 'Jeda';
+        pauseBtn.setAttribute('aria-label', userPaused ? 'Lanjutkan putar otomatis' : 'Jeda putar otomatis');
+        start();
+    });
+    viewport.addEventListener('mouseenter', function () { root.classList.add('paused'); stop(); });
+    viewport.addEventListener('mouseleave', function () { start(); });
+    viewport.addEventListener('focusin', function () { root.classList.add('paused'); stop(); });
+    viewport.addEventListener('focusout', function () { start(); });
+    viewport.addEventListener('touchstart', function () { touchPaused = true; root.classList.add('paused'); stop(); }, { passive: true });
+    viewport.addEventListener('touchend', function () { touchPaused = false; start(); });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) { stop(); } else { start(); } });
+    viewport.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { go(current - 1); restart(); }
+        if (e.key === 'ArrowRight') { go(current + 1); restart(); }
+    });
+    var startX = null;
+    viewport.addEventListener('pointerdown', function (e) { startX = e.clientX; });
+    viewport.addEventListener('pointerup', function (e) {
+        if (startX === null) return;
+        var dx = e.clientX - startX; startX = null;
+        if (Math.abs(dx) > 40) { go(dx < 0 ? current + 1 : current - 1); restart(); }
+    });
+    render(); start();
+})();
+</script>
 <script src="sidebar.js?v=3"></script>
 <script src="/amgz-login.js?v=1"></script>
 </body>

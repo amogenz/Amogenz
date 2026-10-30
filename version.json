@@ -1,1 +1,5 @@
-{"build": "2026-10-23T00:39:10Z", "note": "Upgrade halaman produk (urutan prioritas, kalimat kartu, lencana, aplikasi tanpa rating) + tombol utama beranda ke Produk — persetujuan Bos 2026-10-23", "version": 28}
+{
+  "build": "2026-10-30T14:13:54Z",
+  "note": "Carousel Sorotan Produk di beranda (6 slide) + rombak halaman produk pola daftar + tambah Cecak dan Kompres",
+  "version": 30
+}

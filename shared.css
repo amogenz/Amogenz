@@ -333,6 +333,50 @@ img { display:block; max-width:100%; }
     .lab-cta-btn { margin-top:10px; font-size:0.8125rem; padding:8px 16px 8px 8px; }
 }
 
+/* ── Sorotan Produk (carousel beranda, 30 Okt 2026) ──
+   Animasi hanya transform + opacity agar smooth, tanpa layout shift. */
+.spotlight { margin:26px 0 4px; }
+.spotlight-head { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.spotlight-all { font-size:0.8125rem; font-weight:700; color:var(--primary-text); white-space:nowrap; text-decoration:none; }
+.spotlight-all:hover { text-decoration:underline; }
+.spotlight-viewport { overflow:hidden; border-radius:var(--r-besar); background:var(--bg-card); border:1px solid var(--border); outline:none; }
+.spotlight-viewport:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
+.spotlight-track { display:flex; transition:transform 620ms ease; will-change:transform; }
+.spotlight-slide { min-width:100%; box-sizing:border-box; padding:26px 22px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.spotlight-icon { width:64px; height:64px; border-radius:16px; object-fit:cover; border:1px solid var(--border); margin-bottom:6px; background:var(--bg-card-hover); }
+.spotlight-tag { font-size:0.6875rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--primary-text); }
+.spotlight-name { font-family:var(--font-ui); font-size:1.25rem; font-weight:800; color:var(--text); }
+.spotlight-desc { font-size:0.875rem; color:var(--text-muted); line-height:1.6; margin-bottom:10px; }
+.spotlight-controls { display:flex; align-items:center; gap:10px; margin-top:14px; }
+.spotlight-btn { min-width:44px; min-height:44px; padding:0 12px; border-radius:var(--r-tombol); border:1px solid var(--border); background:var(--bg-card); color:var(--text); font-size:1.1rem; font-weight:700; cursor:pointer; }
+.spotlight-btn.spotlight-pause { font-size:0.8125rem; }
+.spotlight-btn:hover { border-color:var(--border-hover); }
+.spotlight-dots { display:flex; gap:8px; flex:1; justify-content:center; }
+.spotlight-dot { width:12px; height:12px; min-width:12px; min-height:12px; padding:0; border-radius:50%; border:1px solid var(--border); background:transparent; cursor:pointer; }
+.spotlight-dot.active { background:var(--primary); border-color:var(--primary); }
+.spotlight-counter { font-size:0.8125rem; color:var(--text-muted); white-space:nowrap; }
+.spotlight-progress { height:4px; border-radius:99px; background:var(--border); margin-top:12px; overflow:hidden; }
+.spotlight-progress-fill { display:block; height:100%; width:100%; background:var(--primary); transform:scaleX(0); transform-origin:left; }
+.spotlight-progress-fill.run { animation:spotlight-progress 6s linear forwards; }
+.spotlight.paused .spotlight-progress-fill { animation-play-state:paused; }
+@keyframes spotlight-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+.spotlight-tabs { display:flex; gap:8px; margin-top:14px; overflow-x:auto; padding-bottom:2px; }
+.spotlight-tabs button { flex-shrink:0; padding:9px 14px; min-height:40px; border-radius:999px; border:1px solid var(--border); background:transparent; color:var(--text-muted); font-size:0.8125rem; font-weight:600; cursor:pointer; white-space:nowrap; }
+.spotlight-tabs button.active { color:var(--text); border-color:var(--primary); background:rgba(76,175,80,0.10); }
+@media (prefers-reduced-motion: reduce) {
+    .spotlight-track { transition:none; }
+    .spotlight-progress { display:none; }
+}
+
+/* ── Kartu produk pola daftar (halaman produk, 30 Okt 2026) ── */
+.product-card .prod-link { display:flex; align-items:center; gap:14px; flex:1; min-width:0; text-decoration:none; color:inherit; }
+.prod-icon { width:56px; height:56px; }
+.prod-icon img { width:40px; height:40px; border-radius:10px; object-fit:cover; }
+.prod-badge-baru { display:inline-block; vertical-align:middle; margin-left:8px; font-size:0.65rem; font-weight:700; letter-spacing:0.02em; padding:3px 9px; border-radius:999px; background:var(--primary); color:#000; }
+.prod-platform { font-size:0.6875rem; color:var(--text-faint); white-space:nowrap; flex-shrink:0; }
+.prod-install { flex-shrink:0; display:inline-flex; align-items:center; min-height:40px; padding:9px 14px; border-radius:var(--r-tombol); background:var(--primary); color:#000; font-family:var(--font-ui); font-size:0.8125rem; font-weight:700; text-decoration:none; white-space:nowrap; }
+.prod-install:hover { transform:translateY(-1px); box-shadow:0 4px 16px var(--primary-glow); }
+
 /* ── Label versi kartu aplikasi — dipindah dari <style> produk.html ── */
 .app-ver { font-size:0.75rem; color:var(--text-faint); margin-top:2px; }
 
