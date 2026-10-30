@@ -5,6 +5,15 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v31 (2026-10-30) — Halaman produk: web di atas, Install di bawah seperti semula
+
+- `produk.html`: koreksi atas v30 — tombol Install dihapus dari kartu
+  produk (kartu kembali jadi tautan web saja dengan panah), seksi Aplikasi
+  di bawah daftar produk dikembalikan persis seperti semula (Aksara,
+  Nahwu OS, Nahwu AI, Tajwid AI, Nahwu Card Master, lengkap dengan tombol
+  Install dan info versi Aksara live). Produk yang punya web + APK kini:
+  web di atas, Install di bawah.
+
 ## v30 (2026-10-30) — Carousel Sorotan Produk di beranda + rombak halaman produk
 
 - `index.html`: banner statis Amogenz Verse diganti carousel "Sorotan

@@ -1,5 +1,5 @@
 {
-  "build": "2026-10-30T14:13:54Z",
-  "note": "Carousel Sorotan Produk di beranda (6 slide) + rombak halaman produk pola daftar + tambah Cecak dan Kompres",
-  "version": 30
+  "build": "2026-10-30T14:23:17Z",
+  "note": "Halaman produk: kartu web kembali tautan web saja, seksi Aplikasi/Install dikembalikan di bawah seperti semula (v30 dibatalkan penggabungannya)",
+  "version": 31
 }
