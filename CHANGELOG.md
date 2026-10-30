@@ -5,6 +5,18 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v32 (2026-10-30) — Logo baru halaman produk + Ammo AI
+
+- `produk.html`: ikon Aksara diganti logo baru kiriman Bos (burung hantu
+  huruf A kuning-hitam, 512px WebP), ikon My Nahwu diganti logo baru
+  kiriman Bos (buku biru, 512px WebP, menggantikan imgbb).
+- `index.html`: avatar Ammo AI di seksi "Tanya Ammo Sekarang" diganti
+  maskot Ammo kiriman Bos (512px WebP, menggantikan imgbb).
+- Catatan deploy: file biner tidak bisa lewat `push_files` GitHub, jadi
+  rilis ini juga di-deploy lewat skrip Vercel `amogenz-web-deploy.py`
+  (dengan daftar file diperbarui) agar logo baru benar-benar live; favicon
+  lokal diselaraskan ke favicon live agar tidak ikut berubah.
+
 ## v31 (2026-10-30) — Halaman produk: web di atas, Install di bawah seperti semula
 
 - `produk.html`: koreksi atas v30 — tombol Install dihapus dari kartu
