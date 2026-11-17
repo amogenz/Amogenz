@@ -5,6 +5,33 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v34 (2026-11-17) — Langituna masuk Produk + produk bisa dibaca Google/AI + tombol Store di Aplikasi
+
+- `produk.html`: kartu baru **Langituna** di seksi Unggulan (setelah
+  AMOGENZ LAB, urutan 6 kartu Unggulan yang sudah ada tidak berubah),
+  tautan ke `https://langituna.amogenz.xyz/` (tab baru), deskripsi
+  "Kabar, kajian, dan jadwal sholat Pondok Langitan".
+- Ikon `assets/logos/langituna.webp` (8,3 KB, mark persegi gradasi
+  krem-hijau, sama dengan ikon Langituna di AMOGENZ Store) disalin
+  self-hosted ke web utama; `amogenz-web-deploy.py` didaftarkan file itu.
+- Catatan: file biner tidak bisa lewat `push_files` GitHub — logo ini
+  BELUM ada di repo GitHub (pola yang sama seperti logo v32); Bos perlu
+  upload `assets/logos/langituna.webp` ke repo `amogenz/Amogenz` agar
+  push GitHub berikutnya tidak berisiko menimpa.
+- SEO/AI (titah Bos): `produk.html` kini punya JSON-LD `ItemList`
+  20 produk (nama, URL, deskripsi, gambar; web app sebagai
+  `SoftwareApplication` gratis, Air Kesan sebagai `Product`, Buat
+  Website sebagai `Service`) + `Organization` AMOGENZ, canonical
+  `/produk`, dan meta Open Graph; `index.html` JSON-LD Organization
+  ditambah `hasOfferCatalog` ke `/produk`; `sitemap.xml` lastmod
+  `/produk` diperbarui 2026-11-17. Isi JSON-LD diverifikasi sama persis
+  dengan 20 kartu yang tampil di halaman. Catatan jujur: ini membuat
+  produk *terbaca* mesin pencari/AI — tampil di hasil pencarian/AI
+  tetap diputuskan Google, bukan dijamin.
+- Aplikasi (titah Bos): di bawah subjudul seksi Aplikasi
+  (`produk.html`) ditambah tombol "Lihat semua aplikasi di AMOGENZ
+  Store →" (gaya `btn-ghost`) ke `https://store.amogenz.xyz/`.
+
 ## v33 (2026-11-17) — AMOGENZ Store masuk sidebar + menu atas
 
 - `index.html`, `produk.html`, `about.html`, `ai.html`,
