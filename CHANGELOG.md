@@ -5,6 +5,17 @@
 > commit generik ("Add files via upload", "Update index.html") diringkas
 > per era karena isi perubahannya tidak terdokumentasi.
 
+## v33 (2026-11-17) — AMOGENZ Store masuk sidebar + menu atas
+
+- `index.html`, `produk.html`, `about.html`, `ai.html`,
+  `dokumentasi.html`, `brand.html`: tautan **AMOGENZ Store**
+  (`https://store.amogenz.xyz/`, tab baru) ditambahkan di sidebar bagian
+  Jelajahi (setelah Amogenz Verse, ikon tas belanja SVG + ikon eksternal,
+  mengikuti pola tautan eksternal yang sudah ada) dan tautan **Store** di
+  menu atas (topbar, setelah Ammo AI, sebelum tombol Amogenz Verse).
+- Tidak ada perubahan tampilan lain; diff lokal vs live hanya 6 baris
+  tambahan per halaman (blok tautan Store itu sendiri).
+
 ## v32 (2026-10-30) — Logo baru halaman produk + Ammo AI
 
 - `produk.html`: ikon Aksara diganti logo baru kiriman Bos (burung hantu
